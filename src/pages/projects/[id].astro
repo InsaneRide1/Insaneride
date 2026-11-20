@@ -1,6 +1,6 @@
 ---
 import { render } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import ContactCta from '../../components/ContactCta.astro';
 import { disciplines } from '../../data/site';
@@ -19,6 +19,11 @@ const { project, next } = Astro.props;
 const { Content, headings } = await render(project);
 const d = project.data;
 const isCaseStudy = d.depth === 'case-study';
+// The cover is shown at the top, so skip it in the gallery.
+const items = d.gallery.filter((g) => !(d.cover && g.src && g.src.src === d.cover.src));
+const gallery = await Promise.all(
+  items.map(async (g) => ({ ...g, full: g.src ? (await getImage({ src: g.src, width: Math.min(g.src.width, 1800) })).src : undefined })),
+);
 const toc = headings.filter((h) => h.depth === 2);
 const facts = [
   ['Client', d.client],
@@ -54,14 +59,21 @@ const facts = [
       <div class="prose"><Content /></div>
     </div>
 
-    {d.gallery.length > 0 && (
-      <section class="wrap gallery" aria-label="Gallery">
-        {d.gallery.map((g) => (
-          <figure>
-            <Image src={g.src} alt={g.alt} widths={[600, 1000, 1600]} sizes="(min-width: 800px) 50vw, 100vw" />
-            {g.caption && <figcaption>{g.caption}</figcaption>}
-          </figure>
-        ))}
+    {gallery.length > 0 && (
+      <section class="wrap gallery-wrap" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
+        <div class="gallery">
+          {gallery.map((g) => (
+            <figure>
+              {g.video
+                ? <video src={g.video} autoplay muted loop playsinline aria-label={g.alt}></video>
+                : <a href={g.full} class="zoom" data-caption={g.caption ?? ''} aria-label={`View larger: ${g.alt}`}>
+                    <Image src={g.src!} alt={g.alt} widths={[500, 900]} sizes="(min-width: 800px) 50vw, 100vw" />
+                  </a>}
+              {g.caption && <figcaption>{g.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
       </section>
     )}
   </article>
@@ -71,7 +83,42 @@ const facts = [
     <span class="serif">{next.data.title} →</span>
   </a>
   <ContactCta />
+
+  <dialog class="viewer" aria-label="Image viewer">
+    <img alt="" />
+    <p class="viewer-caption"></p>
+    <button type="button" class="vbtn v-close" aria-label="Close">✕</button>
+    <button type="button" class="vbtn v-prev" aria-label="Previous image">←</button>
+    <button type="button" class="vbtn v-next" aria-label="Next image">→</button>
+  </dialog>
 </Base>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('a.zoom')];
+  const dialog = document.querySelector<HTMLDialogElement>('dialog.viewer');
+  if (dialog && links.length) {
+    const img = dialog.querySelector('img')!;
+    const cap = dialog.querySelector<HTMLElement>('.viewer-caption')!;
+    let i = 0;
+    const show = (n: number) => {
+      i = (n + links.length) % links.length;
+      const a = links[i];
+      img.src = a.href;
+      img.alt = a.querySelector('img')?.alt ?? '';
+      cap.textContent = a.dataset.caption || '';
+    };
+    links.forEach((a, n) => a.addEventListener('click', (e) => { e.preventDefault(); show(n); dialog.showModal(); }));
+    dialog.querySelector(".v-close")!.addEventListener('click', () => dialog.close());
+    dialog.querySelector(".v-prev")!.addEventListener('click', () => show(i - 1));
+    dialog.querySelector(".v-next")!.addEventListener('click', () => show(i + 1));
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+    dialog.addEventListener('close', () => links[i]?.focus());
+  }
+</script>
 
 <style>
   .head { padding-top: 2.5rem; }
@@ -83,7 +130,7 @@ const facts = [
   .facts dd { margin: 0.25rem 0 0; }
   .outcome { margin: 1.5rem 0 0; font-size: 1.1rem; max-width: 60ch; }
   .outcome strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
-  .cover { width: 100%; border-radius: 16px; margin-top: 3rem; }
+  .cover { width: 100%; max-height: 80vh; object-fit: contain; border-radius: 16px; margin-top: 3rem; background: var(--surface); }
   .body { padding-top: 3rem; padding-bottom: 5rem; }
   .with-toc { display: grid; gap: 3rem; }
   @media (min-width: 960px) {
@@ -94,10 +141,23 @@ const facts = [
   .toc a { text-decoration: none; color: var(--muted); }
   .toc a:hover { color: var(--accent); }
   @media (max-width: 959px) { .toc ol { flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1rem; } }
-  .gallery { display: grid; gap: 2rem; padding-bottom: 5rem; }
+  .gallery-wrap { padding-bottom: 5rem; }
+  .gallery-wrap h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin: 0 0 2rem; }
+  .gallery { display: grid; gap: 2rem; align-items: start; }
   @media (min-width: 800px) { .gallery { grid-template-columns: 1fr 1fr; } }
   .gallery figure { margin: 0; }
-  .gallery :global(img) { border-radius: 12px; width: 100%; }
+  .gallery :global(img), .gallery video { border-radius: 12px; width: 100%; display: block; background: var(--surface); }
+  .zoom { display: block; cursor: zoom-in; }
+  .viewer { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+  .viewer::backdrop { background: rgb(0 0 0 / 0.9); }
+  .viewer[open] { display: grid; place-items: center; grid-template-rows: 1fr auto; }
+  .viewer img { max-width: 92vw; max-height: 82vh; object-fit: contain; border-radius: 8px; }
+  .viewer-caption { color: #eee; margin: 0.75rem 0 1.5rem; text-align: center; padding: 0 1rem; }
+  .vbtn { position: fixed; background: rgb(255 255 255 / 0.12); color: #fff; border: 0; border-radius: 999px; width: 48px; height: 48px; font-size: 1.25rem; cursor: pointer; }
+  .vbtn:hover { background: rgb(255 255 255 / 0.25); }
+  .v-close { top: 1rem; right: 1rem; }
+  .v-prev { left: 1rem; top: 50%; }
+  .v-next { right: 1rem; top: 50%; }
   .gallery figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; }
   .next { display: block; padding-top: 3rem; padding-bottom: 4rem; border-top: 1px solid var(--line); text-decoration: none; }
   .next .serif { display: block; font-size: clamp(2rem, 6vw, 4rem); line-height: 1; }

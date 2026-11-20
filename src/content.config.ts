@@ -21,7 +21,14 @@ const projects = defineCollection({
       cover: image().optional(),
       coverAlt: z.string().optional(),
       gallery: z
-        .array(z.object({ src: image(), alt: z.string(), caption: z.string().optional() }))
+        .array(
+          z.object({
+            src: image().optional(), // an image next to the Markdown file
+            video: z.string().optional(), // or a muted looping video in public/, e.g. /media/demo.mp4
+            alt: z.string(),
+            caption: z.string().optional(),
+          }),
+        )
         .default([]),
       link: z.string().url().optional(),
       order: z.number().default(100),

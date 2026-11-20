@@ -7,6 +7,21 @@ client: Infusionsoft
 years: 2013–2018
 tags: [Research, Marketplace, Web app]
 order: 1
+cover: ./images/infusionsoft-marketplace/marketplace-sketch-annotated.webp
+coverAlt: "Annotated pencil sketch of the marketplace homepage layout"
+gallery:
+  - src: ./images/infusionsoft-marketplace/marketplace-sketch-annotated.webp
+    alt: "Annotated pencil sketch of the marketplace homepage layout"
+    caption: "Annotated sketch exploring a goal-led homepage."
+  - src: ./images/infusionsoft-marketplace/homepage-wireframe2-2.webp
+    alt: "Wireframe of the marketplace homepage"
+    caption: "Homepage wireframe."
+  - src: ./images/infusionsoft-marketplace/mp-v1-1.webp
+    alt: "First visual design of the marketplace homepage"
+    caption: "Version 1 visual design."
+  - src: ./images/infusionsoft-marketplace/final.webp
+    alt: "Final high-fidelity marketplace homepage design"
+    caption: "Final high-fidelity design."
 ---
 
 ## The challenge
@@ -33,8 +48,6 @@ User testing showed that leading with tools slowed people down. Small business o
 ## Design process
 
 The work moved from annotated sketches, to wireframes, to a first visual version, to the final high-fidelity design.
-
-> **To add:** images: annotated sketch, homepage wireframe, version 1, final design, and the search and presentation animations.
 
 ## Outcome
 
