@@ -7,6 +7,10 @@ client: Infusionsoft
 years: TBD
 tags: [Marketing automation, Web app]
 order: 3
+highlights:
+  - { value: '3', label: 'Parts: checklist, builder, reporting' }
+  - { value: '2', label: 'Motion studies for key interactions' }
+  - { value: '1', label: 'Place to build and measure' }
 cover: ./images/campaign-builder/campaignbuilder-checklist-newchecklist.webp
 coverAlt: "Campaign builder with a guided setup checklist"
 gallery:

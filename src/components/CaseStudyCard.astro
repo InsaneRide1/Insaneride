@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../lib/projects';
+
+interface Props { project: Project; reverse?: boolean; headingLevel?: 'h2' | 'h3'; }
+const { project, reverse = false, headingLevel = 'h3' } = Astro.props;
+const { title, summary, client, years, cover, highlights } = project.data;
+const H = headingLevel;
+const href = `/projects/${project.id}/`;
+---
+<article class:list={['cs', 'reveal', { reverse }]}>
+  <a class="media" href={href} tabindex="-1" aria-hidden="true">
+    {cover && <Image src={cover} alt="" widths={[600, 1000, 1400]} sizes="(min-width: 960px) 55vw, 100vw" />}
+  </a>
+  <div class="body">
+    <p class="eyebrow">UX case study{client && ` · ${client}`}{years !== 'TBD' && ` · ${years}`}</p>
+    <H class="title"><a href={href}>{title}</a></H>
+    <p class="summary">{summary}</p>
+    {highlights.length > 0 && (
+      <ul class="hl">
+        {highlights.slice(0, 3).map((h) => <li><strong>{h.value}</strong><span>{h.label}</span></li>)}
+      </ul>
+    )}
+    <a class="link-arrow" href={href}>View case study</a>
+  </div>
+</article>
+
+<style>
+  .cs { display: grid; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+  @media (min-width: 960px) {
+    .cs { grid-template-columns: 1.2fr 1fr; }
+    .cs.reverse .media { order: 2; }
+  }
+  .media { display: block; aspect-ratio: 1.58 / 1; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .media :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s cubic-bezier(.2,.7,.2,1); }
+  .cs:hover .media :global(img) { transform: scale(1.03); }
+  .title { font-size: clamp(1.9rem, 3.5vw, 2.75rem); margin: 0 0 1rem; }
+  .title a { text-decoration: none; }
+  .summary { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.75rem; max-width: 44ch; }
+  .hl { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .hl li { border-top: 1px solid var(--line); padding-top: 0.85rem; }
+  .hl strong { display: block; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 650; letter-spacing: -0.03em; line-height: 1.1; }
+  .hl span { display: block; color: var(--muted); font-size: 0.85rem; line-height: 1.4; margin-top: 0.35rem; }
+</style>

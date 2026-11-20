@@ -1,24 +1,49 @@
 ---
 import { testimonials } from '../data/testimonials';
-interface Props { limit?: number; }
-const { limit } = Astro.props;
-const items = limit ? testimonials.slice(0, limit) : testimonials;
+const initials = (n: string) => n.split(' ').map((w) => w[0]).slice(0, 2).join('');
 ---
-<ul class="quotes">
-  {items.map((t) => (
-    <li>
-      <figure>
-        <blockquote class="serif">“{t.quote}”</blockquote>
-        <figcaption><strong>{t.name}</strong><span>{t.role}</span></figcaption>
-      </figure>
-    </li>
-  ))}
-</ul>
+<div class="slider">
+  <ul class="track" tabindex="0" aria-label="Testimonials">
+    {testimonials.map((t) => (
+      <li>
+        <figure>
+          <blockquote>“{t.quote}”</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">{initials(t.name)}</span>
+            <span><strong>{t.name}</strong><span class="role">{t.role}</span></span>
+          </figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+  <div class="controls">
+    <button type="button" class="prev" aria-label="Previous testimonials">←</button>
+    <button type="button" class="next" aria-label="Next testimonials">→</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.slider').forEach((s) => {
+    const track = s.querySelector<HTMLElement>('.track')!;
+    const step = () => (track.querySelector('li')?.clientWidth ?? 300) + 24;
+    s.querySelector('.prev')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    s.querySelector('.next')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  });
+</script>
+
 <style>
-  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
-  li { background: var(--surface); border-radius: 14px; padding: 1.75rem; }
-  figure { margin: 0; display: flex; flex-direction: column; height: 100%; gap: 1.5rem; justify-content: space-between; }
-  blockquote { margin: 0; font-size: 1.45rem; line-height: 1.25; }
-  figcaption { display: flex; flex-direction: column; font-size: 0.9rem; }
-  figcaption span { color: var(--muted); }
+  .track { list-style: none; margin: 0; padding: 0 0 0.5rem; display: grid; grid-auto-flow: column;
+    grid-auto-columns: min(88%, 400px); gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .track::-webkit-scrollbar { display: none; }
+  li { scroll-snap-align: start; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; }
+  figure { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; height: 100%; }
+  blockquote { margin: 0; font-size: 1.3rem; line-height: 1.4; font-weight: 600; letter-spacing: -0.015em; }
+  figcaption { display: flex; gap: 0.85rem; align-items: center; font-size: 0.92rem; }
+  figcaption strong { display: block; }
+  .role { color: var(--muted); }
+  .avatar { flex: none; width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center;
+    background: var(--surface-2); font-weight: 650; font-size: 0.95rem; }
+  .controls { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+  .controls button { width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 1.1rem; cursor: pointer; }
+  .controls button:hover { border-color: var(--text); }
 </style>

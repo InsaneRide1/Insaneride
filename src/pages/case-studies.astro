@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { getProjects } from '../lib/projects';
+
+const caseStudies = (await getProjects()).filter((p) => p.data.depth === 'case-study');
+---
+<Base title="UX Case Studies" description="In-depth UX case studies by Neil Robinson: the research, decisions and design behind the products.">
+  <section class="wrap intro">
+    <p class="eyebrow">UX Case Studies</p>
+    <h1>The research, decisions and design behind the products.</h1>
+    <p class="lede">Each case study covers the problem, my role, what the research showed, how it shaped the design, and what shipped.</p>
+    <nav class="jump" aria-label="Case studies on this page">
+      {caseStudies.map((p, i) => <a href={`#${p.id}`}><span>{String(i + 1).padStart(2, '0')}</span>{p.data.title}</a>)}
+    </nav>
+  </section>
+
+  <div class="wrap list">
+    {caseStudies.map((p, i) => (
+      <section id={p.id} class="item">
+        <p class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</p>
+        <CaseStudyCard project={p} reverse={i % 2 === 1} headingLevel="h2" />
+      </section>
+    ))}
+  </div>
+
+  <ContactCta />
+</Base>
+
+<style>
+  .intro { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+  h1 { font-size: clamp(2.5rem, 6.5vw, 5rem); margin: 0 0 1.5rem; max-width: 18ch; }
+  .lede { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--muted); max-width: 56ch; margin: 0 0 2.5rem; }
+  .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .jump a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 500; font-size: 0.95rem; }
+  .jump a:hover { border-color: var(--text); color: var(--text); }
+  .jump span { color: var(--muted); margin-right: 0.5rem; font-variant-numeric: tabular-nums; }
+  .list { display: flex; flex-direction: column; gap: clamp(4rem, 9vw, 7rem); padding-bottom: var(--space); }
+  .item { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .num { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin: 0 0 2rem; font-variant-numeric: tabular-nums; }
+</style>

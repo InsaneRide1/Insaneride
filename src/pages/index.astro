@@ -1,79 +1,133 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
 import Testimonials from '../components/Testimonials.astro';
-import ContactCta from '../components/ContactCta.astro';
-import { Image } from 'astro:assets';
+import ContactForm from '../components/ContactForm.astro';
 import { site } from '../data/site';
-import portrait from '../assets/portrait.png';
 import { getProjects } from '../lib/projects';
+import portrait from '../assets/portrait.png';
 
 const projects = await getProjects();
 const caseStudies = projects.filter((p) => p.data.depth === 'case-study');
-const more = projects.filter((p) => p.data.depth !== 'case-study').slice(0, 3);
+const byId = (id: string) => projects.find((p) => p.id === id)!;
+// Photo strip: portrait plus three pieces of work, cropped into rounded tiles.
+const strip = ['infusionsoft-marketplace', 'brand-print', 'cultbjj'].map(byId);
+const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.discipline !== 'ux');
 ---
 <Base>
-  <section class="hero wrap">
-    <div class="hero-text">
-    {site.available && <p class="status"><span class="dot"></span>Open to new opportunities</p>}
-    <h1 class="serif">{site.name}, <em>{site.title.toLowerCase()}</em>.</h1>
-    <p class="lede">{site.intro}</p>
-    <div class="cta">
-      <a class="button primary" href="/work/">See the work</a>
-      <a class="button" href="/contact/">Get in touch</a>
+  <section class="hero">
+    <div class="wrap">
+      <div class="strip" aria-hidden="true">
+        <div class="tile portrait"><Image src={portrait} alt="" widths={[300, 500]} sizes="25vw" loading="eager" /></div>
+        {strip.map((p) => p.data.cover && <div class="tile"><Image src={p.data.cover} alt="" widths={[300, 600]} sizes="25vw" loading="eager" /></div>)}
+      </div>
+      <p class="eyebrow">{site.name} · {site.title}</p>
+      <h1>Designing for a human experience.</h1>
+      <p class="lede">{site.intro} Over 25 years leading UX, product and brand design, from research to the final pixel.</p>
+      <div class="cta">
+        <a class="button primary" href="/case-studies/">Case studies</a>
+        <a class="button" href="/about/">About me</a>
+      </div>
     </div>
+  </section>
+
+  <section class="section stats">
+    <div class="wrap">
+      <ul class="stats-row">
+        <li><strong>25+</strong><span>Years of design experience</span></li>
+        <li><strong>{caseStudies.length}</strong><span>In-depth UX case studies</span></li>
+        <li><strong>6</strong><span>National retailers carrying my packaging</span></li>
+        <li><strong>1</strong><span>New York Times bestseller cover</span></li>
+      </ul>
     </div>
-    {site.hasPortrait && <div class="hero-photo"><Image src={portrait} alt={`Portrait of ${site.name}`} widths={[400, 700, 900]} sizes="(min-width: 900px) 35vw, 0px" loading="eager" /></div>}
+  </section>
+
+  <section class="band">
+    <div class="wrap band-inner reveal">
+      <h2>Clear decisions. Actionable plans. Beautiful experiences.</h2>
+      <a class="button" href="/about/">About me</a>
+    </div>
+  </section>
+
+  <section class="section" id="case-studies">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>UX Case Studies</h2>
+          <p>The research, decisions and design behind the products.</p>
+        </div>
+        <a class="link-arrow" href="/case-studies/">All case studies</a>
+      </div>
+      <div class="cs-list">
+        {caseStudies.map((p, i) => <CaseStudyCard project={p} reverse={i % 2 === 1} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Testimonials</h2>
+          <p>What product leaders and collaborators say about working together.</p>
+        </div>
+        <a class="link-arrow" href="/about/#testimonials">More on About</a>
+      </div>
+      <Testimonials />
+    </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>In-depth case studies</h2>
-        <span class="eyebrow">Research + design</span>
+        <div>
+          <h2>Beyond the screen</h2>
+          <p>Packaging, print, illustration and brand work.</p>
+        </div>
+        <a class="link-arrow" href="/work/">All work</a>
       </div>
       <div class="grid three">
-        {caseStudies.map((p) => <ProjectCard project={p} large />)}
+        {more.slice(0, 6).map((p) => <ProjectCard project={p} />)}
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>More work</h2>
-        <a class="eyebrow" href="/work/">All {projects.length} projects →</a>
+  <section class="section alt" id="contact">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's work together.</h2>
+        <p class="muted">Have a project, a role or a question? Send a note and I'll get back to you within two business days.</p>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
       </div>
-      <div class="grid three">
-        {more.map((p) => <ProjectCard project={p} />)}
-      </div>
+      <ContactForm />
     </div>
   </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><h2>Kind words</h2><a class="eyebrow" href="/about/#testimonials">More →</a></div>
-      <Testimonials limit={3} />
-    </div>
-  </section>
-
-  <ContactCta />
 </Base>
 
 <style>
-  .hero { padding-top: clamp(4rem, 12vw, 9rem); padding-bottom: clamp(4rem, 10vw, 7rem); display: grid; gap: 2rem; align-items: end; }
-  .hero-photo { display: none; }
-  @media (min-width: 900px) {
-    .hero { grid-template-columns: 1.6fr 1fr; padding-bottom: 0; }
-    .hero-photo { display: block; align-self: end; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 200px 200px 0 0;
-      background: radial-gradient(90% 70% at 50% 40%, hsl(18 85% 62% / 0.55), transparent 70%), var(--surface); }
-    .hero-photo :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; padding-top: 2rem; }
-  }
-  .status { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); margin: 0 0 2rem; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 4px color-mix(in srgb, #2fbf71 25%, transparent); }
-  h1 { font-size: clamp(2.75rem, 8vw, 6.5rem); line-height: 0.98; letter-spacing: -0.01em; margin: 0; max-width: 13ch; }
-  h1 em { color: var(--accent); }
-  .lede { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--muted); max-width: 46ch; margin: 2rem 0 2.5rem; }
+  .hero { padding-top: clamp(1.5rem, 4vw, 3rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
+  .strip { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1fr; gap: clamp(0.5rem, 1.5vw, 1rem); margin-bottom: clamp(2.5rem, 6vw, 4.5rem); height: clamp(180px, 28vw, 380px); }
+  .tile { border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .tile :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .portrait { background: radial-gradient(90% 70% at 50% 40%, hsl(18 85% 62% / 0.5), transparent 70%), var(--surface); }
+  .portrait :global(img) { padding-top: 0.75rem; }
+  @media (max-width: 640px) { .strip { grid-template-columns: 1.2fr 1fr; height: 300px; } .strip .tile:nth-child(n+3) { display: none; } }
+  h1 { font-size: clamp(2.75rem, 7.5vw, 6rem); line-height: 1; margin: 0 0 1.5rem; max-width: 15ch; }
+  .lede { font-size: clamp(1.15rem, 2vw, 1.4rem); color: var(--muted); max-width: 52ch; margin: 0 0 2.25rem; }
   .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  a.eyebrow { text-decoration: none; }
+  .stats { padding-top: 0; }
+  .band { background: var(--text); color: var(--bg); padding: clamp(4rem, 9vw, 7rem) 0; }
+  .band-inner { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .band h2 { font-size: clamp(2rem, 5vw, 3.75rem); margin: 0; max-width: 18ch; }
+  .band .button { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 40%, transparent); }
+  .band .button:hover { background: var(--bg); color: var(--text); }
+  .cs-list { display: flex; flex-direction: column; gap: clamp(4rem, 9vw, 7rem); }
+  .contact { display: grid; gap: 3rem; }
+  @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1.1fr; gap: 5rem; } }
+  .contact h2 { font-size: clamp(2.25rem, 5vw, 3.75rem); margin: 0 0 1rem; }
+  .muted { color: var(--muted); font-size: 1.1rem; max-width: 40ch; }
+  .section.alt :global(.form) { background: var(--bg); }
 </style>

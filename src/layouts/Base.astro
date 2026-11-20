@@ -26,6 +26,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         const t = localStorage.getItem('theme');
         if (t) document.documentElement.dataset.theme = t;
       } catch {}
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+        document.documentElement.classList.add('js-reveal');
     </script>
   </head>
   <body>
@@ -33,5 +35,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <script>
+      const els = document.querySelectorAll('.reveal');
+      if (document.documentElement.classList.contains('js-reveal')) {
+        const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }), { rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

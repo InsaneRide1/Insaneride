@@ -7,6 +7,10 @@ client: Infusionsoft
 years: TBD
 tags: [Research, Support, Conversational UI]
 order: 2
+highlights:
+  - { value: '9', label: 'Steps from greeting to agent' }
+  - { value: '1st', label: 'Articles offered before an agent' }
+  - { value: '2', label: 'Sides designed: customer and agent' }
 cover: ./images/help-chat/flow.webp
 coverAlt: "Flow diagram of the help chat experience from greeting to agent hand-off"
 gallery:

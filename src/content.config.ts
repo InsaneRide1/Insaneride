@@ -17,6 +17,8 @@ const projects = defineCollection({
       role: z.string().optional(),
       team: z.string().optional(),
       outcome: z.string().optional(),
+      // Big-number callouts shown on case study cards and pages, e.g. { value: '30%', label: 'Fewer support calls' }.
+      highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       coverAlt: z.string().optional(),

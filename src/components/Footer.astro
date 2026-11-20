@@ -1,17 +1,33 @@
 ---
 import { site } from '../data/site';
+import { getProjects } from '../lib/projects';
 const year = new Date().getFullYear();
+const caseStudies = (await getProjects()).filter((p) => p.data.depth === 'case-study');
 ---
 <footer class="footer">
-  <div class="wrap row">
-    <span>© {year} {site.name} · {site.brand} LLC</span>
-    <ul>
-      {site.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.label}</a></li>)}
-    </ul>
+  <div class="wrap top">
+    <div class="who">
+      <p class="name">{site.name}</p>
+      <p class="muted">{site.title} · {site.tagline}</p>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+    <nav class="cols" aria-label="Footer">
+      <div><p class="eyebrow">Explore</p><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div><p class="eyebrow">Portfolio</p><ul><li><a href="/case-studies/">Case studies</a></li>{caseStudies.map((c) => <li><a href={`/projects/${c.id}/`}>{c.data.title}</a></li>)}<li><a href="/work/">All work</a></li></ul></div>
+      <div><p class="eyebrow">Follow</p><ul>{site.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.label}</a></li>)}</ul></div>
+    </nav>
   </div>
+  <div class="wrap bottom"><span>© {year} {site.name} · {site.brand} LLC. All rights reserved.</span></div>
 </footer>
 <style>
-  .footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); font-size: 0.9rem; }
-  .row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0; padding: 0; }
+  .footer { background: var(--surface); padding: clamp(3.5rem, 8vw, 5rem) 0 2rem; font-size: 0.95rem; }
+  .top { display: grid; gap: 2.5rem; }
+  @media (min-width: 860px) { .top { grid-template-columns: 1fr 1.6fr; } }
+  .name { font-weight: 650; font-size: 1.25rem; letter-spacing: -0.02em; margin: 0 0 0.25rem; }
+  .muted { color: var(--muted); margin: 0 0 1rem; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+  ul a { text-decoration: none; color: var(--muted); }
+  ul a:hover { color: var(--text); }
+  .bottom { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 </style>

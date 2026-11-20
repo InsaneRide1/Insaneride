@@ -9,7 +9,7 @@ const { title, summary, years, discipline, depth, client, cover, coverAlt } = pr
 // Projects without a cover image get a coloured gradient placeholder.
 const hue = [18, 200, 140, 280, 40, 330][project.data.order % 6];
 ---
-<a class:list={['card', { large }]} href={`/projects/${project.id}/`} data-discipline={discipline}>
+<a class:list={['card', 'reveal', { large }]} href={`/projects/${project.id}/`} data-discipline={discipline}>
   <div class="media" style={`--h:${hue}`}>
     {cover
       ? <Image src={cover} alt={coverAlt ?? ''} widths={[480, 800, 1200]} sizes={large ? '(min-width: 800px) 33vw, 100vw' : '(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw'} />
@@ -25,14 +25,14 @@ const hue = [18, 200, 140, 280, 40, 330][project.data.order % 6];
 <style>
   .card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
   .media {
-    aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; position: relative;
+    aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; position: relative;
     background:
       radial-gradient(120% 120% at 0% 0%, hsl(var(--h) 80% 62%), transparent 60%),
       radial-gradient(120% 120% at 100% 100%, hsl(calc(var(--h) + 50) 70% 45%), transparent 60%),
       var(--surface);
   }
   .large .media { aspect-ratio: 4 / 5; }
-  .media :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+  .media :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
   .card:hover .media :global(img), .card:hover .ph { transform: scale(1.04); }
   .ph {
     position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1.5rem;
@@ -42,9 +42,9 @@ const hue = [18, 200, 140, 280, 40, 330][project.data.order % 6];
     position: absolute; left: 0.75rem; top: 0.75rem; font-size: 0.75rem; font-weight: 600;
     background: var(--bg); color: var(--text); padding: 0.3rem 0.65rem; border-radius: 999px;
   }
-  .kicker { margin: 1rem 0 0.25rem; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-  h3 { margin: 0; font-size: 1.2rem; font-weight: 600; line-height: 1.3; }
-  .large h3 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1.1; }
+  .kicker { margin: 1.1rem 0 0.35rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  h3 { margin: 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; }
+  .large h3 { font-size: 1.6rem; }
   .card:hover h3 { color: var(--accent); }
   .summary { margin: 0.4rem 0 0; color: var(--muted); }
   .years { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
