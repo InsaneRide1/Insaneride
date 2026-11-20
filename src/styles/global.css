@@ -84,3 +84,20 @@ a:hover { color: var(--accent); }
 .prose h2 { font-family: var(--serif); font-weight: 400; font-size: 2rem; margin: 2.5rem 0 0.75rem; }
 .prose img { border-radius: 12px; margin: 2rem 0; }
 .prose code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; border-radius: 4px; }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem); }
+@media (min-width: 640px) { .grid.three { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.prose h2 { scroll-margin-top: 5rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin: 0.4rem 0; }
+/* "To add" notes for Neil: visible so gaps are obvious; remove as content is filled in. */
+.prose blockquote {
+  margin: 1.25rem 0; padding: 0.9rem 1.1rem; border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent); border-radius: 0 10px 10px 0; font-size: 0.95rem;
+}
+.prose blockquote p { margin: 0; }
+.cta-band h2 { font-family: var(--serif); }
+input, select, textarea, [id] { scroll-margin-top: 6rem; }

@@ -1,52 +1,104 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import ContactCta from '../../components/ContactCta.astro';
+import { disciplines } from '../../data/site';
+import { getProjects, readingMinutes, type Project } from '../../lib/projects';
 
 export async function getStaticPaths() {
-  const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+  const projects = await getProjects();
   return projects.map((project, i) => ({
     params: { id: project.id },
     props: { project, next: projects[(i + 1) % projects.length] },
   }));
 }
 
-interface Props { project: CollectionEntry<'projects'>; next: CollectionEntry<'projects'>; }
+interface Props { project: Project; next: Project; }
 const { project, next } = Astro.props;
-const { Content } = await render(project);
-const { title, summary, year, role, tags, cover, coverAlt, link } = project.data;
+const { Content, headings } = await render(project);
+const d = project.data;
+const isCaseStudy = d.depth === 'case-study';
+const toc = headings.filter((h) => h.depth === 2);
+const facts = [
+  ['Client', d.client],
+  ['Years', d.years !== 'TBD' ? d.years : undefined],
+  ['Role', d.role],
+  ['Team', d.team],
+  ['Discipline', disciplines[d.discipline]],
+].filter(([, v]) => v) as [string, string][];
 ---
-<Base title={title} description={summary}>
-  <article class="wrap">
-    <a class="back" href="/#work">← All work</a>
-    <header>
-      <h1 class="serif">{title}</h1>
-      <p class="summary">{summary}</p>
-      <dl>
-        <div><dt>Year</dt><dd>{year}</dd></div>
-        {role && <div><dt>Role</dt><dd>{role}</dd></div>}
-        {tags.length > 0 && <div><dt>Type</dt><dd>{tags.join(', ')}</dd></div>}
-        {link && <div><dt>Live</dt><dd><a href={link} target="_blank" rel="noopener">Visit ↗</a></dd></div>}
+<Base title={d.title} description={d.summary}>
+  <article>
+    <header class="wrap head">
+      <a class="back" href="/work/">← All work</a>
+      <p class="eyebrow">{isCaseStudy ? `Case study · Research + design · ${readingMinutes(project.body)} min read` : disciplines[d.discipline]}</p>
+      <h1 class="serif">{d.title}</h1>
+      <p class="summary">{d.summary}</p>
+      <dl class="facts">
+        {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        {d.link && <div><dt>Live</dt><dd><a href={d.link} target="_blank" rel="noopener">Visit ↗</a></dd></div>}
       </dl>
+      {d.outcome && <p class="outcome"><strong>Outcome</strong> {d.outcome}</p>}
     </header>
-    {cover && <Image class="cover" src={cover} alt={coverAlt ?? title} widths={[800, 1200, 1800]} sizes="100vw" loading="eager" />}
-    <div class="prose"><Content /></div>
+
+    {d.cover && <div class="wrap"><Image class="cover" src={d.cover} alt={d.coverAlt ?? ''} widths={[800, 1200, 1800]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
+
+    <div class:list={['wrap', 'body', { 'with-toc': isCaseStudy && toc.length > 2 }]}>
+      {isCaseStudy && toc.length > 2 && (
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </nav>
+      )}
+      <div class="prose"><Content /></div>
+    </div>
+
+    {d.gallery.length > 0 && (
+      <section class="wrap gallery" aria-label="Gallery">
+        {d.gallery.map((g) => (
+          <figure>
+            <Image src={g.src} alt={g.alt} widths={[600, 1000, 1600]} sizes="(min-width: 800px) 50vw, 100vw" />
+            {g.caption && <figcaption>{g.caption}</figcaption>}
+          </figure>
+        ))}
+      </section>
+    )}
   </article>
+
   <a class="next wrap" href={`/projects/${next.id}/`}>
     <span class="eyebrow">Next project</span>
     <span class="serif">{next.data.title} →</span>
   </a>
+  <ContactCta />
 </Base>
 
 <style>
-  article { padding-top: 3rem; padding-bottom: 5rem; }
-  .back { font-size: 0.9rem; color: var(--muted); text-decoration: none; }
-  h1 { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.95; margin: 2rem 0 1rem; }
-  .summary { font-size: clamp(1.15rem, 2vw, 1.4rem); color: var(--muted); max-width: 50ch; margin: 0 0 2.5rem; }
-  dl { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; margin: 0 0 3rem; padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-  dd { margin: 0.25rem 0 0; }
-  .cover { width: 100%; border-radius: 16px; margin-bottom: 3rem; }
+  .head { padding-top: 2.5rem; }
+  .back { font-size: 0.9rem; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 2rem; }
+  h1 { font-size: clamp(2.75rem, 8vw, 6rem); line-height: 0.98; margin: 0 0 1rem; font-weight: 400; max-width: 18ch; }
+  .summary { font-size: clamp(1.15rem, 2vw, 1.4rem); color: var(--muted); max-width: 52ch; margin: 0 0 2.5rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: 1.25rem 3rem; margin: 0; padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .facts dd { margin: 0.25rem 0 0; }
+  .outcome { margin: 1.5rem 0 0; font-size: 1.1rem; max-width: 60ch; }
+  .outcome strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+  .cover { width: 100%; border-radius: 16px; margin-top: 3rem; }
+  .body { padding-top: 3rem; padding-bottom: 5rem; }
+  .with-toc { display: grid; gap: 3rem; }
+  @media (min-width: 960px) {
+    .with-toc { grid-template-columns: 220px 1fr; }
+    .toc { position: sticky; top: 6rem; align-self: start; }
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; }
+  .toc a { text-decoration: none; color: var(--muted); }
+  .toc a:hover { color: var(--accent); }
+  @media (max-width: 959px) { .toc ol { flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1rem; } }
+  .gallery { display: grid; gap: 2rem; padding-bottom: 5rem; }
+  @media (min-width: 800px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  .gallery figure { margin: 0; }
+  .gallery :global(img) { border-radius: 12px; width: 100%; }
+  .gallery figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; }
   .next { display: block; padding-top: 3rem; padding-bottom: 4rem; border-top: 1px solid var(--line); text-decoration: none; }
   .next .serif { display: block; font-size: clamp(2rem, 6vw, 4rem); line-height: 1; }
 </style>

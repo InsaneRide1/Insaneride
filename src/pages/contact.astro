@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+// Set PUBLIC_FORM_ENDPOINT in Vercel (e.g. https://formspree.io/f/xxxxabcd) to receive
+// submissions by email. Without it, the form falls back to opening the visitor's email app.
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const topics = ['Full-time role', 'Freelance or contract project', 'Speaking or mentoring', 'Just saying hello'];
+---
+<Base title="Contact" description="Have a project in mind or a question? Let's schedule a chat.">
+  <section class="wrap contact">
+    <div class="lead">
+      <p class="eyebrow">Contact</p>
+      <h1 class="serif">Have a project in mind or a question? Let's talk.</h1>
+      <p class="muted">I usually reply within two business days.</p>
+      <p class="direct">Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <ul class="socials">
+        {site.socials.map((s) => <li><a href={s.url} target="_blank" rel="me noopener">{s.label} ↗</a></li>)}
+      </ul>
+    </div>
+
+    <form id="contact-form" class="form" method="POST" action={endpoint || undefined} data-endpoint={endpoint} data-email={site.email} novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required />
+        <p class="error" id="name-error" hidden>Please enter your name.</p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <p class="error" id="email-error" hidden>Please enter a valid email address.</p>
+      </div>
+      <div class="field">
+        <label for="topic">What's it about? <span class="opt">Optional</span></label>
+        <select id="topic" name="topic">
+          <option value="">Choose one</option>
+          {topics.map((t) => <option>{t}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+        <p class="error" id="message-error" hidden>Please add a short message.</p>
+      </div>
+      <!-- Spam trap: hidden from people, filled in by bots. -->
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+      <button class="button primary" type="submit">Send message</button>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = form.querySelector<HTMLElement>('.status')!;
+  const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+
+  function validate(): boolean {
+    let firstBad: HTMLElement | null = null;
+    for (const id of ['name', 'email', 'message']) {
+      const input = form.elements.namedItem(id) as HTMLInputElement;
+      const ok = input.value.trim() !== '' && input.checkValidity();
+      const err = document.getElementById(`${id}-error`)!;
+      err.hidden = ok;
+      input.setAttribute('aria-invalid', String(!ok));
+      if (ok) input.removeAttribute('aria-describedby'); else input.setAttribute('aria-describedby', err.id);
+      if (!ok && !firstBad) firstBad = input;
+    }
+    firstBad?.focus();
+    return !firstBad;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const data = new FormData(form);
+    if (data.get('_gotcha')) return;
+    const endpoint = form.dataset.endpoint;
+
+    if (!endpoint) {
+      const subject = encodeURIComponent(`Website enquiry${data.get('topic') ? `: ${data.get('topic')}` : ''}`);
+      const body = encodeURIComponent(`${data.get('message')}\n\n${data.get('name')} (${data.get('email')})`);
+      location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`;
+      status.textContent = 'Opening your email app…';
+      return;
+    }
+
+    button.disabled = true;
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      status.textContent = "Thanks, your message is on its way. I'll get back to you soon.";
+    } catch {
+      status.textContent = `Sorry, that didn't send. Please email ${form.dataset.email} instead.`;
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .contact { display: grid; gap: 3rem; padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(4rem, 10vw, 7rem); }
+  @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin: 0 0 1.5rem; font-weight: 400; }
+  .muted { color: var(--muted); }
+  .direct { margin-top: 2rem; }
+  .socials { list-style: none; display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 1.5rem 0 0; padding: 0; }
+  .socials a { text-decoration: none; color: var(--muted); }
+  .form { display: flex; flex-direction: column; gap: 1.25rem; background: var(--surface); padding: clamp(1.25rem, 4vw, 2.5rem); border-radius: 18px; }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  label { font-weight: 500; font-size: 0.95rem; }
+  .opt { font-weight: 400; color: var(--muted); font-size: 0.85rem; margin-left: 0.25rem; }
+  input, select, textarea {
+    font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line);
+    border-radius: 10px; padding: 0.75rem 0.9rem; min-height: 48px; width: 100%;
+  }
+  textarea { resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  [aria-invalid='true'] { border-color: #c4321a; }
+  .error { margin: 0; color: #c4321a; font-size: 0.875rem; }
+  :global([data-theme='dark']) .error { color: #ff8a6b; }
+  .hp { position: absolute; left: -9999px; }
+  .form .button { align-self: flex-start; cursor: pointer; font: inherit; font-weight: 500; }
+  .status { margin: 0; min-height: 1.5em; }
+</style>

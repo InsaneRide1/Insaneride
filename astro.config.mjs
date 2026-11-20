@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Set `site` to your real domain once it's live (used for canonical URLs).
+// Canonical domain, used for canonical URLs and social previews.
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://insaneride.com',
 });

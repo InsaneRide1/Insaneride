@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { disciplines } from '../data/site';
+import { getProjects } from '../lib/projects';
+
+const projects = await getProjects();
+const caseStudies = projects.filter((p) => p.data.depth === 'case-study');
+const counts = Object.fromEntries(
+  Object.keys(disciplines).map((d) => [d, projects.filter((p) => p.data.discipline === d).length]),
+);
+---
+<Base title="Work" description="UX/UI case studies, print and packaging, illustration and brand work by Neil Robinson.">
+  <section class="wrap intro">
+    <h1 class="serif">Work</h1>
+    <p class="lede">{projects.length} projects across product design, print and illustration. Start with the in-depth case studies for the full research and design story.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>In-depth case studies</h2><span class="eyebrow">Research + design</span></div>
+      <div class="grid three">{caseStudies.map((p) => <ProjectCard project={p} large />)}</div>
+    </div>
+  </section>
+
+  <section class="section" id="all">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>All projects</h2>
+        <div class="filters" role="group" aria-label="Filter by discipline">
+          <button type="button" data-filter="all" aria-pressed="true">All <span>{projects.length}</span></button>
+          {Object.entries(disciplines).map(([key, label]) => (
+            <button type="button" data-filter={key} aria-pressed="false">{label} <span>{counts[key]}</span></button>
+          ))}
+        </div>
+      </div>
+      <p class="sr-only" aria-live="polite" id="filter-status"></p>
+      <div class="grid three" id="project-grid">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('#project-grid [data-discipline]');
+  const status = document.getElementById('filter-status');
+  function apply(filter: string) {
+    let shown = 0;
+    cards.forEach((c) => {
+      const match = filter === 'all' || c.dataset.discipline === filter;
+      c.hidden = !match;
+      if (match) shown++;
+    });
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
+    if (status) status.textContent = `Showing ${shown} projects`;
+    const url = new URL(location.href);
+    if (filter === 'all') url.searchParams.delete('filter'); else url.searchParams.set('filter', filter);
+    history.replaceState(null, '', url);
+  }
+  buttons.forEach((b) => b.addEventListener('click', () => apply(b.dataset.filter!)));
+  const initial = new URLSearchParams(location.search).get('filter');
+  if (initial && [...buttons].some((b) => b.dataset.filter === initial)) apply(initial);
+</script>
+
+<style>
+  .intro { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(2rem, 5vw, 4rem); }
+  h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin: 0 0 1.5rem; font-weight: 400; }
+  .lede { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--muted); max-width: 52ch; margin: 0; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .filters button {
+    font: inherit; font-size: 0.9rem; cursor: pointer; color: var(--text); background: none;
+    border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.9rem; min-height: 44px;
+  }
+  .filters button span { color: var(--muted); margin-left: 0.25rem; }
+  .filters button:hover { border-color: var(--text); }
+  .filters button[aria-pressed='true'] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .filters button[aria-pressed='true'] span { color: inherit; opacity: 0.7; }
+</style>

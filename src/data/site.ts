@@ -1,19 +1,39 @@
 // All personal details live here. Edit this file to update the bio and contact info.
 export const site = {
-  name: 'Neil',
-  title: 'Designer & developer',
-  location: 'Your city',
+  name: 'Neil Robinson',
+  shortName: 'Neil',
+  brand: 'InsaneRide',
+  title: 'Experience design leader',
+  tagline: 'UX/UI · Research · Strategic planning',
   intro:
-    'I design and build thoughtful digital things. This is a placeholder intro: replace it with a sentence or two about what you do.',
+    'I turn ambiguous, complex requests into clear decisions, actionable plans and beautifully designed experiences.',
+  // TODO(Neil): review this bio. It is condensed from the About page on the old site.
   bio: [
-    'Placeholder bio. Swap these paragraphs for your real story: what you work on, how you got here, and what you care about.',
-    'A second paragraph can cover tools, clients, or what you are looking for next.',
+    'I love turning an idea into a product people want to use. I start from real user needs and let evidence guide the decisions, then bring teams together around a clear plan.',
+    'I specialize in user-centered design grounded in critical thinking, across product design, UX research, interaction design, branding, web, animation and print. I have illustrated all my life, and today I lead the teams that do this work.',
   ],
-  email: 'hello@example.com',
+  interests: ['Artist first', 'Illustrator', 'Brazilian jiu-jitsu', 'Mountain biking'],
+  stats: [
+    { value: '25+', label: 'Years of professional experience' },
+    { value: '12', label: 'Projects on this site' },
+  ],
+  disciplines: ['User experience leadership', 'Application experience design', 'Marketing design', 'Illustration'],
+  // Portrait lives at src/assets/portrait.png (transparent cut-out). Set false to hide it.
+  hasPortrait: true,
+  email: 'hyperionbox@gmail.com',
   socials: [
-    { label: 'GitHub', url: 'https://github.com/hyperionbox' },
-    { label: 'LinkedIn', url: 'https://www.linkedin.com/' },
-    { label: 'Instagram', url: 'https://www.instagram.com/' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/insaneride/' },
+    { label: 'Dribbble', url: 'https://dribbble.com/InsaneRide' },
+    { label: 'Behance', url: 'https://www.behance.net/Jitsbreed' },
+    { label: 'Instagram', url: 'https://www.instagram.com/insaneride/' },
+    { label: 'Facebook', url: 'https://www.facebook.com/insaneride' },
   ],
   available: true,
 };
+
+export const disciplines = {
+  ux: 'UX / UI',
+  print: 'Print and packaging',
+  illustration: 'Illustration and brand',
+} as const;
+export type Discipline = keyof typeof disciplines;

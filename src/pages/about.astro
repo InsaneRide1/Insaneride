@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { Image } from 'astro:assets';
+import { site } from '../data/site';
+import portrait from '../assets/portrait.png';
+---
+<Base title="About" description={site.intro}>
+  <section class="wrap intro">
+    <p class="eyebrow">About</p>
+    <h1 class="serif">{site.intro}</h1>
+  </section>
+
+  <section class="section">
+    <div class="wrap about">
+      <div class="side">
+        {site.hasPortrait
+          ? <div class="portrait"><Image src={portrait} alt={`Portrait of ${site.name}`} widths={[400, 700, 1000]} sizes="(min-width: 860px) 40vw, 100vw" /></div>
+          : <div class="portrait ph serif" aria-hidden="true">{site.shortName.slice(0, 1)}</div>}
+        <dl class="stats">
+          {site.stats.map((s) => <div><dt>{s.label}</dt><dd class="serif">{s.value}</dd></div>)}
+        </dl>
+      </div>
+      <div class="body">
+        {site.bio.map((p) => <p>{p}</p>)}
+        <h2 class="eyebrow">Focus</h2>
+        <ul class="chips">{site.disciplines.map((d) => <li>{d}</li>)}</ul>
+        <h2 class="eyebrow">Outside work</h2>
+        <ul class="chips">{site.interests.map((d) => <li>{d}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="section-head"><h2>Kind words</h2></div>
+      <Testimonials />
+    </div>
+  </section>
+
+  <ContactCta />
+</Base>
+
+<style>
+  .intro { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+  h1 { font-size: clamp(2.25rem, 5.5vw, 4.5rem); line-height: 1.02; margin: 0; max-width: 22ch; font-weight: 400; }
+  .about { display: grid; gap: 3rem; }
+  @media (min-width: 860px) { .about { grid-template-columns: 1fr 1.5fr; } }
+  .portrait { aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden;
+    background: radial-gradient(90% 70% at 50% 35%, hsl(18 85% 62% / 0.55), transparent 70%), var(--surface); }
+  .portrait :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; padding-top: 1.5rem; }
+  .portrait.ph { display: grid; place-items: center; font-size: 8rem; color: var(--accent);
+    background: radial-gradient(120% 120% at 0% 0%, hsl(18 80% 62% / 0.35), transparent 60%), var(--surface); }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 0; }
+  .stats div { border-top: 1px solid var(--line); padding-top: 0.75rem; display: flex; flex-direction: column-reverse; }
+  .stats dt { font-size: 0.85rem; color: var(--muted); }
+  .stats dd { margin: 0; font-size: 3rem; line-height: 1; }
+  .body p { font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.55; margin: 0 0 1.25rem; max-width: 46ch; }
+  .body h2 { margin-top: 2.5rem; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.95rem; }
+</style>
