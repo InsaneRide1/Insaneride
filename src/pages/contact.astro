@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
 
-// Set PUBLIC_FORM_ENDPOINT in Vercel (e.g. https://formspree.io/f/xxxxabcd) to receive
-// submissions by email. Without it, the form falls back to opening the visitor's email app.
-const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+// Submissions go to Neil's Formspree form, which emails them on. Set PUBLIC_FORM_ENDPOINT
+// to override it; set it to an empty string to fall back to opening the visitor's email app.
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? 'https://formspree.io/f/meaglevk';
 const topics = ['Full-time role', 'Freelance or contract project', 'Speaking or mentoring', 'Just saying hello'];
 ---
 <Base title="Contact" description="Have a project in mind or a question? Let's schedule a chat.">

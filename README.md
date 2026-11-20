@@ -53,7 +53,7 @@ Images placed next to the Markdown are automatically resized and served as moder
 
 ## Contact form
 
-The form posts to any form service set in the `PUBLIC_FORM_ENDPOINT` environment variable, for example a free [Formspree](https://formspree.io) form (`https://formspree.io/f/xxxxabcd`), which emails each submission to you. Add it in Vercel under Project → Settings → Environment Variables and redeploy. Without it, the form opens the visitor's email app instead.
+The form posts to Neil's [Formspree](https://formspree.io) form (`https://formspree.io/f/meaglevk`, set in `src/pages/contact.astro`), which emails each submission. To use a different form service, set `PUBLIC_FORM_ENDPOINT` in Vercel under Project → Settings → Environment Variables and redeploy.
 
 ## Deploying on Vercel
 
