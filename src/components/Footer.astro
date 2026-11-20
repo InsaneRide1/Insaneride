@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="wrap row">
+    <span>© {year} {site.name}</span>
+    <ul>
+      {site.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.label}</a></li>)}
+    </ul>
+  </div>
+</footer>
+<style>
+  .footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); font-size: 0.9rem; }
+  .row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+</style>

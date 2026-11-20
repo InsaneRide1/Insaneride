@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { site } from '../data/site';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order || b.data.year - a.data.year,
+);
+---
+<Base>
+  <section class="hero wrap">
+    {site.available && <p class="status"><span class="dot"></span>Available for new projects</p>}
+    <h1 class="serif">{site.name} is a <em>{site.title.toLowerCase()}</em> based in {site.location}.</h1>
+    <p class="lede">{site.intro}</p>
+    <div class="cta">
+      <a class="button primary" href="#work">See the work</a>
+      <a class="button" href={`mailto:${site.email}`}>Get in touch</a>
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <span class="eyebrow">{projects.length} projects</span>
+      </div>
+      <div class="grid">
+        {projects.map((p, i) => <ProjectCard project={p} index={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about">
+      <div class="section-head"><h2>About</h2></div>
+      <div class="bio">
+        {site.bio.map((para) => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <a class="big serif" href={`mailto:${site.email}`}>{site.email}</a>
+      <ul class="socials">
+        {site.socials.map((s) => <li><a href={s.url} target="_blank" rel="me noopener">{s.label} ↗</a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(4rem, 12vw, 9rem); padding-bottom: clamp(4rem, 10vw, 7rem); }
+  .status { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); margin: 0 0 2rem; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 4px color-mix(in srgb, #2fbf71 25%, transparent); }
+  h1 { font-size: clamp(2.75rem, 8vw, 6.5rem); line-height: 0.98; letter-spacing: -0.01em; margin: 0; max-width: 14ch; }
+  h1 em { color: var(--accent); }
+  .lede { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--muted); max-width: 46ch; margin: 2rem 0 2.5rem; }
+  .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem); }
+  @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  .about { display: grid; gap: 1rem; }
+  @media (min-width: 800px) { .about { grid-template-columns: 1fr 1.6fr; } }
+  .bio p { font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.5; margin: 0 0 1.25rem; max-width: 40ch; }
+
+  .big { display: inline-block; font-size: clamp(2.25rem, 8vw, 6rem); line-height: 1; text-decoration: none; word-break: break-word; }
+  .socials { list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2.5rem 0 0; padding: 0; }
+  .socials a { text-decoration: none; color: var(--muted); }
+  .socials a:hover { color: var(--accent); }
+</style>
