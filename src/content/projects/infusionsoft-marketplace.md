@@ -51,7 +51,7 @@ User testing showed that leading with tools slowed people down. Small business o
 
 ## Design process
 
-The work moved from annotated sketches, to wireframes, to a first visual version, to the final high-fidelity design.
+The work moved from annotated sketches, through two rounds of wireframes, to the final high-fidelity design.
 
 ## Outcome
 
