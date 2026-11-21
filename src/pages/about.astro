@@ -17,6 +17,11 @@ import teamOuting from '../assets/about/team-outing.jpg';
 import whiteboard from '../assets/about/whiteboard-architecture.jpg';
 import journeyMap from '../assets/about/journey-map.jpg';
 import costumeDay from '../assets/about/team-costume-day.jpg';
+import bjjFigure from '../assets/about/bjj-figure.jpg';
+import bjjRolling from '../assets/about/bjj-rolling.jpg';
+import blackBelts from '../assets/about/black-belts.jpg';
+import mountainBike from '../assets/about/mountain-bike.jpg';
+import familyNight from '../assets/about/family-night.jpg';
 
 const photos = [
   { src: paddleboard, area: 'paddle', alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
@@ -33,6 +38,14 @@ const team = [
   { src: whiteboard, area: 'board', alt: 'Whiteboard covered in platform architecture sketches for identity, permissions and services' },
   { src: journeyMap, area: 'journey', alt: 'Customer journey map built from sticky notes across a long sheet of paper' },
   { src: costumeDay, area: 'costume', alt: 'Neil working through a design with teammates on laptops, everyone in costume' },
+];
+
+const person = [
+  { src: bjjFigure, area: 'p-fig', alt: 'Neil as a collectible vinyl figure in a white jiu-jitsu gi and black belt' },
+  { src: bjjRolling, area: 'p-roll', alt: 'Neil rolling with training partners on a red jiu-jitsu mat' },
+  { src: mountainBike, area: 'p-bike', alt: 'Neil with his mountain bike on a desert trail' },
+  { src: blackBelts, area: 'p-belts', alt: 'Neil with fellow black belts at the academy' },
+  { src: familyNight, area: 'p-fam', alt: 'Neil taking a selfie with his family on a night out' },
 ];
 ---
 <Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
@@ -83,6 +96,22 @@ const team = [
             <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
           </figure>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="person">
+    <div class="wrap person-grid">
+      <div class="person-collage">
+        {person.map((p) => (
+          <figure class={`tile ${p.area}`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div class="copy">
+        <h2 class="create-title">The Person Behind the Screen</h2>
+        <p class="lede">Art came first. It led me to illustration, print, packaging and eventually digital products. Outside design, you’ll find me on the jiu-jitsu mat, where I hold a second-degree black belt and coach others, or on a mountain bike trail. Both remind me of what great design teaches: practice, patience and enjoying the ride. And nothing beats time with my family.</p>
       </div>
     </div>
   </section>
@@ -167,6 +196,22 @@ const team = [
   .board :global(img) { object-position: 40% 55%; }
   @media (max-width: 599px) {
     .team-collage { grid-template-rows: 190px 130px 130px; grid-template-areas: 'selfie selfie selfie' 'outing outing costume' 'journey board board'; }
+  }
+  /* "Person behind the screen": collage left, text right */
+  .person-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 960px) { .person-grid { grid-template-columns: 1.1fr 1fr; } }
+  .person-grid .lede { max-width: 46ch; margin: 0; }
+  .person-collage { display: grid; gap: 12px; grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: clamp(150px, 22vw, 290px) clamp(100px, 11vw, 150px);
+    grid-template-areas: 'p-fig p-fig p-fig p-roll p-roll p-roll' 'p-bike p-bike p-belts p-belts p-fam p-fam'; }
+  .p-fig { grid-area: p-fig; background: #f1f0ee; }
+  .p-fig :global(img) { object-position: 20% 50%; } .p-roll { grid-area: p-roll; } .p-bike { grid-area: p-bike; }
+  .p-belts { grid-area: p-belts; } .p-fam { grid-area: p-fam; }
+  .p-bike :global(img) { object-position: 50% 40%; }
+  .p-belts :global(img) { object-position: 35% 40%; }
+  .p-fam :global(img) { object-position: 45% 25%; }
+  @media (max-width: 599px) {
+    .person-collage { grid-template-rows: 44vw 30vw 30vw; grid-template-areas: 'p-fig p-fig p-fig p-roll p-roll p-roll' 'p-bike p-bike p-bike p-belts p-belts p-belts' 'p-fam p-fam p-fam p-fam p-fam p-fam'; }
   }
   .figure-art { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 560px; justify-self: center; width: 100%; }
   .figure-art :global(img) { display: block; width: 100%; height: auto; }
