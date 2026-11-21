@@ -30,9 +30,9 @@ gallery:
 
 ## The challenge
 
-Infusionsoft's marketplace helped small businesses find apps and services that extended the product. The first version was organized around tools, and people struggled to find what they actually needed.
+Infusionsoft’s marketplace connected small business owners with apps, integrations and prebuilt marketing campaigns created by partners and internal teams. Our first version was positioned on tools at the forefront, so business owners had to already know what they were looking for. Most of them knew their goal, like getting more leads or following up with customers, but not which tool would get them there.
 
-> **To add:** who used the marketplace, how many listings it had, and the business goal behind the redesign.
+The marketplace let small business owners search a growing library of 300+ integrations and ready-made campaigns from partners and internal teams. The goal was to help them find the right tool fast and put it to work.
 
 ## My role
 
