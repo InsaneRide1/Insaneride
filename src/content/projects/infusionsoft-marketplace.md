@@ -36,7 +36,9 @@ Infusionsoft’s marketplace connected small business owners with apps, integrat
 
 ## My role
 
-> **To add:** your role, team size and what you personally owned.
+> **My role:** Design lead. I owned research, UX and UI from discovery to launch.
+>
+> **Team:** 4 people: me, a product manager, a front-end developer and an engineer.
 
 ## Research
 
