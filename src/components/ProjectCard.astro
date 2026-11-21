@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../lib/projects';
+import { disciplines } from '../data/site';
+
+interface Props { project: Project; large?: boolean; }
+const { project, large = false } = Astro.props;
+const { title, summary, years, discipline, depth, client, cover, coverAlt } = project.data;
+// Projects without a cover image get a coloured gradient placeholder.
+const hue = [18, 200, 140, 280, 40, 330][project.data.order % 6];
+---
+<a class:list={['card', 'reveal', { large }]} href={`/projects/${project.id}/`} data-discipline={discipline}>
+  <div class="media" style={`--h:${hue}`}>
+    {cover
+      ? <Image src={cover} alt={coverAlt ?? ''} widths={[480, 800, 1200]} sizes={large ? '(min-width: 800px) 33vw, 100vw' : '(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw'} />
+      : <span class="ph serif" aria-hidden="true">{title}</span>}
+    {depth === 'case-study' && <span class="badge">Case study · Research + design</span>}
+  </div>
+  <p class="kicker">{disciplines[discipline]}{client && ` · ${client}`}</p>
+  <h3>{title}</h3>
+  <p class="summary">{summary}</p>
+  {years !== 'TBD' && <p class="years">{years}</p>}
+</a>
+
+<style>
+  .card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .media {
+    aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; position: relative;
+    background:
+      radial-gradient(120% 120% at 0% 0%, hsl(var(--h) 80% 62%), transparent 60%),
+      radial-gradient(120% 120% at 100% 100%, hsl(calc(var(--h) + 50) 70% 45%), transparent 60%),
+      var(--surface);
+  }
+  .large .media { aspect-ratio: 4 / 5; }
+  .media :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .media :global(img), .card:hover .ph { transform: scale(1.04); }
+  .ph {
+    position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.05; color: rgb(255 255 255 / 0.92); transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .badge {
+    position: absolute; left: 0.75rem; top: 0.75rem; font-size: 0.75rem; font-weight: 600;
+    background: var(--bg); color: var(--text); padding: 0.3rem 0.65rem; border-radius: 999px;
+  }
+  .kicker { margin: 1.1rem 0 0.35rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  h3 { margin: 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; }
+  .large h3 { font-size: 1.6rem; }
+  .card:hover h3 { color: var(--accent); }
+  .summary { margin: 0.4rem 0 0; color: var(--muted); }
+  .years { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+</style>

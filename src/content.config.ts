@@ -1,0 +1,41 @@
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+// Each project is one Markdown file in src/content/projects/.
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      // 'case-study' = long research + design write-up; 'project' = short write-up + gallery.
+      depth: z.enum(['case-study', 'project']).default('project'),
+      discipline: z.enum(['ux', 'print', 'illustration']),
+      client: z.string().optional(),
+      years: z.string(),
+      role: z.string().optional(),
+      team: z.string().optional(),
+      outcome: z.string().optional(),
+      // Big-number callouts shown on case study cards and pages, e.g. { value: '30%', label: 'Fewer support calls' }.
+      highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
+      tags: z.array(z.string()).default([]),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      gallery: z
+        .array(
+          z.object({
+            src: image().optional(), // an image next to the Markdown file
+            video: z.string().optional(), // or a muted looping video in public/, e.g. /media/demo.mp4
+            alt: z.string(),
+            caption: z.string().optional(),
+          }),
+        )
+        .default([]),
+      link: z.string().url().optional(),
+      order: z.number().default(100),
+      draft: z.boolean().default(false),
+    }),
+});
+
+export const collections = { projects };

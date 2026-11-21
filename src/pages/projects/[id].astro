@@ -1,0 +1,205 @@
+---
+import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import ContactCta from '../../components/ContactCta.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { disciplines } from '../../data/site';
+import { getProjects, readingMinutes, type Project } from '../../lib/projects';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((project, i) => ({
+    params: { id: project.id },
+    props: {
+      project,
+      next: projects[(i + 1) % projects.length],
+      related: projects.filter((p) => p.data.depth === 'case-study' && p.id !== project.id)[0],
+    },
+  }));
+}
+
+interface Props { project: Project; next: Project; related?: Project; }
+const { project, next, related } = Astro.props;
+const { Content, headings } = await render(project);
+const d = project.data;
+const isCaseStudy = d.depth === 'case-study';
+// The banner crops the cover, so the gallery shows every image in full.
+const items = d.gallery;
+const gallery = await Promise.all(
+  items.map(async (g) => ({ ...g, full: g.src ? (await getImage({ src: g.src, width: Math.min(g.src.width, 1800) })).src : undefined })),
+);
+const toc = headings.filter((h) => h.depth === 2);
+const facts = [
+  ['Primary role', d.role],
+  ['Time frame', d.years !== 'TBD' ? d.years : undefined],
+  ['Company', d.client],
+  ['Team', d.team],
+  ['Discipline', disciplines[d.discipline]],
+].filter(([, v]) => v) as [string, string][];
+---
+<Base title={d.title} description={d.summary}>
+  <article>
+    <header class="wrap head">
+      <a class="back" href={isCaseStudy ? '/case-studies/' : '/work/'}>← {isCaseStudy ? 'All case studies' : 'All work'}</a>
+      {d.cover && <div class="banner"><Image src={d.cover} alt={d.coverAlt ?? ''} widths={[800, 1400, 2000]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
+      <p class="eyebrow">{isCaseStudy ? `UX case study · ${readingMinutes(project.body)} min read` : disciplines[d.discipline]}</p>
+      <h1>{d.title}</h1>
+      <dl class="facts">
+        {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        {d.link && <div><dt>Live</dt><dd><a href={d.link} target="_blank" rel="noopener">Visit ↗</a></dd></div>}
+      </dl>
+      <div class="exec">
+        <p class="eyebrow">{isCaseStudy ? 'Executive summary' : 'Overview'}</p>
+        <p class="lead">{d.summary}{d.outcome && ` ${d.outcome}`}</p>
+      </div>
+      {d.highlights.length > 0 && (
+        <ul class="stats-row">{d.highlights.map((h) => <li><strong>{h.value}</strong><span>{h.label}</span></li>)}</ul>
+      )}
+    </header>
+
+    <div class:list={['wrap', 'body', { 'with-toc': isCaseStudy && toc.length > 2 }]}>
+      {isCaseStudy && toc.length > 2 && (
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </nav>
+      )}
+      <div class="prose"><Content /></div>
+    </div>
+
+    {gallery.length > 0 && (
+      <section class="wrap gallery-wrap" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
+        <div class="gallery">
+          {gallery.map((g) => (
+            <figure>
+              {g.video
+                ? <video src={g.video} autoplay muted loop playsinline aria-label={g.alt}></video>
+                : <a href={g.full} class="zoom" data-caption={g.caption ?? ''} aria-label={`View larger: ${g.alt}`}>
+                    <Image src={g.src!} alt={g.alt} widths={[500, 900]} sizes="(min-width: 800px) 50vw, 100vw" />
+                  </a>}
+              {g.caption && <figcaption>{g.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+
+  {isCaseStudy ? (
+    <>
+      <section class="thanks">
+        <div class="wrap">
+          <h2>Thanks for reading this far.</h2>
+          <p>What questions do you have for me?</p>
+          <a class="button primary" href="/contact/">Get in touch</a>
+        </div>
+      </section>
+      {related && (
+        <section class="wrap related">
+          <p class="eyebrow">Next case study</p>
+          <CaseStudyCard project={related} />
+        </section>
+      )}
+    </>
+  ) : (
+    <>
+      <a class="next wrap" href={`/projects/${next.id}/`}>
+        <span class="eyebrow">Next project</span>
+        <span class="next-title">{next.data.title} →</span>
+      </a>
+      <ContactCta />
+    </>
+  )}
+
+  <dialog class="viewer" aria-label="Image viewer">
+    <img alt="" />
+    <p class="viewer-caption"></p>
+    <button type="button" class="vbtn v-close" aria-label="Close">✕</button>
+    <button type="button" class="vbtn v-prev" aria-label="Previous image">←</button>
+    <button type="button" class="vbtn v-next" aria-label="Next image">→</button>
+  </dialog>
+</Base>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('a.zoom')];
+  const dialog = document.querySelector<HTMLDialogElement>('dialog.viewer');
+  if (dialog && links.length) {
+    const img = dialog.querySelector('img')!;
+    const cap = dialog.querySelector<HTMLElement>('.viewer-caption')!;
+    let i = 0;
+    const show = (n: number) => {
+      i = (n + links.length) % links.length;
+      const a = links[i];
+      img.src = a.href;
+      img.alt = a.querySelector('img')?.alt ?? '';
+      cap.textContent = a.dataset.caption || '';
+    };
+    links.forEach((a, n) => a.addEventListener('click', (e) => { e.preventDefault(); show(n); dialog.showModal(); }));
+    dialog.querySelector(".v-close")!.addEventListener('click', () => dialog.close());
+    dialog.querySelector(".v-prev")!.addEventListener('click', () => show(i - 1));
+    dialog.querySelector(".v-next")!.addEventListener('click', () => show(i + 1));
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+    dialog.addEventListener('close', () => links[i]?.focus());
+  }
+</script>
+
+<style>
+  .head { padding-top: 2rem; }
+  .back { font-size: 0.92rem; font-weight: 500; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; }
+  .banner { border-radius: var(--radius); overflow: hidden; background: var(--surface); aspect-ratio: 16 / 7; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+  .banner :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  h1 { font-size: clamp(2.75rem, 7vw, 5.5rem); line-height: 1; margin: 0 0 2.5rem; max-width: 16ch; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem 2rem; margin: 0 0 3rem; padding: 1.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .facts dt { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .facts dd { margin: 0.35rem 0 0; font-weight: 500; }
+  .exec { max-width: 60ch; margin-bottom: 3rem; }
+  .lead { font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.45; font-weight: 600; letter-spacing: -0.015em; margin: 0; }
+  .body { padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: var(--space); }
+  .with-toc { display: grid; gap: 3rem; }
+  @media (min-width: 960px) {
+    .with-toc { grid-template-columns: 220px 1fr; gap: 4rem; }
+    .toc { position: sticky; top: 6.5rem; align-self: start; }
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.95rem; counter-reset: toc; }
+  .toc li { counter-increment: toc; }
+  .toc a { text-decoration: none; color: var(--muted); }
+  .toc a::before { content: counter(toc, decimal-leading-zero) '  '; font-variant-numeric: tabular-nums; white-space: pre; }
+  .toc a:hover { color: var(--text); }
+  @media (max-width: 959px) { .toc ol { flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1.25rem; } }
+  /* Numbered section eyebrows on case studies */
+  .with-toc .prose { counter-reset: sec; }
+  .with-toc .prose :global(h2) { counter-increment: sec; }
+  .with-toc .prose :global(h2)::before { content: counter(sec, decimal-leading-zero); display: block; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.75rem; }
+  .gallery-wrap { padding-bottom: var(--space); }
+  .gallery-wrap h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 2rem; }
+  .gallery { display: grid; gap: 1.5rem; align-items: start; }
+  @media (min-width: 800px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  .gallery figure { margin: 0; }
+  .gallery :global(img), .gallery video { border-radius: var(--radius); width: 100%; display: block; background: var(--surface); }
+  .gallery figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.7rem; }
+  .zoom { display: block; cursor: zoom-in; }
+  .thanks { background: var(--text); color: var(--bg); padding: clamp(4rem, 9vw, 7rem) 0; }
+  .thanks h2 { font-size: clamp(2.25rem, 5.5vw, 4rem); margin: 0 0 0.75rem; }
+  .thanks p { font-size: 1.25rem; opacity: 0.75; margin: 0 0 2rem; }
+  .thanks .button.primary { background: var(--bg); color: var(--text); border-color: var(--bg); }
+  .thanks .button.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .related { padding-top: var(--space); padding-bottom: var(--space); }
+  .next { display: block; padding-top: 3rem; padding-bottom: 4rem; border-top: 1px solid var(--line); text-decoration: none; }
+  .next-title { display: block; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 650; letter-spacing: -0.035em; line-height: 1.05; }
+  .viewer { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+  .viewer::backdrop { background: rgb(0 0 0 / 0.9); }
+  .viewer[open] { display: grid; place-items: center; grid-template-rows: 1fr auto; }
+  .viewer img { max-width: 92vw; max-height: 82vh; object-fit: contain; border-radius: 8px; }
+  .viewer-caption { color: #eee; margin: 0.75rem 0 1.5rem; text-align: center; padding: 0 1rem; }
+  .vbtn { position: fixed; background: rgb(255 255 255 / 0.12); color: #fff; border: 0; border-radius: 999px; width: 48px; height: 48px; font-size: 1.25rem; cursor: pointer; }
+  .vbtn:hover { background: rgb(255 255 255 / 0.25); }
+  .v-close { top: 1rem; right: 1rem; }
+  .v-prev { left: 1rem; top: 50%; }
+  .v-next { right: 1rem; top: 50%; }
+</style>

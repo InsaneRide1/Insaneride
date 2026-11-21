@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import ContactForm from '../components/ContactForm.astro';
+---
+<Base title="Contact" description="Have a project in mind or a question? Let's schedule a chat.">
+  <section class="wrap contact">
+    <div class="lead">
+      <p class="eyebrow">Contact</p>
+      <h1 class="serif">Have a project in mind or a question? Let's talk.</h1>
+      <p class="muted">I usually reply within two business days.</p>
+      <p class="direct">Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <ul class="socials">
+        {site.socials.map((s) => <li><a href={s.url} target="_blank" rel="me noopener">{s.label} ↗</a></li>)}
+      </ul>
+    </div>
+
+    <ContactForm />
+  </section>
+</Base>
+
+<style>
+  .contact { display: grid; gap: 3rem; padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: var(--space); }
+  @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); margin: 0 0 1.5rem; }
+  .muted { color: var(--muted); }
+  .direct { margin-top: 2rem; }
+  .socials { list-style: none; display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 1.5rem 0 0; padding: 0; }
+  .socials a { text-decoration: none; color: var(--muted); }
+</style>

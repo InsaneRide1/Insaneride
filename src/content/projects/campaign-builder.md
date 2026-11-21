@@ -1,0 +1,54 @@
+---
+title: Campaign builder for small businesses
+summary: Making email marketing campaigns approachable for small business owners, from checklist to reporting.
+depth: case-study
+discipline: ux
+client: Infusionsoft
+years: TBD
+tags: [Marketing automation, Web app]
+order: 3
+highlights:
+  - { value: '3', label: 'Parts: checklist, builder, reporting' }
+  - { value: '2', label: 'Motion studies for key interactions' }
+  - { value: '1', label: 'Place to build and measure' }
+cover: ./images/campaign-builder/campaignbuilder-checklist-newchecklist.webp
+coverAlt: "Campaign builder with a guided setup checklist"
+gallery:
+  - src: ./images/campaign-builder/campaignbuilder-checklist-newchecklist.webp
+    alt: "Campaign builder with a guided setup checklist"
+    caption: "Guided checklist inside the campaign builder."
+  - src: ./images/campaign-builder/email-builder-button-block-1.webp
+    alt: "Drag-and-drop email builder editing a button block"
+    caption: "Drag-and-drop email builder."
+  - video: /media/campaign-builder-docking-checklist1-600.mp4
+    alt: "Animation of the checklist docking beside the builder"
+    caption: "The checklist docks beside the work."
+  - src: ./images/campaign-builder/active-campaign-campaign-reporting.webp
+    alt: "Campaign reporting view showing contacts at each step"
+    caption: "Reporting on an active campaign."
+  - video: /media/campaign-builder-cb-reporting-topdrawer.mp4
+    alt: "Animation of reporting opening in a top drawer"
+    caption: "Reporting opens in a top drawer, next to the campaign."
+---
+
+## The challenge
+
+Small business owners needed to build marketing campaigns without being marketing experts.
+
+> **To add:** the specific problem and who it affected.
+
+## My role
+
+> **To add:** your role, team size and what you personally owned.
+
+## Research
+
+> **To add:** research methods, participants and key findings.
+
+## Design
+
+The work covered a guided checklist that docks beside the builder, a drag-and-drop email builder, and campaign reporting in a top drawer so results sit next to the work.
+
+## Outcome
+
+> **To add:** results.
