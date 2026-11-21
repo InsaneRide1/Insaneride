@@ -11,10 +11,7 @@ import christmas from '../assets/about/christmas.jpg';
 import pinewood from '../assets/about/pinewood.jpg';
 import family from '../assets/about/family.jpg';
 import motorcycles from '../assets/about/motorcycles.jpg';
-import salsa from '../assets/about/salsa-sketch-to-illustration.jpg';
-import campSketching from '../assets/about/camp-sketching.jpg';
-import blacksmithing from '../assets/about/blacksmithing.jpg';
-import drawingTablet from '../assets/about/drawing-tablet.jpg';
+import neilFigure from '../assets/about/neil-figure.jpg';
 
 const photos = [
   { src: paddleboard, area: 'paddle', alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
@@ -25,12 +22,6 @@ const photos = [
   { src: pinewood, area: 'pine', alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
 ];
 
-const craft = [
-  { src: salsa, area: 'salsa', alt: 'Ingredient list turned into a pencil sketch, then into a full-color illustration of tomato, peppers, garlic and beans' },
-  { src: campSketching, area: 'camp', alt: 'Neil sketching in a notebook at a campsite next to a young scout' },
-  { src: blacksmithing, area: 'forge', alt: 'Neil hammering glowing steel on an anvil' },
-  { src: drawingTablet, area: 'tablet', alt: 'Neil drawing a Samurai Mischief illustration on a pen tablet' },
-];
 ---
 <Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
   <section class="hero">
@@ -54,13 +45,9 @@ const craft = [
 
   <section class="section alt" id="story">
     <div class="wrap create-grid">
-      <div class="craft">
-        {craft.map((p) => (
-          <figure class={`tile ${p.area}`}>
-            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
-          </figure>
-        ))}
-      </div>
+      <figure class="figure-art">
+        <Image src={neilFigure} alt="Neil as a collectible vinyl figure in a UX Designer box, with skull tee, cargo shorts and checkered shoes" widths={[500, 800, 1024]} sizes="(min-width: 960px) 45vw, 100vw" loading="lazy" />
+      </figure>
       <div class="copy">
         <h2 class="create-title">I Love to Create</h2>
         <p class="lede">Whether it’s ink on a box or pixels on a screen, I love the craft of making ideas real. I’ve taken packaging from sketch to press check and products from research to launch. In every medium, I start with real people, let evidence guide the design and lead teams that care about the details.</p>
@@ -129,19 +116,8 @@ const craft = [
   @media (min-width: 960px) { .create-grid { grid-template-columns: 1.1fr 1fr; } }
   .create-title { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 1.25rem; }
   .create-grid .lede { max-width: 44ch; margin: 0; }
-  .craft { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, clamp(90px, 9vw, 128px));
-    grid-template-areas: 'salsa salsa salsa' 'salsa salsa salsa' 'camp forge tablet' 'camp forge tablet'; }
-  .salsa { grid-area: salsa; background: #fff; } .camp { grid-area: camp; } .forge { grid-area: forge; transform: translateY(18px); } .tablet { grid-area: tablet; }
-  .salsa :global(img) { object-fit: contain; padding: 0.5rem; }
-  .camp :global(img) { object-position: 62% 30%; }
-  .forge :global(img) { object-position: 52% 50%; }
-  .tablet :global(img) { object-position: 40% 50%; }
-  @media (max-width: 599px) {
-    .craft { grid-template-rows: 150px 150px 170px; grid-template-areas: 'salsa salsa salsa' 'camp camp tablet' 'forge forge tablet'; }
-    .forge { transform: none; }
-    .tablet :global(img) { object-position: 22% 50%; }
-  }
+  .figure-art { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 560px; justify-self: center; width: 100%; }
+  .figure-art :global(img) { display: block; width: 100%; height: auto; }
   .about { display: grid; gap: 3rem; }
   @media (min-width: 860px) { .about { grid-template-columns: 1fr 1.5fr; } }
   .portrait { aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden;
