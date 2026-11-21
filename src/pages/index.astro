@@ -36,11 +36,29 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
 
   <section class="section stats">
     <div class="wrap">
-      <ul class="stats-row">
-        <li><strong>25+</strong><span>Years of design experience</span></li>
-        <li><strong>{caseStudies.length}</strong><span>In-depth UX case studies</span></li>
-        <li><strong>6</strong><span>National retailers carrying my packaging</span></li>
-        <li><strong>1</strong><span>New York Times bestseller cover</span></li>
+      <ul class="stat-cards">
+        <li class="stat-card">
+          <strong>15</strong>
+          <h3>Years shipping software</h3>
+          <p>Small to large builds, including cutting MVP scope down to meet urgent timelines.</p>
+        </li>
+        <li class="stat-card">
+          <strong>4</strong>
+          <h3>Designed platforms</h3>
+          <p>Experience in 2 multi-platform companies and over 12 featured product releases.</p>
+        </li>
+        <li class="stat-card">
+          <strong>25+</strong>
+          <h3>Years in design</h3>
+          <p>From enterprise SaaS to print and packaging, from research to the final pixel.</p>
+        </li>
+        <li class="stat-card wide">
+          <div>
+            <strong>3 tiers, 1 platform</strong>
+            <p>I designed the full B2B2C experience, from internal admin and configuration to client management to the consumer’s payment and outage experience.</p>
+          </div>
+          <a class="button" href="/case-studies/">View case study <span aria-hidden="true">→</span></a>
+        </li>
       </ul>
     </div>
   </section>
@@ -125,7 +143,18 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
   .lede { font-size: clamp(1.15rem, 1.9vw, 1.4rem); line-height: 1.5; color: var(--muted); max-width: 34ch; margin: 0 0 2.25rem; }
   .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   @media (max-width: 899px) { .photo { max-width: 360px; } .copy { text-align: left; } }
-  .stats { padding-top: 0; }
+  .stats { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
+  .stat-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  @media (min-width: 760px) { .stat-cards { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } .stat-card.wide { grid-column: 1 / -1; } }
+  .stat-card { background: var(--surface); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
+  .stat-card strong { display: block; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--accent); }
+  .stat-card h3 { font-size: 1.3rem; font-weight: 650; letter-spacing: -0.02em; margin: 0.9rem 0 0; }
+  .stat-card h3::after, .stat-card.wide strong::after { content: ''; display: block; width: 3.5rem; height: 2px; background: var(--text); opacity: 0.35; margin: 1.25rem 0; }
+  .stat-card p { margin: 0; color: var(--muted); line-height: 1.5; max-width: 52ch; }
+  .stat-card.wide { gap: 1.75rem; }
+  .stat-card.wide strong { font-size: clamp(2.5rem, 6vw, 4.75rem); }
+  .stat-card.wide .button { align-self: flex-start; }
+  @media (min-width: 900px) { .stat-card.wide { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; } .stat-card.wide .button { align-self: flex-end; flex-shrink: 0; } }
   .band { background: var(--text); color: var(--bg); padding: clamp(4rem, 9vw, 7rem) 0; }
   .band-inner { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .band h2 { font-size: clamp(2rem, 5vw, 3.75rem); margin: 0; max-width: 18ch; }
