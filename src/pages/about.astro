@@ -26,7 +26,8 @@ const photos = [
     <div class="wrap hero-grid">
       <div class="copy">
         <p class="eyebrow accent">About me</p>
-        <h1>Hi, I’m {site.name}, a design leader who connects with people, then builds what they need.</h1>
+        <h1>Hi, I’m {site.name}</h1>
+        <h2 class="subhead">A design leader who connects with people, then builds what they need.</h2>
         <p class="lede">For 25 years, I’ve grown design teams, mentored young leaders, raised a family and crafted experiences people love. It all started with people.</p>
         <a class="button primary" href="#story">My story <span aria-hidden="true">↓</span></a>
       </div>
@@ -75,7 +76,8 @@ const photos = [
   .hero-grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
   @media (min-width: 960px) { .hero-grid { grid-template-columns: 1fr 1.1fr; } }
   .eyebrow.accent { color: var(--accent); }
-  h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); line-height: 1.06; letter-spacing: -0.03em; margin: 0 0 1.25rem; max-width: 20ch; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 0.75rem; }
+  .subhead { font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; color: var(--muted); margin: 0 0 1.5rem; max-width: 24ch; }
   .lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.55; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
   /* Photo collage: staggered tiles of mixed sizes */
   .collage { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 0.85fr 0.85fr;
