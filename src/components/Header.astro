@@ -64,7 +64,7 @@ const current = (href: string) =>
   .links { display: flex; list-style: none; margin: 0 0.75rem 0 0; padding: 0; gap: 0.25rem; }
   .links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0.8rem;
     text-decoration: underline 2px transparent; text-underline-offset: 0.45em; transition: color 0.15s, text-decoration-color 0.15s; }
-  .links a[aria-current='page'] { color: var(--text); text-decoration-color: currentColor; }
+  .links a[aria-current='page'] { color: var(--text); text-decoration-color: var(--accent); }
   .links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   .mobile a:hover { color: var(--accent); }
   .cta { text-decoration: none; font-size: 0.95rem; font-weight: 600; background: var(--text); color: var(--bg); padding: 0.55rem 1.1rem; border-radius: 999px; }
