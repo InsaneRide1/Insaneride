@@ -20,10 +20,10 @@ gallery:
   - src: ./images/infusionsoft-marketplace/homepage-wireframe2-2.webp
     alt: "Wireframe of the marketplace homepage"
     caption: "Homepage wireframe."
-  - src: ./images/infusionsoft-marketplace/mp-v1-1.webp
-    alt: "First visual design of the marketplace homepage"
-    caption: "Version 1 visual design."
   - src: ./images/infusionsoft-marketplace/final.webp
+    alt: "Refined wireframe of the marketplace homepage with search and featured, popular and newest listings"
+    caption: "Refined wireframe with search and featured listings."
+  - src: ./images/infusionsoft-marketplace/mp-v1-1.webp
     alt: "Final high-fidelity marketplace homepage design"
     caption: "Final high-fidelity design."
 ---
