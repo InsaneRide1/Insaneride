@@ -71,7 +71,7 @@ User testing showed that leading with tools slowed people down. Small business o
 
 I moved from low to high fidelity in four steps, testing with owners along the way so each round answered a specific question.
 
-1. **Sketches:** 10 owner interviews shaped layouts that led with business goals, not tool categories.
+1. **Sketches:** 10 owner interviews shaped quick, annotated sketches that served as a proof of concept, so we could test the core idea with owners and stakeholders before committing to wireframes.
 2. **Wireframe 1, personalized:** it tested whether the marketplace could recommend tools based on what owners hadn’t set up yet.
 3. **Wireframe 2, search-first:** it tested a large “What are you looking for?” search bar with Featured, Most Popular and Newest lists.
 4. **Final design:** after usability testing with 7 owners, it combined what worked: a plain-language search prompt (“Find what you need to grow your business”) and goal tiles for leads, conversion, sales, follow-up and referrals.
