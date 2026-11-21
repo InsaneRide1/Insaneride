@@ -24,28 +24,28 @@ import mountainBike from '../assets/about/mountain-bike.jpg';
 import familyNight from '../assets/about/family-night.jpg';
 
 const photos = [
-  { src: paddleboard, area: 'paddle', alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
-  { src: couple, area: 'couple', alt: 'Neil and his wife in the Arizona desert at sunset' },
-  { src: motorcycles, area: 'moto', alt: 'Neil with friends and motorcycles outside a general store' },
-  { src: christmas, area: 'xmas', alt: 'Neil and family in matching pajamas with Santa' },
-  { src: family, area: 'family', alt: 'Neil and family at a graduation photo in the desert, with their dog' },
-  { src: pinewood, area: 'pine', alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
+  { src: paddleboard, area: 'paddle', pos: [4, 8, 44, 26], alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
+  { src: couple, area: 'couple', pos: [44, 0, 30, 45], alt: 'Neil and his wife in the Arizona desert at sunset' },
+  { src: motorcycles, area: 'moto', pos: [71, 13, 27, 38], alt: 'Neil with friends and motorcycles outside a general store' },
+  { src: christmas, area: 'xmas', pos: [0, 35, 50, 37], alt: 'Neil and family in matching pajamas with Santa' },
+  { src: family, area: 'family', pos: [46, 47, 40, 42], alt: 'Neil and family at a graduation photo in the desert, with their dog' },
+  { src: pinewood, area: 'pine', pos: [13, 70, 37, 27], alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
 ];
 
 const team = [
-  { src: teamSelfie, area: 'selfie', alt: 'Neil taking a selfie with his design team outside a taco shop' },
-  { src: teamOuting, area: 'outing', alt: 'Neil and a large team posing together at a team outing' },
-  { src: whiteboard, area: 'board', alt: 'Whiteboard covered in platform architecture sketches for identity, permissions and services' },
-  { src: journeyMap, area: 'journey', alt: 'Customer journey map built from sticky notes across a long sheet of paper' },
-  { src: costumeDay, area: 'costume', alt: 'Neil working through a design with teammates on laptops, everyone in costume' },
+  { src: teamSelfie, area: 'selfie', pos: [0, 8, 60, 46], alt: 'Neil taking a selfie with his design team outside a taco shop' },
+  { src: teamOuting, area: 'outing', pos: [56, 0, 44, 32], alt: 'Neil and a large team posing together at a team outing' },
+  { src: costumeDay, area: 'costume', pos: [56, 30, 40, 34], alt: 'Neil working through a design with teammates on laptops, everyone in costume' },
+  { src: journeyMap, area: 'journey', pos: [5, 49, 38, 30], alt: 'Customer journey map built from sticky notes across a long sheet of paper' },
+  { src: whiteboard, area: 'board', pos: [38, 60, 36, 34], alt: 'Whiteboard covered in platform architecture sketches for identity, permissions and services' },
 ];
 
 const person = [
-  { src: bjjFigure, area: 'p-fig', alt: 'Neil as a collectible vinyl figure in a white jiu-jitsu gi and black belt' },
-  { src: bjjRolling, area: 'p-roll', alt: 'Neil rolling with training partners on a red jiu-jitsu mat' },
-  { src: mountainBike, area: 'p-bike', alt: 'Neil with his mountain bike on a desert trail' },
-  { src: blackBelts, area: 'p-belts', alt: 'Neil with fellow black belts at the academy' },
-  { src: familyNight, area: 'p-fam', alt: 'Neil taking a selfie with his family on a night out' },
+  { src: bjjFigure, area: 'p-fig', pos: [0, 9, 45, 49], alt: 'Neil as a collectible vinyl figure in a white jiu-jitsu gi and black belt' },
+  { src: bjjRolling, area: 'p-roll', pos: [41, 0, 36, 41], alt: 'Neil rolling with training partners on a red jiu-jitsu mat' },
+  { src: mountainBike, area: 'p-bike', pos: [72, 24, 28, 31], alt: 'Neil with his mountain bike on a desert trail' },
+  { src: blackBelts, area: 'p-belts', pos: [9, 56, 45, 36], alt: 'Neil with fellow black belts at the academy' },
+  { src: familyNight, area: 'p-fam', pos: [49, 45, 42, 43], alt: 'Neil taking a selfie with his family on a night out' },
 ];
 ---
 <Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
@@ -58,9 +58,9 @@ const person = [
         <p class="lede">For 25 years, I’ve grown design teams, mentored young leaders, raised a family and crafted experiences people love. It all started with people.</p>
         <a class="button primary" href="#story">My story <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="collage">
+      <div class="ov collage">
         {photos.map((p, i) => (
-          <figure class={`tile ${p.area}`}>
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
             <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 25vw, 50vw" loading={i < 3 ? 'eager' : 'lazy'} />
           </figure>
         ))}
@@ -90,9 +90,9 @@ const person = [
         </blockquote>
         <p class="lede">I believe the best ideas come from teams that feel heard. I lead designers, researchers and writers with clear direction, personal growth plans and room to own their work. Alongside product, engineering and executive partners, I’ve helped turn complex requests into connected platforms, and I’ve changed direction when user testing showed us a better path. I listen first, bring a plan with every concern and fix what slows the team down.</p>
       </div>
-      <div class="team-collage">
+      <div class="ov team-collage">
         {team.map((p) => (
-          <figure class={`tile ${p.area}`}>
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
             <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
           </figure>
         ))}
@@ -102,9 +102,9 @@ const person = [
 
   <section class="section alt" id="person">
     <div class="wrap person-grid">
-      <div class="person-collage">
+      <div class="ov person-collage">
         {person.map((p) => (
-          <figure class={`tile ${p.area}`}>
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
             <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
           </figure>
         ))}
@@ -154,23 +154,17 @@ const person = [
   h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 0.75rem; }
   .subhead { font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; color: var(--muted); margin: 0 0 1.5rem; max-width: 24ch; }
   .lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.55; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
-  /* Photo collage: staggered tiles of mixed sizes */
-  .collage { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 0.85fr 0.85fr;
-    grid-template-rows: repeat(4, clamp(90px, 9.5vw, 132px));
-    grid-template-areas: 'paddle paddle couple moto' 'xmas xmas couple moto' 'xmas xmas family family' 'pine pine family family'; }
+  /* Photo collages: overlapping tiles with a cut-out ring in the section color */
+  .ov { position: relative; width: 100%; }
+  .ov .tile { position: absolute; border: clamp(4px, 0.8vw, 8px) solid var(--bg); border-radius: calc(var(--radius) + 4px); }
+  .collage { aspect-ratio: 600 / 560; }
   .tile { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
   .tile :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .tile:hover :global(img) { transform: scale(1.04); }
-  .paddle { grid-area: paddle; } .couple { grid-area: couple; } .moto { grid-area: moto; transform: translateY(-18px); }
-  .xmas { grid-area: xmas; } .family { grid-area: family; transform: translateY(18px); } .pine { grid-area: pine; }
   .couple :global(img) { object-position: 50% 25%; }
   .moto :global(img) { object-position: 100% 40%; }
   .paddle :global(img) { object-position: 50% 45%; }
-  @media (max-width: 599px) {
-    .collage { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, 120px);
-      grid-template-areas: 'paddle paddle' 'couple moto' 'couple moto' 'xmas xmas' 'family pine'; }
-    .moto, .family { transform: none; }
-  }
+  .family :global(img) { object-position: 50% 60%; }
   @media (prefers-reduced-motion: reduce) { .tile :global(img) { transition: none; } }
   /* "I love to create": images left, text right */
   .create-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
@@ -185,34 +179,22 @@ const person = [
   .pull { margin: 0 0 1.75rem; padding-left: 1.25rem; border-left: 3px solid var(--accent); }
   .pull p { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.35; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 0.6rem; }
   .pull footer { font-size: 0.95rem; color: var(--muted); }
-  .team-collage { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, clamp(80px, 8.5vw, 122px));
-    grid-template-areas: 'selfie selfie selfie' 'selfie selfie selfie' 'outing costume costume' 'outing journey board'; }
-  .selfie { grid-area: selfie; } .outing { grid-area: outing; } .board { grid-area: board; }
-  .journey { grid-area: journey; } .costume { grid-area: costume; }
+  .team-collage { aspect-ratio: 600 / 500; }
   .selfie :global(img) { object-position: 50% 35%; }
   .outing :global(img) { object-position: 45% 50%; }
   .costume :global(img) { object-position: 50% 65%; }
   .board :global(img) { object-position: 40% 55%; }
-  @media (max-width: 599px) {
-    .team-collage { grid-template-rows: 190px 130px 130px; grid-template-areas: 'selfie selfie selfie' 'outing outing costume' 'journey board board'; }
-  }
   /* "Person behind the screen": collage left, text right */
   .person-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
   @media (min-width: 960px) { .person-grid { grid-template-columns: 1.1fr 1fr; } }
+  #person .ov .tile { border-color: var(--surface); }
   .person-grid .lede { max-width: 46ch; margin: 0; }
-  .person-collage { display: grid; gap: 12px; grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: clamp(150px, 22vw, 290px) clamp(100px, 11vw, 150px);
-    grid-template-areas: 'p-fig p-fig p-fig p-roll p-roll p-roll' 'p-bike p-bike p-belts p-belts p-fam p-fam'; }
-  .p-fig { grid-area: p-fig; background: #f1f0ee; }
-  .p-fig :global(img) { object-position: 20% 50%; } .p-roll { grid-area: p-roll; } .p-bike { grid-area: p-bike; }
-  .p-belts { grid-area: p-belts; } .p-fam { grid-area: p-fam; }
+  .person-collage { aspect-ratio: 600 / 520; }
+  .p-fig { background: #f1f0ee; }
+  .p-fig :global(img) { object-position: 20% 50%; }
   .p-bike :global(img) { object-position: 50% 40%; }
   .p-belts :global(img) { object-position: 35% 40%; }
   .p-fam :global(img) { object-position: 45% 25%; }
-  @media (max-width: 599px) {
-    .person-collage { grid-template-rows: 44vw 30vw 30vw; grid-template-areas: 'p-fig p-fig p-fig p-roll p-roll p-roll' 'p-bike p-bike p-bike p-belts p-belts p-belts' 'p-fam p-fam p-fam p-fam p-fam p-fam'; }
-  }
   .figure-art { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 560px; justify-self: center; width: 100%; }
   .figure-art :global(img) { display: block; width: 100%; height: auto; }
   .about { display: grid; gap: 3rem; }
