@@ -55,7 +55,8 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
         <li class="stat-card wide">
           <div>
             <strong>3 tiers, 1 platform</strong>
-            <p>I designed the full B2B2C experience, from internal admin and configuration to client management to the consumer’s payment and outage experience.</p>
+            <h3>Multi-persona experience</h3>
+            <p>I helped roadmap and design a full B2B2C platform, from admin and client configuration tools to client-side consumer management to the consumer’s payment, notification and outage experience.</p>
           </div>
           <a class="button" href="/case-studies/">View case study <span aria-hidden="true">→</span></a>
         </li>
@@ -153,13 +154,13 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
   .stat-card { background: var(--surface); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
   .stat-card strong { display: block; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--accent); }
   .stat-card h3 { font-size: 1.3rem; font-weight: 650; letter-spacing: -0.02em; margin: 0.9rem 0 0; }
-  .stat-card h3::after, .stat-card.wide strong::after { content: ''; display: block; width: 3.5rem; height: 2px; background: var(--text); opacity: 0.35; margin: 1.25rem 0; }
+  .stat-card h3::after { content: ''; display: block; width: 3.5rem; height: 2px; background: var(--text); opacity: 0.35; margin: 1.25rem 0; }
   .stat-card p { margin: 0; color: var(--muted); line-height: 1.5; max-width: 52ch; }
   .stat-card.wide { gap: 1.75rem; }
   .stat-card.wide strong { font-size: clamp(2.5rem, 6vw, 4.75rem); }
   .stat-card.wide .button { align-self: flex-start; }
   @media (min-width: 900px) { .stat-card.wide { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; } .stat-card.wide .button { align-self: flex-end; flex-shrink: 0; } }
-  .band { background: var(--text); color: var(--bg); padding: calc(clamp(4rem, 9vw, 7rem) + 30px) 0 clamp(4rem, 9vw, 7rem); }
+  .band { background: var(--text); color: var(--bg); padding: calc(clamp(4rem, 9vw, 7rem) + 60px) 0 calc(clamp(4rem, 9vw, 7rem) + 60px); }
   .band-inner { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .band h2 { font-size: clamp(2rem, 5vw, 3.75rem); margin: 0; max-width: 18ch; }
   .band .button { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 40%, transparent); }
