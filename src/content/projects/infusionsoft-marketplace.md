@@ -73,7 +73,7 @@ I moved from low to high fidelity in four steps, testing with owners along the w
 
 1. **Sketches:** 10 owner interviews shaped quick, annotated sketches that served as a proof of concept, so we could test the core idea with owners and stakeholders before committing to wireframes.
 2. **Wireframe 1, personalized:** it tested whether the marketplace could recommend tools based on what owners hadn’t set up yet.
-3. **Wireframe 2, search-first:** it tested a large “What are you looking for?” search bar with Featured, Most Popular and Newest lists.
+3. **Wireframe 2, goal-focused search:** it tested a large “What are you looking for?” search bar that let owners start from the outcome they wanted, backed by Featured, Most Popular and Newest lists to guide them to the right tool.
 4. **Final design:** after usability testing with 7 owners, it combined what worked: a plain-language search prompt (“Find what you need to grow your business”) and goal tiles for leads, conversion, sales, follow-up and referrals.
 
 ## Outcome
