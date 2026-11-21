@@ -69,7 +69,12 @@ User testing showed that leading with tools slowed people down. Small business o
 
 ## Design process
 
-The work moved from annotated sketches, through two rounds of wireframes, to the final high-fidelity design.
+I moved from low to high fidelity in four steps, testing with owners along the way so each round answered a specific question.
+
+1. **Sketches.** The 10 owner interviews shaped the first concept. I sketched and annotated layouts that put business goals ahead of tool categories, so the team could debate structure before anyone polished pixels.
+2. **First wireframe: personalized recommendations.** This round tested whether the marketplace could do the finding for owners. It suggested campaigns and tools based on what they hadn’t set up yet, with Campaigns, Apps and Services as browse paths below.
+3. **Second wireframe: search first.** This round tested a search-led page. A large “What are you looking for?” bar sat at the top, with Featured, Most Popular and Newest lists and consistent listing cards showing price and rating.
+4. **Usability testing and final design.** Seven participants worked through the directions. The final design combined what held up: a plain-language search prompt, “Find what you need to grow your business,” and goal tiles for attracting leads, converting, making money, following up and generating referrals. After launch, quantitative and qualitative data showed us what worked and where to refine.
 
 ## Outcome
 
