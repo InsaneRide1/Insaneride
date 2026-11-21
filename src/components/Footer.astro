@@ -12,7 +12,7 @@ const caseStudies = (await getProjects()).filter((p) => p.data.depth === 'case-s
       <a href={`mailto:${site.email}`}>{site.email}</a>
     </div>
     <nav class="cols" aria-label="Footer">
-      <div><p class="eyebrow">Explore</p><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div><p class="eyebrow">Explore</p><ul><li><a href="/">Home</a></li><li><a href="/about/">About me</a></li><li><a href="/contact/">Contact</a></li></ul></div>
       <div><p class="eyebrow">Portfolio</p><ul><li><a href="/case-studies/">Case studies</a></li>{caseStudies.map((c) => <li><a href={`/projects/${c.id}/`}>{c.data.title}</a></li>)}<li><a href="/work/">All work</a></li></ul></div>
       <div><p class="eyebrow">Follow</p><ul>{site.socials.map((s) => <li><a href={s.url} rel="me noopener" target="_blank">{s.label}</a></li>)}</ul></div>
     </nav>

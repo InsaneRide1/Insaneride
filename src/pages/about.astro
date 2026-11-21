@@ -5,14 +5,42 @@ import ContactCta from '../components/ContactCta.astro';
 import { Image } from 'astro:assets';
 import { site } from '../data/site';
 import portrait from '../assets/portrait.png';
+import couple from '../assets/about/couple.jpg';
+import paddleboard from '../assets/about/paddleboard.jpg';
+import christmas from '../assets/about/christmas.jpg';
+import pinewood from '../assets/about/pinewood.jpg';
+import family from '../assets/about/family.jpg';
+import motorcycles from '../assets/about/motorcycles.jpg';
+
+const photos = [
+  { src: paddleboard, area: 'paddle', alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
+  { src: couple, area: 'couple', alt: 'Neil and his wife in the Arizona desert at sunset' },
+  { src: motorcycles, area: 'moto', alt: 'Neil with friends and motorcycles outside a general store' },
+  { src: christmas, area: 'xmas', alt: 'Neil and family in matching pajamas with Santa' },
+  { src: family, area: 'family', alt: 'Neil and family at a graduation photo in the desert, with their dog' },
+  { src: pinewood, area: 'pine', alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
+];
 ---
-<Base title="About" description={site.intro}>
-  <section class="wrap intro">
-    <p class="eyebrow">About</p>
-    <h1 class="serif">{site.intro}</h1>
+<Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="copy">
+        <p class="eyebrow accent">About me</p>
+        <h1>Hi, I’m {site.name}, a design leader who connects with people, then builds what they need.</h1>
+        <p class="lede">For 25 years, I’ve grown design teams, mentored young leaders, raised a family and crafted experiences people love. It all started with people.</p>
+        <a class="button primary" href="#story">My story <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="collage">
+        {photos.map((p, i) => (
+          <figure class={`tile ${p.area}`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 25vw, 50vw" loading={i < 3 ? 'eager' : 'lazy'} />
+          </figure>
+        ))}
+      </div>
+    </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="story">
     <div class="wrap about">
       <div class="side">
         {site.hasPortrait
@@ -43,8 +71,30 @@ import portrait from '../assets/portrait.png';
 </Base>
 
 <style>
-  .intro { padding-top: clamp(3rem, 8vw, 6rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
-  h1 { font-size: clamp(2.25rem, 5.5vw, 4.5rem); line-height: 1.02; margin: 0; max-width: 22ch; }
+  .hero { padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2rem, 5vw, 4rem); }
+  .hero-grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 960px) { .hero-grid { grid-template-columns: 1fr 1.1fr; } }
+  .eyebrow.accent { color: var(--accent); }
+  h1 { font-size: clamp(2.1rem, 4.2vw, 3.5rem); line-height: 1.06; letter-spacing: -0.03em; margin: 0 0 1.25rem; max-width: 20ch; }
+  .lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.55; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
+  /* Photo collage: staggered tiles of mixed sizes */
+  .collage { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 0.85fr 0.85fr;
+    grid-template-rows: repeat(4, clamp(90px, 9.5vw, 132px));
+    grid-template-areas: 'paddle paddle couple moto' 'xmas xmas couple moto' 'xmas xmas family family' 'pine pine family family'; }
+  .tile { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .tile :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .tile:hover :global(img) { transform: scale(1.04); }
+  .paddle { grid-area: paddle; } .couple { grid-area: couple; } .moto { grid-area: moto; transform: translateY(-18px); }
+  .xmas { grid-area: xmas; } .family { grid-area: family; transform: translateY(18px); } .pine { grid-area: pine; }
+  .couple :global(img) { object-position: 50% 25%; }
+  .moto :global(img) { object-position: 100% 40%; }
+  .paddle :global(img) { object-position: 50% 45%; }
+  @media (max-width: 599px) {
+    .collage { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, 120px);
+      grid-template-areas: 'paddle paddle' 'couple moto' 'couple moto' 'xmas xmas' 'family pine'; }
+    .moto, .family { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tile :global(img) { transition: none; } }
   .about { display: grid; gap: 3rem; }
   @media (min-width: 860px) { .about { grid-template-columns: 1fr 1.5fr; } }
   .portrait { aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden;
