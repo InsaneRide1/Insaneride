@@ -143,8 +143,12 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
   .lede { font-size: clamp(1.15rem, 1.9vw, 1.4rem); line-height: 1.5; color: var(--muted); max-width: 34ch; margin: 0 0 2.25rem; }
   .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   @media (max-width: 899px) { .photo { max-width: 360px; } .copy { text-align: left; } }
-  .stats { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
-  .stat-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  /* Cards break the hero photo above and the dark band below by 30px */
+  .stats { padding-top: 0; padding-bottom: 0; position: relative; z-index: 2; }
+  .stat-cards { list-style: none; margin: -30px 0 -30px; padding: 0; display: grid; gap: 1rem; position: relative; }
+  .stat-card { position: relative; }
+  /* On narrow screens the hero ends with the buttons, not the photo, so only the bottom overlap applies */
+  @media (max-width: 899px) { .stat-cards { margin-top: 0; } }
   @media (min-width: 760px) { .stat-cards { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } .stat-card.wide { grid-column: 1 / -1; } }
   .stat-card { background: var(--surface); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
   .stat-card strong { display: block; font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--accent); }
@@ -155,7 +159,7 @@ const more = projects.filter((p) => p.data.depth !== 'case-study' && p.data.disc
   .stat-card.wide strong { font-size: clamp(2.5rem, 6vw, 4.75rem); }
   .stat-card.wide .button { align-self: flex-start; }
   @media (min-width: 900px) { .stat-card.wide { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 3rem; } .stat-card.wide .button { align-self: flex-end; flex-shrink: 0; } }
-  .band { background: var(--text); color: var(--bg); padding: clamp(4rem, 9vw, 7rem) 0; }
+  .band { background: var(--text); color: var(--bg); padding: calc(clamp(4rem, 9vw, 7rem) + 30px) 0 clamp(4rem, 9vw, 7rem); }
   .band-inner { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .band h2 { font-size: clamp(2rem, 5vw, 3.75rem); margin: 0; max-width: 18ch; }
   .band .button { background: transparent; color: var(--bg); border-color: color-mix(in srgb, var(--bg) 40%, transparent); }
