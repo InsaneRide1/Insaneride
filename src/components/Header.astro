@@ -54,15 +54,9 @@ const current = (href: string) =>
   });
 </script>
 
-<script>
-  const hdr = document.querySelector('.header');
-  const onScroll = () => hdr?.classList.toggle('scrolled', window.scrollY > 8);
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
-</script>
-
 <style>
-  .header { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
-  .header.scrolled { border-bottom-color: var(--line); box-shadow: 0 6px 20px -14px rgb(0 0 0 / 0.25); }
+  .header { position: relative; z-index: 5; background: var(--bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .bar { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
   .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; font-weight: 650; letter-spacing: -0.02em; }
   .mark { width: 2.25rem; height: 2.25rem; border-radius: 10px; background: var(--text); color: var(--bg); display: grid; place-items: center; font-weight: 700; }
