@@ -55,18 +55,15 @@ const current = (href: string) =>
 </script>
 
 <style>
-  .header { position: relative; z-index: 5; background: var(--bg);
+  .header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .bar { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
   .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; font-weight: 650; letter-spacing: -0.02em; }
   .mark { width: 2.25rem; height: 2.25rem; border-radius: 10px; background: var(--text); color: var(--bg); display: grid; place-items: center; font-weight: 700; }
   nav { display: flex; align-items: center; gap: 0.5rem; }
   .links { display: flex; list-style: none; margin: 0 0.75rem 0 0; padding: 0; gap: 0.25rem; }
-  .links a { font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0.8rem;
-    text-decoration: underline 2px transparent; text-underline-offset: 0.45em; transition: color 0.15s, text-decoration-color 0.15s; }
-  .links a[aria-current='page'] { color: var(--text); text-decoration-color: var(--accent); }
-  .links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-  .mobile a:hover { color: var(--accent); }
+  .links a { text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--muted); padding: 0.5rem 0.8rem; border-radius: 999px; }
+  .links a:hover, .links a[aria-current='page'] { color: var(--text); background: var(--surface); }
   .cta { text-decoration: none; font-size: 0.95rem; font-weight: 600; background: var(--text); color: var(--bg); padding: 0.55rem 1.1rem; border-radius: 999px; }
   .cta:hover { background: var(--accent); color: #fff; }
   .theme, .menu { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--line); background: none; color: var(--text); cursor: pointer; }
