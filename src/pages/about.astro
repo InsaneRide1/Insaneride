@@ -12,6 +12,11 @@ import pinewood from '../assets/about/pinewood.jpg';
 import family from '../assets/about/family.jpg';
 import motorcycles from '../assets/about/motorcycles.jpg';
 import neilFigure from '../assets/about/neil-figure.jpg';
+import teamSelfie from '../assets/about/team-selfie.jpg';
+import teamOuting from '../assets/about/team-outing.jpg';
+import whiteboard from '../assets/about/whiteboard-architecture.jpg';
+import journeyMap from '../assets/about/journey-map.jpg';
+import costumeDay from '../assets/about/team-costume-day.jpg';
 
 const photos = [
   { src: paddleboard, area: 'paddle', alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
@@ -22,6 +27,13 @@ const photos = [
   { src: pinewood, area: 'pine', alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
 ];
 
+const team = [
+  { src: teamSelfie, area: 'selfie', alt: 'Neil taking a selfie with his design team outside a taco shop' },
+  { src: teamOuting, area: 'outing', alt: 'Neil and a large team posing together at a team outing' },
+  { src: whiteboard, area: 'board', alt: 'Whiteboard covered in platform architecture sketches for identity, permissions and services' },
+  { src: journeyMap, area: 'journey', alt: 'Customer journey map built from sticky notes across a long sheet of paper' },
+  { src: costumeDay, area: 'costume', alt: 'Neil working through a design with teammates on laptops, everyone in costume' },
+];
 ---
 <Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
   <section class="hero">
@@ -51,6 +63,26 @@ const photos = [
       <div class="copy">
         <h2 class="create-title">I Love to Create</h2>
         <p class="lede">Whether it’s ink on a box or pixels on a screen, I love the craft of making ideas real. I’ve taken packaging from sketch to press check and products from research to launch. In every medium, I start with real people, let evidence guide the design and lead teams that care about the details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="wrap team-grid">
+      <div class="copy">
+        <h2 class="create-title">Team Collaboration</h2>
+        <blockquote class="pull">
+          <p>“Neil led with empathy… the designers who work under him are excellent at what they do, which says a lot about how he coaches them.”</p>
+          <footer>Jamel Singleton, Head of Product Design, KUBRA</footer>
+        </blockquote>
+        <p class="lede">I believe the best ideas come from teams that feel heard. I lead designers, researchers and writers with clear direction, personal growth plans and room to own their work. Alongside product, engineering and executive partners, I’ve helped turn complex requests into connected platforms, and I’ve changed direction when user testing showed us a better path. I listen first, bring a plan with every concern and fix what slows the team down.</p>
+      </div>
+      <div class="team-collage">
+        {team.map((p) => (
+          <figure class={`tile ${p.area}`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
+          </figure>
+        ))}
       </div>
     </div>
   </section>
@@ -116,6 +148,25 @@ const photos = [
   @media (min-width: 960px) { .create-grid { grid-template-columns: 1.1fr 1fr; } }
   .create-title { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 1.25rem; }
   .create-grid .lede { max-width: 44ch; margin: 0; }
+  /* "Team collaboration": text left, photo collage right */
+  .team-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 960px) { .team-grid { grid-template-columns: 1fr 1.1fr; } }
+  .team-grid .lede { max-width: 48ch; margin: 0; }
+  .pull { margin: 0 0 1.75rem; padding-left: 1.25rem; border-left: 3px solid var(--accent); }
+  .pull p { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.35; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 0.6rem; }
+  .pull footer { font-size: 0.95rem; color: var(--muted); }
+  .team-collage { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, clamp(80px, 8.5vw, 122px));
+    grid-template-areas: 'selfie selfie selfie' 'selfie selfie selfie' 'outing costume costume' 'outing journey board'; }
+  .selfie { grid-area: selfie; } .outing { grid-area: outing; } .board { grid-area: board; }
+  .journey { grid-area: journey; } .costume { grid-area: costume; }
+  .selfie :global(img) { object-position: 50% 35%; }
+  .outing :global(img) { object-position: 45% 50%; }
+  .costume :global(img) { object-position: 50% 65%; }
+  .board :global(img) { object-position: 40% 55%; }
+  @media (max-width: 599px) {
+    .team-collage { grid-template-rows: 190px 130px 130px; grid-template-areas: 'selfie selfie selfie' 'outing outing costume' 'journey board board'; }
+  }
   .figure-art { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 560px; justify-self: center; width: 100%; }
   .figure-art :global(img) { display: block; width: 100%; height: auto; }
   .about { display: grid; gap: 3rem; }
