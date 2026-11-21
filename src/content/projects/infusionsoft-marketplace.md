@@ -59,8 +59,11 @@ User testing showed that leading with tools slowed people down. Small business o
 
 ## Insights to decisions
 
-- **People shop by goal, not by tool.** The homepage and navigation were reorganized around business goals.
-- > **To add:** other findings and the design decision each one drove.
+- **People shop by goal, not by tool.** We rebuilt the homepage and navigation around business goals: attract leads, convert, make money, follow up and generate referrals.
+- **The value wasn’t clear.** Each goal now explains, in plain language, how it helps the business before any tool is named.
+- **The purpose wasn’t clear.** Listing cards lead with what the tool does, then show price and user ratings so owners can compare at a glance.
+- **Owners didn’t know what to search for.** Search moved to the top of the page with goal-based prompts like “Follow up with leads,” and Featured, Most Popular and Newest lists give people a place to start.
+- **Listings were inconsistent.** We gave partner and support teams guidance for writing clear, consistent listings, so every card answers the same questions.
 
 ## Design process
 
