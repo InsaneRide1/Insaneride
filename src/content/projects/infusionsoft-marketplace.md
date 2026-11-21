@@ -44,7 +44,18 @@ Infusionsoft’s marketplace connected small business owners with apps, integrat
 
 User testing showed that leading with tools slowed people down. Small business owners think in terms of goals, such as getting more leads or getting paid faster, not in terms of software categories.
 
-> **To add:** research methods (interviews, usability tests, analytics), number of participants, and the 3–5 key findings.
+> **Research**
+>
+> - **Interviews:** 10 small business owners, to shape the first concept
+> - **Usability testing:** 7 participants, to choose the final direction
+> - **Evaluation:** quantitative and qualitative data, to measure what worked
+>
+> **Key findings**
+>
+> 1. **The value wasn’t clear.** Owners couldn’t see how a tool would help their business.
+> 2. **The purpose wasn’t clear.** Tool names and descriptions didn’t explain what each tool did.
+> 3. **Owners didn’t know what to search for.** Without guidance, they couldn’t find solutions.
+> 4. **Listings were inconsistent.** Partner and support teams needed help writing clear, useful listings.
 
 ## Insights to decisions
 
