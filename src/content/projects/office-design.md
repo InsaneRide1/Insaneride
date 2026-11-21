@@ -5,7 +5,7 @@ discipline: print
 client: Infusionsoft
 years: "2017"
 tags: [Environmental design]
-order: 9
+order: 10
 cover: ./images/office-design/everest-office.webp
 coverAlt: "Office interior, image 1"
 gallery:

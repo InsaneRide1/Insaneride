@@ -5,7 +5,7 @@ discipline: illustration
 client: Infusionsoft
 years: TBD
 tags: [Illustration, Infographics]
-order: 12
+order: 13
 cover: ./images/story-illustrations/benefit1-1.webp
 coverAlt: "Illustration, image 1"
 gallery:

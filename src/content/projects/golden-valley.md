@@ -4,7 +4,7 @@ summary: Flyers, brochures, ads and in-store displays for consumer brands, inclu
 discipline: print
 years: TBD
 tags: [Packaging, Print, Retail display]
-order: 10
+order: 11
 cover: ./images/golden-valley/card-flyer.webp
 coverAlt: "Marketing material, image 1"
 gallery:

@@ -4,7 +4,7 @@ summary: Packaging for products sold at Target, Home Depot, Costco, Nordstrom, B
 discipline: print
 years: TBD
 tags: [Packaging, Retail]
-order: 7
+order: 8
 cover: ./images/retail-packaging/pgverb.webp
 coverAlt: "Retail packaging design, image 1"
 gallery:

@@ -5,7 +5,7 @@ discipline: illustration
 client: CultBjj
 years: TBD
 tags: [Branding, Apparel, Illustration]
-order: 11
+order: 12
 cover: ./images/cultbjj/cultbjj-gi-white.webp
 coverAlt: "CultBjj apparel and brand, image 1"
 gallery:
