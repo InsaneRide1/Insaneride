@@ -52,6 +52,7 @@ gallery:
     tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/fbsa.webp
     alt: "Website design, image 15"
+    tags: ['Client: Old World Spices', 'Product: Marketing Website']
 ---
 
 A selection of websites and landing pages designed and built through Hyperionbox, Neil's studio, from 2001 to 2012, and later marketing pages for Infusionsoft, including the free trial homepage, payments and partner landing pages.
