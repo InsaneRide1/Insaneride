@@ -41,4 +41,4 @@ A mobile promotion flow, integrated with the CRM, where people register, confirm
 >
 > **Team:** 4 people: me, a product manager, a front-end developer and an engineer
 >
-> **Owned:** research, conversation flows, UX and UI
+> **Owned:** research, UX and UI

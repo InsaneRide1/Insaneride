@@ -32,4 +32,4 @@ The guided campaign builder: a setup checklist that docks beside the builder, a 
 >
 > **Team:** 4 people: me, a product manager, a front-end developer and an engineer
 >
-> **Owned:** research, conversation flows, UX and UI
+> **Owned:** research, UX and UI
