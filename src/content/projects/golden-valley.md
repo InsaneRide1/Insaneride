@@ -70,10 +70,12 @@ gallery:
     tags: ['Client: Lindsey Stirling', 'Product: Concert Announcement']
   - src: ./images/golden-valley/hr-ad-1012-1.webp
     alt: "Marketing material, image 21"
+    tags: ['Client: Amicus Equine', 'Product: Product Ad']
   - src: ./images/golden-valley/jr-ad-1112-5x9-2.webp
     alt: "Marketing material, image 22"
+    tags: ['Client: Amicus Equine', 'Product: Product Ad']
 ---
 
-Brand and sales materials for consumer product companies: Golden Valley flyers, a six-page wholesale brochure, print ads, a calendar, and in-store display and shipper designs.
+Brand and sales materials for consumer product companies and local businesses: sales slicks, wholesale and sales brochures, magazine and product ads, a marketing calendar, a concert announcement, and floor display and shipper designs.
 
 > **To add:** the client for each piece, and your role.
