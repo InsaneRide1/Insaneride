@@ -22,4 +22,4 @@ gallery:
 
 The book cover for "Conquer the Chaos", a New York Times bestseller.
 
-> **To add:** role.
+> **Role:** Cover designer and illustrator
