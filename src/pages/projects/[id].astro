@@ -107,7 +107,7 @@ const facts = [
               {g.video
                 ? <video src={g.video} autoplay muted loop playsinline aria-label={g.alt}></video>
                 : <a href={g.full} class="zoom" data-caption={g.caption ?? ''} aria-label={`View larger: ${g.alt}`}>
-                    <Image src={g.src!} alt={g.alt} widths={[500, 900]} sizes={d.galleryGrid ? '(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 800px) 50vw, 100vw'} />
+                    <Image src={g.src!} alt={g.alt} style={g.position ? `object-position:${g.position}` : undefined} widths={[500, 900]} sizes={d.galleryGrid ? '(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 800px) 50vw, 100vw'} />
                   </a>}
               {g.caption && <figcaption>{g.caption}</figcaption>}
             </figure>

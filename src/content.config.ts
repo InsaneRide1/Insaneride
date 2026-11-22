@@ -39,6 +39,8 @@ const projects = defineCollection({
             tags: z.array(z.string()).optional(),
             // Consecutive items with the same group show as one collage; clicking it opens them all stacked.
             group: z.string().optional(),
+            // CSS object-position for cropped grid tiles, e.g. 'left center'.
+            position: z.string().optional(),
           }),
         )
         .default([]),
