@@ -76,4 +76,10 @@ The experience follows nine steps: get the person's name, ask their question, re
 
 ## Outcome
 
-> **To add:** results such as fewer calls, article views, or satisfaction ratings.
+The chatbot answered common questions before they reached an agent. Owners who needed a quick answer got one, and those who needed real help reached support faster.
+
+> **Results**
+>
+> - **About 50% fewer repeat-question calls:** monthly support calls dropped from 25,000–30,000 to an estimated 15,000–25,000.
+> - **A 1–2 point increase in call ratings (estimated):** agents had more time for complex issues, and owners felt it.
+> - **More time for growth:** support could focus on recommending marketplace tools instead of answering the same questions.
