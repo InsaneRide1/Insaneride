@@ -47,6 +47,7 @@ gallery:
     tags: ['Client: BP Garage Doors', 'Product: Marketing Website']
   - src: ./images/web-archive/ecodia.webp
     alt: "Website design, image 13"
+    tags: ['Client: Eco Diamonds', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/dermv.webp
     alt: "Website design, image 14"
     tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
