@@ -35,8 +35,6 @@ gallery:
     alt: "Illustration, image 12"
   - src: ./images/story-illustrations/marsmission-back.webp
     alt: "Illustration, image 13"
-  - src: ./images/story-illustrations/mars-mission-breakdown-v3.webp
-    alt: "Illustration, image 14"
   - src: ./images/story-illustrations/dream-lgprint-sm.webp
     alt: "Illustration, image 15"
   - src: ./images/story-illustrations/artboard-1.webp
