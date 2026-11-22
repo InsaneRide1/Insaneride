@@ -9,6 +9,7 @@ order: 7
 cover: ./images/infusionsoft-print/lead-nurture-v1-white.webp
 coverAlt: "Lead nurturing statistics infographic"
 coverPosition: center 3.2%
+galleryGrid: true
 gallery:
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-01.webp
     alt: "Partner guide brochure, page 1"
@@ -66,6 +67,7 @@ gallery:
     alt: "Partner guide brochure, page 18"
     group: "Partner guide"
   - src: ./images/infusionsoft-print/lcm-v1-alt.webp
+    position: left center
     alt: "Lifecycle marketing graphic: attract, sell, wow"
   - src: ./images/infusionsoft-print/lead-nurture-v1-white.webp
     alt: "Lead nurturing statistics infographic"
