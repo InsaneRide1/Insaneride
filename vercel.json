@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/about-neil", "destination": "/about/", "permanent": true },
+    { "source": "/neils-work", "destination": "/work/", "permanent": true },
+    { "source": "/contact-neil", "destination": "/contact/", "permanent": true },
+    { "source": "/ux-ui", "destination": "/work/?filter=ux", "permanent": true },
+    { "source": "/design-and-animation", "destination": "/work/?filter=ux", "permanent": true },
+    { "source": "/print", "destination": "/work/?filter=print", "permanent": true },
+    { "source": "/illustrations", "destination": "/work/?filter=illustration", "permanent": true },
+    { "source": "/illustration", "destination": "/work/?filter=illustration", "permanent": true }
+  ]
+}

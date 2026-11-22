@@ -1,0 +1,199 @@
+---
+import Base from '../layouts/Base.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { Image } from 'astro:assets';
+import { site } from '../data/site';
+import couple from '../assets/about/couple.jpg';
+import paddleboard from '../assets/about/paddleboard.jpg';
+import christmas from '../assets/about/christmas.jpg';
+import pinewood from '../assets/about/pinewood.jpg';
+import family from '../assets/about/family.jpg';
+import motorcycles from '../assets/about/motorcycles.jpg';
+import neilFigure from '../assets/about/neil-figure.jpg';
+import teamSelfie from '../assets/about/team-selfie.jpg';
+import teamOuting from '../assets/about/team-outing.jpg';
+import whiteboard from '../assets/about/whiteboard-architecture.jpg';
+import journeyMap from '../assets/about/journey-map.jpg';
+import costumeDay from '../assets/about/team-costume-day.jpg';
+import bjjFigure from '../assets/about/bjj-figure.jpg';
+import bjjRolling from '../assets/about/bjj-rolling.jpg';
+import blackBelts from '../assets/about/black-belts.jpg';
+import mountainBike from '../assets/about/mountain-bike.jpg';
+import familyNight from '../assets/about/family-night.jpg';
+
+const photos = [
+  { src: paddleboard, area: 'paddle', pos: [4, 8, 44, 26], alt: 'Neil taking a selfie with a group of kids and leaders on paddleboards at the river' },
+  { src: couple, area: 'couple', pos: [44, 0, 30, 45], alt: 'Neil and his wife in the Arizona desert at sunset' },
+  { src: motorcycles, area: 'moto', pos: [71, 13, 27, 38], alt: 'Neil with friends and motorcycles outside a general store' },
+  { src: christmas, area: 'xmas', pos: [0, 35, 50, 37], alt: 'Neil and family in matching pajamas with Santa' },
+  { src: family, area: 'family', pos: [46, 47, 40, 42], alt: 'Neil and family at a graduation photo in the desert, with their dog' },
+  { src: pinewood, area: 'pine', pos: [13, 70, 37, 27], alt: 'Neil with kids and fellow leaders holding their pinewood derby cars' },
+];
+
+const team = [
+  { src: teamSelfie, area: 'selfie', pos: [0, 8, 60, 46], alt: 'Neil taking a selfie with his design team outside a taco shop' },
+  { src: teamOuting, area: 'outing', pos: [56, 0, 44, 32], alt: 'Neil and a large team posing together at a team outing' },
+  { src: costumeDay, area: 'costume', pos: [56, 30, 40, 34], alt: 'Neil working through a design with teammates on laptops, everyone in costume' },
+  { src: journeyMap, area: 'journey', pos: [5, 49, 38, 30], alt: 'Customer journey map built from sticky notes across a long sheet of paper' },
+  { src: whiteboard, area: 'board', pos: [38, 60, 36, 34], alt: 'Whiteboard covered in platform architecture sketches for identity, permissions and services' },
+];
+
+const person = [
+  { src: bjjFigure, area: 'p-fig', pos: [0, 9, 45, 49], alt: 'Neil as a collectible vinyl figure in a white jiu-jitsu gi and black belt' },
+  { src: bjjRolling, area: 'p-roll', pos: [41, 0, 36, 41], alt: 'Neil rolling with training partners on a red jiu-jitsu mat' },
+  { src: mountainBike, area: 'p-bike', pos: [72, 24, 28, 31], alt: 'Neil with his mountain bike on a desert trail' },
+  { src: blackBelts, area: 'p-belts', pos: [9, 56, 45, 36], alt: 'Neil with fellow black belts at the academy' },
+  { src: familyNight, area: 'p-fam', pos: [49, 45, 42, 43], alt: 'Neil taking a selfie with his family on a night out' },
+];
+---
+<Base title="About me" description="Hi, I’m Neil Robinson, a design leader who connects with people, then builds what they need.">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="copy">
+        <p class="eyebrow accent">About me</p>
+        <h1>Hi, I’m {site.name}</h1>
+        <h2 class="subhead">A design leader who connects with people, then builds what they need.</h2>
+        <p class="lede">For 25 years, I’ve grown design teams, mentored young leaders, raised a family and crafted experiences people love. It all started with people.</p>
+        <a class="button primary" href="#story">My story <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="ov collage">
+        {photos.map((p, i) => (
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 25vw, 50vw" loading={i < 3 ? 'eager' : 'lazy'} />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="story">
+    <div class="wrap create-grid">
+      <figure class="figure-art">
+        <Image src={neilFigure} alt="Neil as a collectible vinyl figure in a UX Designer box, with skull tee, cargo shorts and checkered shoes" widths={[500, 800, 1024]} sizes="(min-width: 960px) 45vw, 100vw" loading="lazy" />
+      </figure>
+      <div class="copy">
+        <h2 class="create-title">I Love to Create</h2>
+        <p class="lede">Whether it’s ink on a box or pixels on a screen, I love the craft of making ideas real. I’ve taken packaging from sketch to press check and products from research to launch. In every medium, I start with real people, let evidence guide the design and lead teams that care about the details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="wrap team-grid">
+      <div class="copy">
+        <h2 class="create-title">Team Collaboration</h2>
+        <blockquote class="pull">
+          <p>“Neil led with empathy… the designers who work under him are excellent at what they do, which says a lot about how he coaches them.”</p>
+          <footer>Jamel Singleton, Head of Product Design, KUBRA</footer>
+        </blockquote>
+        <p class="lede">I believe the best ideas come from teams that feel heard. I lead designers, researchers and writers with clear direction, personal growth plans and room to own their work. Alongside product, engineering and executive partners, I’ve helped turn complex requests into connected platforms, and I’ve changed direction when user testing showed us a better path. I listen first, bring a plan with every concern and fix what slows the team down.</p>
+      </div>
+      <div class="ov team-collage">
+        {team.map((p) => (
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="person">
+    <div class="wrap person-grid">
+      <div class="ov person-collage">
+        {person.map((p) => (
+          <figure class={`tile ${p.area}`} style={`left:${p.pos[0]}%;top:${p.pos[1]}%;width:${p.pos[2]}%;height:${p.pos[3]}%`}>
+            <Image src={p.src} alt={p.alt} widths={[400, 700, 1000]} sizes="(min-width: 960px) 30vw, 50vw" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div class="copy">
+        <h2 class="create-title">The Person Behind the Screen</h2>
+        <p class="lede">Art came first. It led me to illustration, print, packaging and eventually digital products. Outside design, you’ll find me on the jiu-jitsu mat, where I hold a second-degree black belt and coach others, or on a mountain bike trail. Both remind me of what great design teaches: practice, patience and enjoying the ride. And nothing beats time with my family.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="focus">
+    <div class="wrap about">
+      <blockquote class="quote">
+        <p>“Creative leader who delivers on commitments, makes quick decisions, and leads large collaborative projects.”</p>
+      </blockquote>
+      <h2 class="eyebrow">Focus</h2>
+      <ul class="chips">{site.disciplines.map((d) => <li>{d}</li>)}</ul>
+      <h2 class="eyebrow">Outside work</h2>
+      <ul class="chips">{site.interests.map((d) => <li>{d}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="section-head"><h2>Kind words</h2></div>
+      <Testimonials />
+    </div>
+  </section>
+
+  <ContactCta />
+</Base>
+
+<style>
+  .hero { padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2rem, 5vw, 4rem); }
+  .hero-grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 960px) { .hero-grid { grid-template-columns: 1fr 1.1fr; } }
+  .eyebrow.accent { color: var(--accent); }
+  h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 0.75rem; }
+  .subhead { font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; color: var(--muted); margin: 0 0 1.5rem; max-width: 24ch; }
+  .lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.55; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
+  /* Photo collages: overlapping tiles with a cut-out ring in the section color */
+  .ov { position: relative; width: 100%; }
+  .ov .tile { position: absolute; border: clamp(4px, 0.8vw, 8px) solid var(--bg); border-radius: calc(var(--radius) + 4px); }
+  .collage { aspect-ratio: 600 / 560; }
+  .tile { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .tile :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .tile:hover :global(img) { transform: scale(1.04); }
+  .couple :global(img) { object-position: 50% 25%; }
+  .moto :global(img) { object-position: 100% 40%; }
+  .paddle :global(img) { object-position: 50% 45%; }
+  .family :global(img) { object-position: 50% 60%; }
+  @media (prefers-reduced-motion: reduce) { .tile :global(img) { transition: none; } }
+  /* "I love to create": images left, text right */
+  .create-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 960px) { .create-grid { grid-template-columns: 1.1fr 1fr; } }
+  .create-title { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 1.25rem; }
+  .create-grid .lede { max-width: 44ch; margin: 0; }
+  /* "Team collaboration": text left, photo collage right */
+  #team { padding-top: 120px; }
+  .team-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 960px) { .team-grid { grid-template-columns: 1fr 1.1fr; } }
+  .team-grid .lede { max-width: 48ch; margin: 0; }
+  .pull { margin: 0 0 1.75rem; padding-left: 1.25rem; border-left: 3px solid var(--accent); }
+  .pull p { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.35; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 0.6rem; }
+  .pull footer { font-size: 0.95rem; color: var(--muted); }
+  .team-collage { aspect-ratio: 600 / 500; }
+  .selfie :global(img) { object-position: 50% 35%; }
+  .outing :global(img) { object-position: 45% 50%; }
+  .costume :global(img) { object-position: 50% 65%; }
+  .board :global(img) { object-position: 40% 55%; }
+  /* "Person behind the screen": collage left, text right */
+  .person-grid { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; }
+  @media (min-width: 960px) { .person-grid { grid-template-columns: 1.1fr 1fr; } }
+  #person .ov .tile { border-color: var(--surface); }
+  .person-grid .lede { max-width: 46ch; margin: 0; }
+  .person-collage { aspect-ratio: 600 / 520; }
+  .p-fig { background: #f1f0ee; }
+  .p-fig :global(img) { object-position: 20% 50%; }
+  .p-bike :global(img) { object-position: 50% 40%; }
+  .p-belts :global(img) { object-position: 35% 40%; }
+  .p-fam :global(img) { object-position: 45% 25%; }
+  .figure-art { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; max-width: 560px; justify-self: center; width: 100%; }
+  .figure-art :global(img) { display: block; width: 100%; height: auto; }
+  #focus { padding-top: var(--space); }
+  .about { text-align: center; max-width: 900px; }
+  .quote { margin: 0 auto 3.5rem; max-width: 820px; }
+  .quote p { margin: 0; font-size: clamp(1.7rem, 3.6vw, 2.75rem); line-height: 1.2; letter-spacing: -0.025em; font-weight: 600; }
+  .quote p::before { content: ''; display: block; width: 48px; height: 3px; background: var(--accent); margin: 0 auto 1.75rem; }
+  .about .eyebrow { margin: 2.25rem 0 0.9rem; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+  .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.95rem; }
+</style>
