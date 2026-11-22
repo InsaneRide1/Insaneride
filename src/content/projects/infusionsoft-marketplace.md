@@ -91,4 +91,6 @@ A goal-focused marketplace with plain-language search and goal categories. Every
 
 ## Reflection
 
-> **To add:** what you would do differently today.
+> **Users didn’t want tools. They wanted outcomes.**
+>
+> When we designed around their goals instead of our catalog, users found the right solution that allowed them to launch in days instead of weeks.
