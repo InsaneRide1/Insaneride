@@ -35,6 +35,8 @@ const projects = defineCollection({
             caption: z.string().optional(),
             // Small labels shown on the image, e.g. ['Client: Infusionsoft', 'Product: Lead Gen'].
             tags: z.array(z.string()).optional(),
+            // Consecutive items with the same group show as one collage; clicking it opens them all stacked.
+            group: z.string().optional(),
           }),
         )
         .default([]),

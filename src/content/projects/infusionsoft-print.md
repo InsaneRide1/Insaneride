@@ -11,41 +11,59 @@ coverAlt: "Infusionsoft quarterly planning process infographic"
 gallery:
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-01.webp
     alt: "Partner guide brochure, page 1"
+    group: "Partner guide"
     caption: "Partner guide, cover."
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-02.webp
     alt: "Partner guide brochure, page 2"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-03.webp
     alt: "Partner guide brochure, page 3"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-04.webp
     alt: "Partner guide brochure, page 4"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-05.webp
     alt: "Partner guide brochure, page 5"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-06.webp
     alt: "Partner guide brochure, page 6"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-07.webp
     alt: "Partner guide brochure, page 7"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-08.webp
     alt: "Partner guide brochure, page 8"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-09.webp
     alt: "Partner guide brochure, page 9"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-10.webp
     alt: "Partner guide brochure, page 10"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-11.webp
     alt: "Partner guide brochure, page 11"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-12.webp
     alt: "Partner guide brochure, page 12"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-13.webp
     alt: "Partner guide brochure, page 13"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-14.webp
     alt: "Partner guide brochure, page 14"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-15.webp
     alt: "Partner guide brochure, page 15"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-16.webp
     alt: "Partner guide brochure, page 16"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-17.webp
     alt: "Partner guide brochure, page 17"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-18.webp
     alt: "Partner guide brochure, page 18"
+    group: "Partner guide"
   - src: ./images/infusionsoft-print/lcm-v1-alt.webp
     alt: "Lifecycle marketing graphic: attract, sell, wow"
   - src: ./images/infusionsoft-print/lead-nurture-v1-white.webp

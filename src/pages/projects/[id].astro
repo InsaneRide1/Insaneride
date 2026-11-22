@@ -29,6 +29,18 @@ const items = d.gallery;
 const gallery = await Promise.all(
   items.map(async (g) => ({ ...g, full: g.src ? (await getImage({ src: g.src, width: Math.min(g.src.width, 1800) })).src : undefined })),
 );
+// Group consecutive items that share a `group` into one collage block.
+type G = (typeof gallery)[number];
+const blocks: ({ kind: 'single'; item: G } | { kind: 'group'; name: string; items: G[] })[] = [];
+for (const g of gallery) {
+  const last = blocks[blocks.length - 1];
+  if (g.group && last?.kind === 'group' && last.name === g.group) last.items.push(g);
+  else if (g.group) blocks.push({ kind: 'group', name: g.group, items: [g] });
+  else blocks.push({ kind: 'single', item: g });
+}
+// Overlapping collage slots (left, top, width, height in %) and which items fill them.
+const slots = [[2, 14, 40, 38.5], [38, 2, 34, 32.7], [68, 22, 30, 28.9], [6, 56, 32, 30.8], [34, 36, 38, 36.6], [66, 56, 31, 29.8]];
+const pick = (n: number) => { const idx = [0, 6, 10, 17, 12, 15].filter((i) => i < n); return idx.length === slots.length ? idx : [...Array(Math.min(n, slots.length)).keys()]; };
 const toc = headings.filter((h) => h.depth === 2);
 const facts = [
   ['Primary role', d.role],
@@ -72,7 +84,24 @@ const facts = [
       <section class="wrap gallery-wrap" aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
         <div class:list={['gallery', { grid: d.galleryGrid }]}>
-          {gallery.map((g) => (
+          {blocks.map((b, bi) => b.kind === 'group' ? (
+            <figure class="stack">
+              <button type="button" class="stack-open" data-stack={`stack-${bi}`} aria-label={`View all ${b.items.length} pages: ${b.name}`}>
+                {pick(b.items.length).map((ix, si) => {
+                  const g = b.items[ix];
+                  const [l, t, w, h] = slots[si];
+                  return <span class="s-tile" style={`left:${l}%;top:${t}%;width:${w}%;height:${h}%`}><Image src={g.src!} alt="" widths={[400, 800]} sizes="(min-width: 1000px) 30vw, 40vw" /></span>;
+                })}
+                <span class="stack-label">{b.name} · {b.items.length} pages <span aria-hidden="true">→</span></span>
+              </button>
+              <dialog class="stack-viewer" id={`stack-${bi}`} aria-label={b.name}>
+                <div class="stack-head"><strong>{b.name}</strong><span>{b.items.length} pages</span><button type="button" class="vbtn s-close" aria-label="Close">✕</button></div>
+                <div class="stack-list">
+                  {b.items.map((g) => <Image src={g.src!} alt={g.alt} widths={[900, 1600]} sizes="(min-width: 1100px) 1000px, 92vw" loading="lazy" />)}
+                </div>
+              </dialog>
+            </figure>
+          ) : (() => { const g = b.item; return (
             <figure>
               {g.tags?.length ? <ul class="img-tags">{g.tags.map((t) => <li>{t}</li>)}</ul> : null}
               {g.video
@@ -82,7 +111,7 @@ const facts = [
                   </a>}
               {g.caption && <figcaption>{g.caption}</figcaption>}
             </figure>
-          ))}
+          ); })())}
         </div>
       </section>
     )}
@@ -124,6 +153,14 @@ const facts = [
 </Base>
 
 <script>
+  document.querySelectorAll<HTMLButtonElement>('.stack-open').forEach((btn) => {
+    const dlg = document.getElementById(btn.dataset.stack!) as HTMLDialogElement | null;
+    if (!dlg) return;
+    btn.addEventListener('click', () => { dlg.showModal(); dlg.querySelector('.stack-list')!.scrollTop = 0; });
+    dlg.querySelector('.s-close')!.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => btn.focus());
+  });
   const links = [...document.querySelectorAll<HTMLAnchorElement>('a.zoom')];
   const dialog = document.querySelector<HTMLDialogElement>('dialog.viewer');
   if (dialog && links.length) {
@@ -198,6 +235,22 @@ const facts = [
   .gallery :global(img), .gallery video { border-radius: var(--radius); width: 100%; display: block; background: var(--surface); }
   .gallery figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.7rem; }
   .zoom { display: block; cursor: zoom-in; }
+  /* Grouped items: one overlapping collage that opens a stacked viewer */
+  .stack { grid-column: 1 / -1; }
+  .stack-open { position: relative; display: block; width: 100%; aspect-ratio: 1200 / 700; padding: 0; border: 0; background: none; cursor: zoom-in; font: inherit; color: inherit; }
+  .s-tile { position: absolute; overflow: hidden; border: clamp(4px, 0.8vw, 8px) solid var(--bg); border-radius: calc(var(--radius) + 4px); background: var(--surface); box-shadow: 0 10px 30px rgb(0 0 0 / 0.12); transition: transform 0.4s cubic-bezier(.2,.7,.2,1); }
+  .gallery .s-tile :global(img) { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+  .stack-open:hover .s-tile { transform: translateY(-4px); }
+  .stack-open:hover .s-tile:nth-child(even) { transform: translateY(4px); }
+  .stack-label { position: absolute; right: 0; bottom: 0; background: var(--text); color: var(--bg); font-size: 0.9rem; font-weight: 600; padding: 0.7rem 1.1rem; border-radius: 999px; }
+  .stack-viewer { border: 0; padding: 0; width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; background: transparent; }
+  .stack-viewer::backdrop { background: rgb(0 0 0 / 0.92); }
+  .stack-viewer[open] { display: flex; flex-direction: column; }
+  .stack-head { display: flex; align-items: center; gap: 0.75rem; color: #fff; padding: 1rem 5rem 1rem 1.25rem; }
+  .stack-head span { opacity: 0.6; font-size: 0.9rem; }
+  .s-close { top: 0.6rem; right: 1rem; }
+  .stack-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding: 0 1rem 3rem; }
+  .gallery .stack-list :global(img) { width: min(1000px, 100%); height: auto; border-radius: 8px; }
   .thanks { background: var(--text); color: var(--bg); padding: clamp(4rem, 9vw, 7rem) 0; }
   .thanks h2 { font-size: clamp(2.25rem, 5.5vw, 4rem); margin: 0 0 0.75rem; }
   .thanks p { font-size: 1.25rem; opacity: 0.75; margin: 0 0 2rem; }
