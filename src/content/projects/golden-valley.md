@@ -52,8 +52,10 @@ gallery:
     tags: ['Client: Responsibid', 'Product: Service Partner Sales Brochure']
   - src: ./images/golden-valley/brycon-ad-1108.webp
     alt: "Marketing material, image 15"
+    tags: ['Client: Brycon', 'Product: Magazine Ad']
   - src: ./images/golden-valley/brycon-ad-2.webp
     alt: "Marketing material, image 16"
+    tags: ['Client: Brycon', 'Product: Magazine Ad']
   - src: ./images/golden-valley/400-brochure.webp
     alt: "Marketing material, image 17"
   - src: ./images/golden-valley/400-bg-inside.webp
