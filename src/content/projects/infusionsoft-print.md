@@ -81,12 +81,6 @@ gallery:
     alt: "Business Beauty Planner workbook, inside page 1"
   - src: ./images/infusionsoft-print/gkic-workbook-cover-page-03.webp
     alt: "Business Beauty Planner workbook, inside page 2"
-  - src: ./images/infusionsoft-print/ab-test-fbad.webp
-    alt: "A/B test email ad showing click-through rates"
-  - src: ./images/infusionsoft-print/facebook-v2.webp
-    alt: "Facebook ad for accounting firms"
-  - src: ./images/infusionsoft-print/partner-ad.webp
-    alt: "Partner ad: your client and campaign info in one place"
   - src: ./images/infusionsoft-print/leadershipmodel.webp
     alt: "Infusionsoft leadership model poster"
   - src: ./images/infusionsoft-print/quarterlyplanning-1.webp

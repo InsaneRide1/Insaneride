@@ -34,6 +34,15 @@ gallery:
   - src: ./images/web-archive/form.webp
     alt: "Website design, image 8"
     tags: ['Client: Infusionsoft', 'Product: Conference Page']
+  - src: ./images/web-archive/ab-test-fbad.webp
+    alt: "A/B test email ad showing click-through rates"
+    tags: ['Client: Infusionsoft', 'Product: Social Media Marketing']
+  - src: ./images/web-archive/facebook-v2.webp
+    alt: "Facebook ad for accounting firms"
+    tags: ['Client: Infusionsoft', 'Product: Social Media Marketing']
+  - src: ./images/web-archive/partner-ad.webp
+    alt: "Partner ad: your client and campaign info in one place"
+    tags: ['Client: Infusionsoft', 'Product: Social Media Marketing']
   - src: ./images/web-archive/homepage3.webp
     alt: "Website design, image 9"
     tags: ['Client: Amicus Equine', 'Product: Marketing Website']
