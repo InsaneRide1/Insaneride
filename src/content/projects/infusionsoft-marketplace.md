@@ -78,7 +78,16 @@ I moved from low to high fidelity in four steps, testing with owners along the w
 
 ## Outcome
 
-> **To add:** what shipped and any results (engagement, installs, conversion, support calls).
+**What shipped**
+
+A goal-focused marketplace with plain-language search and goal categories. Every listing was tagged to a goal, so owners could browse by what they wanted to achieve.
+
+> **Results**
+>
+> - **~50% more adoption:** an estimated increase in small business owners using marketplace tools
+> - **2x support recommendations:** support teams’ use of the marketplace to recommend tools roughly doubled
+> - **Under 1 week to launch:** owners who once took 2–4 weeks of support calls to launch a first campaign, or never launched one, now got there in under a week
+> - **Fewer support calls:** owners could find and set up solutions on their own
 
 ## Reflection
 
