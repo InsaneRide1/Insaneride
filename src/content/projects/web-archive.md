@@ -9,6 +9,7 @@ order: 6
 cover: ./images/web-archive/payments-hero.webp
 coverAlt: "Infusionsoft Payments landing page"
 galleryGrid: true
+galleryColumns: 2
 gallery:
   - src: ./images/web-archive/free-trial-homepage1440.webp
     alt: "Website design, image 1"

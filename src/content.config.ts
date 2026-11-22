@@ -28,6 +28,8 @@ const projects = defineCollection({
       coverFit: z.enum(['cover', 'contain']).default('cover'),
       // true = gallery shows same-size cropped tiles in a grid (click opens the full image).
       galleryGrid: z.boolean().default(false),
+      // Columns for the grid gallery on wide screens.
+      galleryColumns: z.union([z.literal(2), z.literal(3)]).default(3),
       gallery: z
         .array(
           z.object({

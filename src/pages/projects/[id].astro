@@ -83,7 +83,7 @@ const facts = [
     {gallery.length > 0 && (
       <section class="wrap gallery-wrap" aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
-        <div class:list={['gallery', { grid: d.galleryGrid }]}>
+        <div class:list={['gallery', { grid: d.galleryGrid, 'cols-2': d.galleryColumns === 2 }]}>
           {blocks.map((b, bi) => b.kind === 'group' ? (
             <figure class="stack">
               <button type="button" class="stack-open" data-stack={`stack-${bi}`} aria-label={`View all ${b.items.length} pages: ${b.name}`}>
@@ -223,7 +223,7 @@ const facts = [
   @media (max-width: 639px) { .banner.contain { aspect-ratio: 1 / 1; } }
   .banner.contain :global(img) { position: absolute; inset: 0; margin: auto; width: auto; height: auto; max-width: calc(100% - 3rem); max-height: calc(100% - 3rem); object-fit: contain; border-radius: 10px; box-shadow: 0 12px 40px rgb(0 0 0 / 0.25); }
   @media (min-width: 640px) { .gallery.grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .gallery.grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1000px) { .gallery.grid:not(.cols-2) { grid-template-columns: repeat(3, 1fr); } }
   .gallery.grid { align-items: stretch; }
   .gallery.grid figure { display: flex; flex-direction: column; }
   .gallery.grid .img-tags { flex: 1; align-content: flex-end; }
