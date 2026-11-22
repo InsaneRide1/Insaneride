@@ -11,14 +11,19 @@ coverAlt: "Website design, image 1"
 gallery:
   - src: ./images/web-archive/free-trial-homepage1440.webp
     alt: "Website design, image 1"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/payments-small-1.webp
     alt: "Website design, image 2"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/desktop-partner-lp-update-v1.webp
     alt: "Website design, image 3"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/coaches-and-consultants-landing-design.webp
     alt: "Website design, image 4"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/coaches-and-consultants-landing-design-mobile.webp
     alt: "Website design, image 5"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/landing-page.webp
     alt: "Website design, image 6"
   - src: ./images/web-archive/lp.webp

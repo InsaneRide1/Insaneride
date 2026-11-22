@@ -29,6 +29,8 @@ const projects = defineCollection({
             video: z.string().optional(), // or a muted looping video in public/, e.g. /media/demo.mp4
             alt: z.string(),
             caption: z.string().optional(),
+            // Small labels shown on the image, e.g. ['Client: Infusionsoft', 'Product: Lead Gen'].
+            tags: z.array(z.string()).optional(),
           }),
         )
         .default([]),
