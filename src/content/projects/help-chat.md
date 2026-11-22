@@ -49,7 +49,7 @@ Support calls were expensive, and many questions already had answers in the help
 
 > **Users:** small business owners using Infusionsoft to improve their marketing campaigns.
 >
-> **Scale:** 15,000–30,000 support calls a month, many of them repeat questions, estimated about 50% of calls.
+> **Scale:** 25,000–30,000 support calls a month, many of them repeat questions, estimated about 50% of calls.
 
 ## My role
 
