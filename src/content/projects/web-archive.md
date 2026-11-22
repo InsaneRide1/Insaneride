@@ -8,7 +8,6 @@ tags: [Web design, Landing pages]
 order: 6
 cover: ./images/web-archive/payments-hero.webp
 coverAlt: "Infusionsoft Payments landing page"
-coverFit: contain
 galleryGrid: true
 gallery:
   - src: ./images/web-archive/free-trial-homepage1440.webp
