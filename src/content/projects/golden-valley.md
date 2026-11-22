@@ -40,8 +40,10 @@ gallery:
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
   - src: ./images/golden-valley/lk-display.webp
     alt: "Marketing material, image 11"
+    tags: ["Client: Laurie's Kitchen", 'Product: Floor Display/Shipper']
   - src: ./images/golden-valley/tr-shipper.webp
     alt: "Marketing material, image 12"
+    tags: ['Client: Terrapin Ridge', 'Product: Floor Display/Shipper']
   - src: ./images/golden-valley/outside4psd.webp
     alt: "Marketing material, image 13"
   - src: ./images/golden-valley/inside4.webp
