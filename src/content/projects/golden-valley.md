@@ -67,6 +67,7 @@ gallery:
     tags: ["Client: Sheila's Select", 'Product: Marketing Calendar']
   - src: ./images/golden-valley/moz-flyer1.webp
     alt: "Marketing material, image 20"
+    tags: ['Client: Lindsey Stirling', 'Product: Concert Announcement']
   - src: ./images/golden-valley/hr-ad-1012-1.webp
     alt: "Marketing material, image 21"
   - src: ./images/golden-valley/jr-ad-1112-5x9-2.webp
