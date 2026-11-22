@@ -23,7 +23,7 @@ gallery:
     tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/coaches-and-consultants-landing-design-mobile.webp
     alt: "Website design, image 5"
-    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen' Mobile View']
   - src: ./images/web-archive/landing-page.webp
     alt: "Website design, image 6"
     tags: ['Client: Infusionsoft', 'Product: Conference Page']
