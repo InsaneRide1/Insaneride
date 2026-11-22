@@ -32,6 +32,7 @@ gallery:
     tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/form.webp
     alt: "Website design, image 8"
+    tags: ['Client: Infusionsoft', 'Product: Conference Page']
   - src: ./images/web-archive/homepage3.webp
     alt: "Website design, image 9"
   - src: ./images/web-archive/mockup1.webp
