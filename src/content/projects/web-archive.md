@@ -43,6 +43,7 @@ gallery:
     tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/bpgarage.webp
     alt: "Website design, image 12"
+    tags: ['Client: BP Garage Doors', 'Product: Marketing Website']
   - src: ./images/web-archive/ecodia.webp
     alt: "Website design, image 13"
   - src: ./images/web-archive/dermv.webp
