@@ -35,6 +35,7 @@ gallery:
     tags: ['Client: Infusionsoft', 'Product: Conference Page']
   - src: ./images/web-archive/homepage3.webp
     alt: "Website design, image 9"
+    tags: ['Client: Amicus Equine', 'Product: Marketing Website']
   - src: ./images/web-archive/mockup1.webp
     alt: "Website design, image 10"
     tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
