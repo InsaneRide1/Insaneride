@@ -93,4 +93,4 @@ gallery:
 
 Print and marketing collateral for Infusionsoft: an 18-page partner guide, customer workbooks and manuals, planning guides, and promotional ads.
 
-> **To add:** role, time frame, and how these pieces were used.
+> **Role:** Print designer and illustrator
