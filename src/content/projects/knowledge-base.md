@@ -23,4 +23,8 @@ gallery:
 
 Design for a knowledge base and learning management experience, including help center pages and error states.
 
-> **To add:** context, role, team, result.
+> **Role:** Lead UX designer
+>
+> **Team:** 4 people: me, a product manager, a front-end developer and a content writer
+>
+> **Owned:** research, UX and UI
