@@ -26,6 +26,7 @@ gallery:
     tags: ['Client: Infusionsoft', 'Product: Lead Gen']
   - src: ./images/web-archive/landing-page.webp
     alt: "Website design, image 6"
+    tags: ['Client: Infusionsoft', 'Product: Conference Page']
   - src: ./images/web-archive/lp.webp
     alt: "Website design, image 7"
     tags: ['Client: Infusionsoft', 'Product: Lead Gen']
