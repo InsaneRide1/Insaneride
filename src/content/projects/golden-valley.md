@@ -58,8 +58,10 @@ gallery:
     tags: ['Client: Brycon', 'Product: Magazine Ad']
   - src: ./images/golden-valley/400-brochure.webp
     alt: "Marketing material, image 17"
+    tags: ['Client: 400 Construction', 'Product: Sales Brochure Cover']
   - src: ./images/golden-valley/400-bg-inside.webp
     alt: "Marketing material, image 18"
+    tags: ['Client: 400 Construction', 'Product: Sales Brochure Inside']
   - src: ./images/golden-valley/ss-calendar.webp
     alt: "Marketing material, image 19"
   - src: ./images/golden-valley/moz-flyer1.webp
