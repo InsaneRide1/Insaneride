@@ -1,16 +1,11 @@
 ---
 title: Campaign builder for small businesses
 summary: Making email marketing campaigns approachable for small business owners, from checklist to reporting.
-depth: case-study
 discipline: ux
 client: Infusionsoft
 years: TBD
 tags: [Marketing automation, Web app]
 order: 3
-highlights:
-  - { value: '3', label: 'Parts: checklist, builder, reporting' }
-  - { value: '2', label: 'Motion studies for key interactions' }
-  - { value: '1', label: 'Place to build and measure' }
 cover: ./images/campaign-builder/campaignbuilder-checklist-newchecklist.webp
 coverAlt: "Campaign builder with a guided setup checklist"
 gallery:
@@ -31,24 +26,6 @@ gallery:
     caption: "Reporting opens in a top drawer, next to the campaign."
 ---
 
-## The challenge
+The guided campaign builder: a setup checklist that docks beside the builder, a drag-and-drop email builder, and campaign reporting in a top drawer so results sit next to the work. Built to make email marketing approachable for small business owners who aren’t marketing experts.
 
-Small business owners needed to build marketing campaigns without being marketing experts.
-
-> **To add:** the specific problem and who it affected.
-
-## My role
-
-> **To add:** your role, team size and what you personally owned.
-
-## Research
-
-> **To add:** research methods, participants and key findings.
-
-## Design
-
-The work covered a guided checklist that docks beside the builder, a drag-and-drop email builder, and campaign reporting in a top drawer so results sit next to the work.
-
-## Outcome
-
-> **To add:** results.
+> **To add:** role, team, result.
