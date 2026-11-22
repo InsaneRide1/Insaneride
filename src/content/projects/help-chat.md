@@ -61,7 +61,14 @@ Support calls were expensive, and many questions already had answers in the help
 
 ## Research
 
-> **To add:** research methods, participants and key findings.
+I interviewed 8 people from the support team, 5 agents and 3 team leads, and walked through existing support flows with them to learn what customers asked and how agents answered. Support analytics and conversations with managers showed us the most common questions.
+
+> **Key findings**
+>
+> - **A few questions drove most calls.** The most common questions had to be matched to the best guided content in our learning management system.
+> - **Two kinds of users.** Some owners just wanted a quick answer so they could get back to work. Others needed real help, and they usually ended up with a tier-two agent.
+> - **Some questions shouldn’t be gated.** Early versions used keywords and phrases to spot questions that should skip the FAQ and go straight to an agent.
+> - **It had to feel human.** A robotic chat would frustrate owners, so the conversation needed a natural, simple pattern.
 
 ## The flow
 
