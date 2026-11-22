@@ -64,6 +64,7 @@ gallery:
     tags: ['Client: 400 Construction', 'Product: Sales Brochure Inside']
   - src: ./images/golden-valley/ss-calendar.webp
     alt: "Marketing material, image 19"
+    tags: ["Client: Sheila's Select", 'Product: Marketing Calendar']
   - src: ./images/golden-valley/moz-flyer1.webp
     alt: "Marketing material, image 20"
   - src: ./images/golden-valley/hr-ad-1012-1.webp
