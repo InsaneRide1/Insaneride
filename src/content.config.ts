@@ -22,6 +22,10 @@ const projects = defineCollection({
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       coverAlt: z.string().optional(),
+      // 'contain' shows the whole cover centred in the banner instead of cropping it to fill.
+      coverFit: z.enum(['cover', 'contain']).default('cover'),
+      // true = gallery shows same-size cropped tiles in a grid (click opens the full image).
+      galleryGrid: z.boolean().default(false),
       gallery: z
         .array(
           z.object({

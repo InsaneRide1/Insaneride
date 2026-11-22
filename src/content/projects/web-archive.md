@@ -6,8 +6,10 @@ client: Hyperionbox, Infusionsoft
 years: 2001–2018
 tags: [Web design, Landing pages]
 order: 6
-cover: ./images/web-archive/free-trial-homepage1440.webp
-coverAlt: "Website design, image 1"
+cover: ./images/web-archive/payments-hero.webp
+coverAlt: "Infusionsoft Payments landing page"
+coverFit: contain
+galleryGrid: true
 gallery:
   - src: ./images/web-archive/free-trial-homepage1440.webp
     alt: "Website design, image 1"
@@ -21,15 +23,15 @@ gallery:
   - src: ./images/web-archive/coaches-and-consultants-landing-design.webp
     alt: "Website design, image 4"
     tags: ['Client: Infusionsoft', 'Product: Lead Gen']
-  - src: ./images/web-archive/coaches-and-consultants-landing-design-mobile.webp
+  - src: ./images/web-archive/lp.webp
     alt: "Website design, image 5"
+    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
+  - src: ./images/web-archive/coaches-and-consultants-landing-design-mobile.webp
+    alt: "Website design, image 6"
     tags: ['Client: Infusionsoft', 'Product: Lead Gen Mobile View']
   - src: ./images/web-archive/landing-page.webp
-    alt: "Website design, image 6"
-    tags: ['Client: Infusionsoft', 'Product: Conference Page']
-  - src: ./images/web-archive/lp.webp
     alt: "Website design, image 7"
-    tags: ['Client: Infusionsoft', 'Product: Lead Gen']
+    tags: ['Client: Infusionsoft', 'Product: Conference Page']
   - src: ./images/web-archive/form.webp
     alt: "Website design, image 8"
     tags: ['Client: Infusionsoft', 'Product: Conference Page']
@@ -42,15 +44,15 @@ gallery:
   - src: ./images/web-archive/mockup3-3.webp
     alt: "Website design, image 11"
     tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
-  - src: ./images/web-archive/bpgarage.webp
+  - src: ./images/web-archive/dermv.webp
     alt: "Website design, image 12"
+    tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
+  - src: ./images/web-archive/bpgarage.webp
+    alt: "Website design, image 13"
     tags: ['Client: BP Garage Doors', 'Product: Marketing Website']
   - src: ./images/web-archive/ecodia.webp
-    alt: "Website design, image 13"
-    tags: ['Client: Eco Diamonds', 'Product: Sales and Marketing Website']
-  - src: ./images/web-archive/dermv.webp
     alt: "Website design, image 14"
-    tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
+    tags: ['Client: Eco Diamonds', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/fbsa.webp
     alt: "Website design, image 15"
     tags: ['Client: Old World Spices', 'Product: Marketing Website']

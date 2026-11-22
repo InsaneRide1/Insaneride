@@ -42,7 +42,7 @@ const facts = [
   <article>
     <header class="wrap head">
       <a class="back" href={isCaseStudy ? '/case-studies/' : '/work/'}>← {isCaseStudy ? 'All case studies' : 'All work'}</a>
-      {d.cover && <div class="banner"><Image src={d.cover} alt={d.coverAlt ?? ''} widths={[800, 1400, 2000]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
+      {d.cover && <div class:list={['banner', { contain: d.coverFit === 'contain' }]}><Image src={d.cover} alt={d.coverAlt ?? ''} widths={[800, 1400, 2000]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
       <p class="eyebrow">{isCaseStudy ? `UX case study · ${readingMinutes(project.body)} min read` : disciplines[d.discipline]}</p>
       <h1>{d.title}</h1>
       <dl class="facts">
@@ -71,14 +71,14 @@ const facts = [
     {gallery.length > 0 && (
       <section class="wrap gallery-wrap" aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
-        <div class="gallery">
+        <div class:list={['gallery', { grid: d.galleryGrid }]}>
           {gallery.map((g) => (
             <figure>
               {g.tags?.length ? <ul class="img-tags">{g.tags.map((t) => <li>{t}</li>)}</ul> : null}
               {g.video
                 ? <video src={g.video} autoplay muted loop playsinline aria-label={g.alt}></video>
                 : <a href={g.full} class="zoom" data-caption={g.caption ?? ''} aria-label={`View larger: ${g.alt}`}>
-                    <Image src={g.src!} alt={g.alt} widths={[500, 900]} sizes="(min-width: 800px) 50vw, 100vw" />
+                    <Image src={g.src!} alt={g.alt} widths={[500, 900]} sizes={d.galleryGrid ? '(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 800px) 50vw, 100vw'} />
                   </a>}
               {g.caption && <figcaption>{g.caption}</figcaption>}
             </figure>
@@ -182,6 +182,17 @@ const facts = [
   .gallery { display: grid; gap: 1.5rem; align-items: start; }
   @media (min-width: 800px) { .gallery { grid-template-columns: 1fr 1fr; } }
   .gallery figure { margin: 0; }
+  .banner.contain { position: relative; }
+  @media (max-width: 639px) { .banner.contain { aspect-ratio: 1 / 1; } }
+  .banner.contain :global(img) { position: absolute; inset: 0; margin: auto; width: auto; height: auto; max-width: calc(100% - 3rem); max-height: calc(100% - 3rem); object-fit: contain; border-radius: 10px; box-shadow: 0 12px 40px rgb(0 0 0 / 0.25); }
+  @media (min-width: 640px) { .gallery.grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .gallery.grid { grid-template-columns: repeat(3, 1fr); } }
+  .gallery.grid { align-items: stretch; }
+  .gallery.grid figure { display: flex; flex-direction: column; }
+  .gallery.grid .img-tags { flex: 1; align-content: flex-end; }
+  .gallery.grid .zoom { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: var(--surface); }
+  .gallery.grid .zoom :global(img) { height: 100%; object-fit: cover; object-position: top center; border-radius: 0; transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+  .gallery.grid .zoom:hover :global(img) { transform: scale(1.03); }
   .img-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0.7rem; padding: 0; list-style: none; }
   .img-tags li { border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 0.8rem; font-weight: 500; line-height: 1; padding: 0.45rem 0.75rem; border-radius: 999px; }
   .gallery :global(img), .gallery video { border-radius: var(--radius); width: 100%; display: block; background: var(--surface); }
