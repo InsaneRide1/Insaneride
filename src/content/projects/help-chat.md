@@ -8,9 +8,9 @@ years: TBD
 tags: [Research, Support, Conversational UI]
 order: 2
 highlights:
-  - { value: '9', label: 'Steps from greeting to agent' }
-  - { value: '1st', label: 'Articles offered before an agent' }
-  - { value: '2', label: 'Sides designed: customer and agent' }
+  - { value: '~50%', label: 'Fewer repeat-question calls' }
+  - { value: '25K–30K', label: 'Monthly support calls before the chatbot' }
+  - { value: '+1–2', label: 'Point increase in call ratings (estimated)' }
 cover: ./images/help-chat/flow.webp
 coverAlt: "Flow diagram of the help chat experience from greeting to agent hand-off"
 gallery:
