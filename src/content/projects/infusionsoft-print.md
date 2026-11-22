@@ -73,16 +73,16 @@ gallery:
     alt: "Lead nurturing statistics infographic"
   - src: ./images/infusionsoft-print/90day-kickstartexperience-ver7.webp
     alt: "90-day Kickstart Experience timeline"
-  - src: ./images/infusionsoft-print/sbsm-priority-path-sbsm-triangle.webp
-    alt: "Priority path lifecycle marketing chart"
-  - src: ./images/infusionsoft-print/iu-manual-template.webp
-    alt: "Infusionsoft University Basic Course manual cover"
   - src: ./images/infusionsoft-print/gkic-workbook-cover-page-01.webp
     alt: "Business Beauty Planner workbook cover"
   - src: ./images/infusionsoft-print/gkic-workbook-cover-page-02.webp
     alt: "Business Beauty Planner workbook, inside page 1"
   - src: ./images/infusionsoft-print/gkic-workbook-cover-page-03.webp
     alt: "Business Beauty Planner workbook, inside page 2"
+  - src: ./images/infusionsoft-print/sbsm-priority-path-sbsm-triangle.webp
+    alt: "Priority path lifecycle marketing chart"
+  - src: ./images/infusionsoft-print/iu-manual-template.webp
+    alt: "Infusionsoft University Basic Course manual cover"
   - src: ./images/infusionsoft-print/leadershipmodel.webp
     alt: "Infusionsoft leadership model poster"
   - src: ./images/infusionsoft-print/quarterlyplanning-1.webp
