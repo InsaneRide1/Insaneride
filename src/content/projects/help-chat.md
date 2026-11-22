@@ -45,9 +45,11 @@ gallery:
 
 ## The challenge
 
-Support calls were expensive, and many questions already had answers in the help center. The goal was a chat experience that guided people to those answers before connecting them to an agent.
+Support calls were expensive, and many questions already had answers in the help center. Before AI chat tools existed, we set out to design a conversation-based chatbot that guided owners to those answers first, so support agents could focus on harder problems and recommend marketplace tools that helped owners grow.
 
-> **To add:** call volume or cost before the project, and who the users were.
+> **Users:** small business owners using Infusionsoft to improve their marketing campaigns.
+>
+> **Scale:** 15,000–30,000 support calls a month, many of them repeat questions, estimated about 50% of calls.
 
 ## My role
 
