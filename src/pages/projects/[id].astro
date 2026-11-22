@@ -73,7 +73,7 @@ const facts = [
         <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
         <div class="gallery">
           {gallery.map((g) => (
-            <figure class:list={[{ tagged: g.tags?.length }]}>
+            <figure>
               {g.tags?.length ? <ul class="img-tags">{g.tags.map((t) => <li>{t}</li>)}</ul> : null}
               {g.video
                 ? <video src={g.video} autoplay muted loop playsinline aria-label={g.alt}></video>
@@ -182,9 +182,8 @@ const facts = [
   .gallery { display: grid; gap: 1.5rem; align-items: start; }
   @media (min-width: 800px) { .gallery { grid-template-columns: 1fr 1fr; } }
   .gallery figure { margin: 0; }
-  .gallery figure.tagged { position: relative; }
-  .img-tags { position: absolute; top: 12px; left: 12px; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; pointer-events: none; }
-  .img-tags li { background: rgba(17, 17, 17, 0.85); color: #fff; font-size: 0.78rem; font-weight: 500; line-height: 1; padding: 0.45rem 0.7rem; border-radius: 999px; backdrop-filter: blur(4px); }
+  .img-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0.7rem; padding: 0; list-style: none; }
+  .img-tags li { border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 0.8rem; font-weight: 500; line-height: 1; padding: 0.45rem 0.75rem; border-radius: 999px; }
   .gallery :global(img), .gallery video { border-radius: var(--radius); width: 100%; display: block; background: var(--surface); }
   .gallery figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.7rem; }
   .zoom { display: block; cursor: zoom-in; }
