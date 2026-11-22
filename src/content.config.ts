@@ -23,6 +23,8 @@ const projects = defineCollection({
       cover: image().optional(),
       coverAlt: z.string().optional(),
       // 'contain' shows the whole cover centred in the banner instead of cropping it to fill.
+      // CSS object-position for the banner crop, e.g. 'center 4%' to start a little below the top.
+      coverPosition: z.string().optional(),
       coverFit: z.enum(['cover', 'contain']).default('cover'),
       // true = gallery shows same-size cropped tiles in a grid (click opens the full image).
       galleryGrid: z.boolean().default(false),

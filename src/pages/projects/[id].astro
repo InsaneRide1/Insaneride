@@ -54,7 +54,7 @@ const facts = [
   <article>
     <header class="wrap head">
       <a class="back" href={isCaseStudy ? '/case-studies/' : '/work/'}>← {isCaseStudy ? 'All case studies' : 'All work'}</a>
-      {d.cover && <div class:list={['banner', { contain: d.coverFit === 'contain' }]}><Image src={d.cover} alt={d.coverAlt ?? ''} widths={[800, 1400, 2000]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
+      {d.cover && <div class:list={['banner', { contain: d.coverFit === 'contain' }]}><Image src={d.cover} alt={d.coverAlt ?? ''} style={d.coverPosition ? `object-position:${d.coverPosition}` : undefined} widths={[800, 1400, 2000]} sizes="(min-width: 1200px) 1200px, 100vw" loading="eager" /></div>}
       <p class="eyebrow">{isCaseStudy ? `UX case study · ${readingMinutes(project.body)} min read` : disciplines[d.discipline]}</p>
       <h1>{d.title}</h1>
       <dl class="facts">
