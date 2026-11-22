@@ -6,8 +6,8 @@ client: Infusionsoft
 years: TBD
 tags: [Print, Marketing]
 order: 7
-cover: ./images/infusionsoft-print/quarterlyplanning-1.webp
-coverAlt: "Infusionsoft quarterly planning process infographic"
+cover: ./images/infusionsoft-print/lead-nurture-v1-white.webp
+coverAlt: "Lead nurturing statistics infographic"
 gallery:
   - src: ./images/infusionsoft-print/infusionsoft-partner-guide-page-01.webp
     alt: "Partner guide brochure, page 1"
