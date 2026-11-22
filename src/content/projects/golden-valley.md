@@ -46,8 +46,10 @@ gallery:
     tags: ['Client: Terrapin Ridge', 'Product: Floor Display/Shipper']
   - src: ./images/golden-valley/outside4psd.webp
     alt: "Marketing material, image 13"
+    tags: ['Client: Responsibid', 'Product: Service Partner Sales Brochure']
   - src: ./images/golden-valley/inside4.webp
     alt: "Marketing material, image 14"
+    tags: ['Client: Responsibid', 'Product: Service Partner Sales Brochure']
   - src: ./images/golden-valley/brycon-ad-1108.webp
     alt: "Marketing material, image 15"
   - src: ./images/golden-valley/brycon-ad-2.webp
