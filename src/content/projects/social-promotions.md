@@ -37,4 +37,8 @@ gallery:
 
 A mobile promotion flow, integrated with the CRM, where people register, confirm, and share through Twitter, Facebook, email or Instagram to unlock an offer.
 
-> **To add:** role, team, result.
+> **Role:** Lead UX designer
+>
+> **Team:** 4 people: me, a product manager, a front-end developer and an engineer
+>
+> **Owned:** research, conversation flows, UX and UI

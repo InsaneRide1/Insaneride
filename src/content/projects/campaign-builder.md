@@ -28,4 +28,8 @@ gallery:
 
 The guided campaign builder: a setup checklist that docks beside the builder, a drag-and-drop email builder, and campaign reporting in a top drawer so results sit next to the work. Built to make email marketing approachable for small business owners who aren’t marketing experts.
 
-> **To add:** role, team, result.
+> **Role:** Lead UX designer
+>
+> **Team:** 4 people: me, a product manager, a front-end developer and an engineer
+>
+> **Owned:** research, conversation flows, UX and UI
