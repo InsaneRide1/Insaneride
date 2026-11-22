@@ -37,14 +37,17 @@ gallery:
     alt: "Website design, image 9"
   - src: ./images/web-archive/mockup1.webp
     alt: "Website design, image 10"
+    tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/mockup3-3.webp
     alt: "Website design, image 11"
+    tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/bpgarage.webp
     alt: "Website design, image 12"
   - src: ./images/web-archive/ecodia.webp
     alt: "Website design, image 13"
   - src: ./images/web-archive/dermv.webp
     alt: "Website design, image 14"
+    tags: ['Client: DermaView', 'Product: Sales and Marketing Website']
   - src: ./images/web-archive/fbsa.webp
     alt: "Website design, image 15"
 ---
