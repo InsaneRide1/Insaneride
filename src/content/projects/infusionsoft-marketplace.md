@@ -8,9 +8,9 @@ years: 2013–2018
 tags: [Research, Marketplace, Web app]
 order: 1
 highlights:
-  - { value: '4', label: 'Fidelity stages, sketch to final' }
-  - { value: '5 yrs', label: 'On the product, 2013–2018' }
-  - { value: 'Goals', label: 'Over tools: the insight that reshaped it' }
+  - { value: '<1 week', label: 'To launch a first campaign, down from 2–4 weeks' }
+  - { value: '~50%', label: 'Estimated increase in small business adoption' }
+  - { value: '2x', label: 'Support teams recommending marketplace tools' }
 cover: ./images/infusionsoft-marketplace/marketplace-sketch-annotated.webp
 coverAlt: "Annotated pencil sketch of the marketplace homepage layout"
 gallery:
