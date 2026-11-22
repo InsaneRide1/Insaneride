@@ -53,7 +53,11 @@ Support calls were expensive, and many questions already had answers in the help
 
 ## My role
 
-> **To add:** your role, team size and what you personally owned.
+> **Role:** Lead UX designer
+>
+> **Team:** 4 people: me, a product manager, a front-end developer and an engineer
+>
+> **Owned:** research, conversation flows, UX and UI
 
 ## Research
 
