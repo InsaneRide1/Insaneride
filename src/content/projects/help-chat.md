@@ -9,7 +9,7 @@ tags: [Research, Support, Conversational UI]
 order: 2
 highlights:
   - { value: '~50%', label: 'Fewer repeat-question calls' }
-  - { value: '25K–30K', label: 'Monthly support calls before the chatbot' }
+  - { value: '15K–25K', label: 'Estimated monthly support calls after launch, down from 25K–30K' }
   - { value: '+1–2', label: 'Point increase on a 5-star call rating (estimated)' }
 cover: ./images/help-chat/flow.webp
 coverAlt: "Flow diagram of the help chat experience from greeting to agent hand-off"
