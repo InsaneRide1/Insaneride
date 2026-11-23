@@ -6,7 +6,7 @@ import { disciplines } from '../data/site';
 interface Props { project: Project; large?: boolean; }
 const { project, large = false } = Astro.props;
 const { title, summary, years, discipline, depth, client, cover, coverAlt } = project.data;
-// Projects without a cover image get a coloured gradient placeholder.
+// Projects without a cover image get a colored gradient placeholder.
 const hue = [18, 200, 140, 280, 40, 330][project.data.order % 6];
 ---
 <a class:list={['card', 'reveal', { large }]} href={`/projects/${project.id}/`} data-discipline={discipline}>

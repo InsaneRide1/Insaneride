@@ -1,6 +1,6 @@
 ---
 title: Office environment design
-summary: Redesigning office spaces with colour, art and layout that reflect the brand.
+summary: Redesigning office spaces with color, art and layout that reflect the brand.
 discipline: print
 client: Infusionsoft
 years: "2017"
@@ -23,6 +23,6 @@ gallery:
     alt: "Office interior, image 6"
 ---
 
-An office redesign covering colour, art and layout, including space-themed rooms such as Everest and Mars.
+An office redesign covering color, art and layout, including space-themed rooms such as Everest and Mars.
 
-> **Role:** Designer and illustrator; assisted with space planning and colour
+> **Role:** Designer and illustrator; assisted with space planning and color
