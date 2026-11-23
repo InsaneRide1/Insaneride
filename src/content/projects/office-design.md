@@ -25,4 +25,4 @@ gallery:
 
 An office redesign covering colour, art and layout, including space-themed rooms such as Everest and Mars.
 
-> **To add:** goals, role.
+> **Role:** Designer and illustrator; assisted with space planning and colour
