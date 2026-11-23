@@ -39,6 +39,20 @@ gallery:
     alt: "Illustration, image 15"
   - src: ./images/story-illustrations/artboard-1.webp
     alt: "Illustration, image 16"
+  - src: ./images/story-illustrations/warclanfront.webp
+    alt: "Samurai demon driving a flaming hot rod"
+  - src: ./images/story-illustrations/warclan.webp
+    alt: "Hot rod illustration printed on the front and back of a navy T-shirt"
+  - src: ./images/story-illustrations/fallen-angel-sm.webp
+    alt: "Winged warrior in red flying with a sword"
+  - src: ./images/story-illustrations/allbite-front.webp
+    alt: "Red spider illustration with a Poison label on black"
+  - src: ./images/story-illustrations/rashguard.webp
+    alt: "Rash guard design layout, front, back and sleeves"
+  - src: ./images/story-illustrations/combatwombat-reversed-sm.webp
+    alt: "Combat Wombat character illustration in blue on black"
+  - src: ./images/story-illustrations/samurai-rashguard.webp
+    alt: "Samurai rash guard design layout, front, back and sleeves"
 ---
 
 Customer story illustrations showing how small businesses, such as maid services and pressure washing companies, benefit from the product, along with "how it works" sequences and a large-format Mars mission piece.
