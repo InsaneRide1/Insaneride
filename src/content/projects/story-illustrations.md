@@ -6,8 +6,8 @@ client: Infusionsoft
 years: TBD
 tags: [Illustration, Infographics]
 order: 13
-cover: ./images/story-illustrations/benefit1-1.webp
-coverAlt: "Illustration, image 1"
+cover: ./images/story-illustrations/fallen-angel-sm.webp
+coverAlt: "Winged warrior in red flying with a sword"
 gallery:
   - src: ./images/story-illustrations/benefit1-1.webp
     alt: "Illustration, image 1"
