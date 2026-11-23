@@ -6,8 +6,8 @@ client: CultBjj
 years: TBD
 tags: [Branding, Apparel, Illustration]
 order: 12
-cover: ./images/cultbjj/cultbjj-gi-white.webp
-coverAlt: "CultBjj apparel and brand, image 1"
+cover: ./images/cultbjj/cultbjj-team-mural.webp
+coverAlt: "Six athletes in CultBjj shirts, shorts and slides in front of a colorful mural"
 gallery:
   - src: ./images/cultbjj/cultbjj-gi-white.webp
     alt: "CultBjj apparel and brand, image 1"
