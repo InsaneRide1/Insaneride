@@ -39,56 +39,30 @@ gallery:
     alt: "CultBjj apparel and brand, image 14"
   - src: ./images/cultbjj/cultbjj-shaman-2.webp
     alt: "CultBjj apparel and brand, image 15"
-  - src: ./images/cultbjj/card-jb.webp
-    alt: "CultBjj apparel and brand, image 16"
-  - src: ./images/cultbjj/spidey-venom-sm.webp
-    alt: "CultBjj apparel and brand, image 17"
-  - src: ./images/cultbjj/gavin-merge.webp
-    alt: "CultBjj apparel and brand, image 18"
-  - src: ./images/cultbjj/samurai-shenanigans-4color.webp
-    alt: "CultBjj apparel and brand, image 19"
-  - src: ./images/cultbjj/demon-rubberguard-final-b.webp
-    alt: "CultBjj apparel and brand, image 20"
-  - src: ./images/cultbjj/back2school-shirtsample.webp
-    alt: "CultBjj apparel and brand, image 21"
-  - src: ./images/cultbjj/b2s1.webp
-    alt: "CultBjj apparel and brand, image 22"
-  - src: ./images/cultbjj/mama-proud-shirt.webp
-    alt: "CultBjj apparel and brand, image 23"
-  - src: ./images/cultbjj/dark-shirt.webp
-    alt: "CultBjj apparel and brand, image 24"
-  - src: ./images/cultbjj/sample-model-guy-sm.webp
-    alt: "CultBjj apparel and brand, image 25"
-  - src: ./images/cultbjj/sample-model-girl-sm.webp
-    alt: "CultBjj apparel and brand, image 26"
   - src: ./images/cultbjj/spencer-neil.webp
-    alt: "CultBjj apparel and brand, image 27"
+    alt: "CultBjj apparel and brand, image 16"
   - src: ./images/cultbjj/saraolguin.webp
-    alt: "CultBjj apparel and brand, image 28"
+    alt: "CultBjj apparel and brand, image 17"
   - src: ./images/cultbjj/tylerh-1.webp
-    alt: "CultBjj apparel and brand, image 29"
+    alt: "CultBjj apparel and brand, image 18"
   - src: ./images/cultbjj/img-1544-scaled.webp
-    alt: "CultBjj apparel and brand, image 30"
+    alt: "CultBjj apparel and brand, image 19"
   - src: ./images/cultbjj/img-5700-rotated.webp
-    alt: "CultBjj apparel and brand, image 31"
+    alt: "CultBjj apparel and brand, image 20"
   - src: ./images/cultbjj/img-5706-rotated.webp
-    alt: "CultBjj apparel and brand, image 32"
+    alt: "CultBjj apparel and brand, image 21"
   - src: ./images/cultbjj/img-5713-rotated.webp
-    alt: "CultBjj apparel and brand, image 33"
+    alt: "CultBjj apparel and brand, image 22"
   - src: ./images/cultbjj/img-5719-rotated.webp
-    alt: "CultBjj apparel and brand, image 34"
+    alt: "CultBjj apparel and brand, image 23"
   - src: ./images/cultbjj/81843884-586059228637473-6987465977281642496-n.webp
-    alt: "CultBjj apparel and brand, image 35"
+    alt: "CultBjj apparel and brand, image 24"
   - src: ./images/cultbjj/236864651-1730071243847959-5449859913172764771-n.webp
-    alt: "CultBjj apparel and brand, image 36"
+    alt: "CultBjj apparel and brand, image 25"
   - src: ./images/cultbjj/85127418-67d8-4c3e-a0a3-4d43f2cadbe3.webp
-    alt: "CultBjj apparel and brand, image 37"
+    alt: "CultBjj apparel and brand, image 26"
   - src: ./images/cultbjj/67250749-469778966932167-5821881053660315648-o.webp
-    alt: "CultBjj apparel and brand, image 38"
-  - src: ./images/cultbjj/1149257-373686476067503-1922538226-o-e1491936254962.webp
-    alt: "CultBjj apparel and brand, image 39"
-  - src: ./images/cultbjj/jackson-copy.webp
-    alt: "CultBjj apparel and brand, image 40"
+    alt: "CultBjj apparel and brand, image 27"
 ---
 
 Brand identity, illustration and apparel for CultBjj, including gis, jackets and promotional swag.
