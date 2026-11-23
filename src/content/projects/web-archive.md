@@ -71,4 +71,4 @@ gallery:
 
 A selection of websites and landing pages designed and built through Hyperionbox, Neil's studio, from 2001 to 2012, and later marketing pages for Infusionsoft, including the free trial homepage, payments and partner landing pages.
 
-> **Note:** client names and product added to each image.
+> **Role:** Web designer, front-end developer
