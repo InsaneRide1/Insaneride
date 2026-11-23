@@ -80,4 +80,4 @@ gallery:
 
 Packaging and labels for consumer products that went on shelves at national retailers.
 
-> **To add:** the brands, your role.
+> **Role:** Project manager, packaging designer, print designer and illustrator

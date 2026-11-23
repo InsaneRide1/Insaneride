@@ -107,4 +107,4 @@ gallery:
 
 Brand identity, illustration and apparel for CultBjj, including gis, jackets and promotional swag.
 
-> **To add:** role.
+> **Role:** Founder, brand designer and illustrator
