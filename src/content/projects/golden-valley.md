@@ -21,23 +21,29 @@ gallery:
     alt: "Marketing material, image 4"
     tags: ['Client: Golden Valley', 'Product: Marketing Sales Slick']
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-1.webp
-    alt: "Marketing material, image 5"
+    alt: "Laurie's Kitchen wholesaler brochure, page 1"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-2.webp
-    alt: "Marketing material, image 6"
+    alt: "Laurie's Kitchen wholesaler brochure, page 2"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-3.webp
-    alt: "Marketing material, image 7"
+    alt: "Laurie's Kitchen wholesaler brochure, page 3"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-4.webp
-    alt: "Marketing material, image 8"
+    alt: "Laurie's Kitchen wholesaler brochure, page 4"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-5.webp
-    alt: "Marketing material, image 9"
+    alt: "Laurie's Kitchen wholesaler brochure, page 5"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/wholesalebrochure-0114-1-page-6.webp
-    alt: "Marketing material, image 10"
+    alt: "Laurie's Kitchen wholesaler brochure, page 6"
     tags: ["Client: Laurie's Kitchen", 'Product: Wholesaler Brochure']
+    group: "Wholesaler brochure"
   - src: ./images/golden-valley/lk-display.webp
     alt: "Marketing material, image 11"
     tags: ["Client: Laurie's Kitchen", 'Product: Floor Display/Shipper']
