@@ -5,7 +5,9 @@ outcome: Real prepay customers scored the first design 58.5 on the System Usabil
 depth: case-study
 discipline: ux
 client: KUBRA
-years: 2018–2019
+years: 2018–2022
+role: Lead research and UX
+team: 5 people
 tags: [Research, Usability testing, Dashboard, Utilities]
 order: 0
 highlights:
@@ -57,7 +59,11 @@ Prepaid energy removes the risk of a growing bill. But in 2018 it swapped that r
 
 ## My role
 
-> **To add:** your role, the team and who you worked with at KUBRA.
+> **Role:** Lead research and UX
+>
+> **Owned:** research and UX, from discovery to launch
+>
+> **Team:** 5 people: me, a UI designer, a product manager, a front-end developer and an engineer
 
 KUBRA builds white-label customer experiences for utilities, so Prepay had to work inside any utility's brand. In these designs, that's "ABC Energy" or "Riverside Utilities".
 
