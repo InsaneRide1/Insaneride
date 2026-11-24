@@ -38,6 +38,8 @@ for (const g of gallery) {
   else if (g.group) blocks.push({ kind: 'group', name: g.group, items: [g] });
   else blocks.push({ kind: 'single', item: g });
 }
+const thumbGroups = d.galleryGroupStyle === 'thumb';
+const unit = thumbGroups ? 'photos' : 'pages';
 // Overlapping collage slots (left, top, width, height in %) and which items fill them.
 const slots = [[2, 14, 40, 38.5], [38, 2, 34, 32.7], [68, 22, 30, 28.9], [6, 56, 32, 30.8], [34, 36, 38, 36.6], [66, 56, 31, 29.8]];
 const pick = (n: number) => { const idx = [0, 6, 10, 17, 12, 15].filter((i) => i < n); return idx.length === slots.length ? idx : [...Array(Math.min(n, slots.length)).keys()]; };
@@ -85,18 +87,20 @@ const facts = [
         <h2 id="gallery-title" class="serif">{isCaseStudy ? 'Process and screens' : 'Gallery'}</h2>
         <div class:list={['gallery', { grid: d.galleryGrid, 'cols-2': d.galleryColumns === 2 }]}>
           {blocks.map((b, bi) => b.kind === 'group' ? (
-            <figure class="stack">
+            <figure class:list={['stack', { thumb: thumbGroups }]}>
               {b.items[0].tags?.length ? <ul class="img-tags">{b.items[0].tags.map((t) => <li>{t}</li>)}</ul> : null}
-              <button type="button" class="stack-open" data-stack={`stack-${bi}`} aria-label={`View all ${b.items.length} pages: ${b.name}`}>
-                {pick(b.items.length).map((ix, si) => {
-                  const g = b.items[ix];
-                  const [l, t, w, h] = slots[si];
-                  return <span class="s-tile" style={`left:${l}%;top:${t}%;width:${w}%;height:${h}%`}><Image src={g.src!} alt="" widths={[400, 800]} sizes="(min-width: 1000px) 30vw, 40vw" /></span>;
-                })}
-                <span class="stack-label">{b.name} · {b.items.length} pages <span aria-hidden="true">→</span></span>
+              <button type="button" class="stack-open" data-stack={`stack-${bi}`} aria-label={`View all ${b.items.length} ${unit}: ${b.name}`}>
+                {thumbGroups
+                  ? <Image src={b.items[0].src!} alt={b.items[0].alt} widths={[500, 900]} sizes="(min-width: 800px) 50vw, 100vw" />
+                  : pick(b.items.length).map((ix, si) => {
+                      const g = b.items[ix];
+                      const [l, t, w, h] = slots[si];
+                      return <span class="s-tile" style={`left:${l}%;top:${t}%;width:${w}%;height:${h}%`}><Image src={g.src!} alt="" widths={[400, 800]} sizes="(min-width: 1000px) 30vw, 40vw" /></span>;
+                    })}
+                <span class="stack-label">{b.name} · {b.items.length} {unit} <span aria-hidden="true">→</span></span>
               </button>
               <dialog class="stack-viewer" id={`stack-${bi}`} aria-label={b.name}>
-                <div class="stack-head"><strong>{b.name}</strong><span>{b.items.length} pages</span><button type="button" class="vbtn s-close" aria-label="Close">✕</button></div>
+                <div class="stack-head"><strong>{b.name}</strong><span>{b.items.length} {unit}</span><button type="button" class="vbtn s-close" aria-label="Close">✕</button></div>
                 <div class="stack-list">
                   {b.items.map((g) => <Image src={g.src!} alt={g.alt} widths={[900, 1600]} sizes="(min-width: 1100px) 1000px, 92vw" loading="lazy" />)}
                 </div>
@@ -242,6 +246,11 @@ const facts = [
   .s-tile { position: absolute; overflow: hidden; border: clamp(4px, 0.8vw, 8px) solid var(--bg); border-radius: calc(var(--radius) + 4px); background: var(--surface); box-shadow: 0 10px 30px rgb(0 0 0 / 0.12); transition: transform 0.4s cubic-bezier(.2,.7,.2,1); }
   .gallery .s-tile :global(img) { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
   .stack-open:hover .s-tile { transform: translateY(-4px); }
+  .stack.thumb { grid-column: auto; }
+  .stack.thumb .stack-open { aspect-ratio: auto; overflow: hidden; border-radius: var(--radius); }
+  .stack.thumb .stack-open :global(img) { transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+  .stack.thumb .stack-open:hover :global(img) { transform: scale(1.03); }
+  .stack.thumb .stack-label { right: 0.75rem; bottom: 0.75rem; font-size: 0.85rem; padding: 0.55rem 0.95rem; }
   .stack-open:hover .s-tile:nth-child(even) { transform: translateY(4px); }
   .stack-label { position: absolute; right: 0; bottom: 0; background: var(--text); color: var(--bg); font-size: 0.9rem; font-weight: 600; padding: 0.7rem 1.1rem; border-radius: 999px; }
   .stack-viewer { border: 0; padding: 0; width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; background: transparent; }
