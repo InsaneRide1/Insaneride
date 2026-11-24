@@ -198,6 +198,18 @@ gallery:
   - src: ./images/cultbjj/products/yth-girls-rash-shrts7.webp
     alt: "Youth girls rash guard and shorts, photo 7"
     group: "Youth girls rash guard and shorts"
+  - src: ./images/cultbjj/products/leggings-front.webp
+    alt: "Black capri leggings with purple and orange feather artwork, front"
+    group: "Capri leggings"
+  - src: ./images/cultbjj/products/leggings-side.webp
+    alt: "Black capri leggings with purple and orange feather artwork, side"
+    group: "Capri leggings"
+  - src: ./images/cultbjj/products/leggings-side-2.webp
+    alt: "Black capri leggings with purple and orange feather artwork, other side"
+    group: "Capri leggings"
+  - src: ./images/cultbjj/products/leggings-back.webp
+    alt: "Black capri leggings with purple and orange feather artwork, back"
+    group: "Capri leggings"
   - src: ./images/cultbjj/cultbjj-gi-white.webp
     alt: "CultBjj apparel and brand, image 1"
   - src: ./images/cultbjj/cultbjj-legendcard.webp
