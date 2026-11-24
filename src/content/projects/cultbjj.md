@@ -12,19 +12,19 @@ galleryGroupStyle: thumb
 gallery:
   - src: ./images/cultbjj/products/team-studio.webp
     alt: "CultBjj team in rash guards, shirts and shorts in a white studio"
-  - src: ./images/cultbjj/products/jacket3.webp
+  - src: ./images/cultbjj/products/jacket5.webp
     alt: "Black CultBjj zip jacket, photo 1"
     group: "Jacket"
-  - src: ./images/cultbjj/products/jacket1.webp
+  - src: ./images/cultbjj/products/jacket3.webp
     alt: "Black CultBjj zip jacket, photo 2"
     group: "Jacket"
-  - src: ./images/cultbjj/products/jacket2.webp
+  - src: ./images/cultbjj/products/jacket1.webp
     alt: "Black CultBjj zip jacket, photo 3"
     group: "Jacket"
-  - src: ./images/cultbjj/products/jacket4.webp
+  - src: ./images/cultbjj/products/jacket2.webp
     alt: "Black CultBjj zip jacket, photo 4"
     group: "Jacket"
-  - src: ./images/cultbjj/products/jacket5.webp
+  - src: ./images/cultbjj/products/jacket4.webp
     alt: "Black CultBjj zip jacket, photo 5"
     group: "Jacket"
   - src: ./images/cultbjj/products/tanknspats1.webp
