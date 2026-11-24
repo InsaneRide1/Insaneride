@@ -202,56 +202,26 @@ gallery:
     alt: "CultBjj apparel and brand, image 1"
   - src: ./images/cultbjj/cultbjj-legendcard.webp
     alt: "CultBjj apparel and brand, image 2"
-  - src: ./images/cultbjj/cultbrand-jacket-3-scaled.webp
-    alt: "CultBjj apparel and brand, image 3"
-  - src: ./images/cultbjj/cultbrand-jacket-2-scaled.webp
-    alt: "CultBjj apparel and brand, image 4"
-  - src: ./images/cultbjj/cultbrand-jacket-4-scaled.webp
-    alt: "CultBjj apparel and brand, image 5"
-  - src: ./images/cultbjj/sacrifice-back.webp
-    alt: "CultBjj apparel and brand, image 6"
-  - src: ./images/cultbjj/sacrifice-back-2.webp
-    alt: "CultBjj apparel and brand, image 7"
-  - src: ./images/cultbjj/sacrifice-black-front.webp
-    alt: "CultBjj apparel and brand, image 8"
-  - src: ./images/cultbjj/sacrifice-blue-front.webp
-    alt: "CultBjj apparel and brand, image 9"
-  - src: ./images/cultbjj/black-subguard-shorts-1.webp
-    alt: "CultBjj apparel and brand, image 10"
-  - src: ./images/cultbjj/black-subguard-shorts-2.webp
-    alt: "CultBjj apparel and brand, image 11"
-  - src: ./images/cultbjj/grey-subguard-shorts-1.webp
-    alt: "CultBjj apparel and brand, image 12"
-  - src: ./images/cultbjj/grey-subguard-shorts-2.webp
-    alt: "CultBjj apparel and brand, image 13"
   - src: ./images/cultbjj/shaman.webp
-    alt: "CultBjj apparel and brand, image 14"
+    alt: "CultBjj apparel and brand, image 3"
   - src: ./images/cultbjj/cultbjj-shaman-2.webp
-    alt: "CultBjj apparel and brand, image 15"
+    alt: "CultBjj apparel and brand, image 4"
   - src: ./images/cultbjj/spencer-neil.webp
-    alt: "CultBjj apparel and brand, image 16"
+    alt: "CultBjj apparel and brand, image 5"
   - src: ./images/cultbjj/saraolguin.webp
-    alt: "CultBjj apparel and brand, image 17"
+    alt: "CultBjj apparel and brand, image 6"
   - src: ./images/cultbjj/tylerh-1.webp
-    alt: "CultBjj apparel and brand, image 18"
+    alt: "CultBjj apparel and brand, image 7"
   - src: ./images/cultbjj/img-1544-scaled.webp
-    alt: "CultBjj apparel and brand, image 19"
-  - src: ./images/cultbjj/img-5700-rotated.webp
-    alt: "CultBjj apparel and brand, image 20"
-  - src: ./images/cultbjj/img-5706-rotated.webp
-    alt: "CultBjj apparel and brand, image 21"
-  - src: ./images/cultbjj/img-5713-rotated.webp
-    alt: "CultBjj apparel and brand, image 22"
-  - src: ./images/cultbjj/img-5719-rotated.webp
-    alt: "CultBjj apparel and brand, image 23"
+    alt: "CultBjj apparel and brand, image 8"
   - src: ./images/cultbjj/81843884-586059228637473-6987465977281642496-n.webp
-    alt: "CultBjj apparel and brand, image 24"
+    alt: "CultBjj apparel and brand, image 9"
   - src: ./images/cultbjj/236864651-1730071243847959-5449859913172764771-n.webp
-    alt: "CultBjj apparel and brand, image 25"
+    alt: "CultBjj apparel and brand, image 10"
   - src: ./images/cultbjj/85127418-67d8-4c3e-a0a3-4d43f2cadbe3.webp
-    alt: "CultBjj apparel and brand, image 26"
+    alt: "CultBjj apparel and brand, image 11"
   - src: ./images/cultbjj/67250749-469778966932167-5821881053660315648-o.webp
-    alt: "CultBjj apparel and brand, image 27"
+    alt: "CultBjj apparel and brand, image 12"
 ---
 
 Brand identity, illustration and apparel for CultBjj, including gis, jackets and promotional swag.
