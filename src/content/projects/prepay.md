@@ -109,12 +109,20 @@ Bev and Creed were the core targets. Troy was the opportunity: younger, digital-
 
 <blockquote class="cs-quote"><p>“Account transparency and reminders are important… Life happens, and if anything comes up, I like knowing my fish tank isn’t going to be shut off because I got tied up.”</p><cite>Bev Goldberg, persona built from field research</cite></blockquote>
 
-Mapping Bev's and Creed's first 60 days on prepay showed where it breaks: the surprise shutoff, and for Creed, cash payments that depend on trips to a store. From there I sketched the optimal journey, five stages from learning about prepay to adding money, with what the customer does, feels and says at each step.
+Mapping Bev's first 60 days on prepay, step by step, showed where it breaks: the surprise shutoff, and the moments where a timely warning or an easy way to pay makes the difference.
 
-<figure class="cs-wide cs-sketch-pair">
-  <a href="/case-studies/prepay/journey-sketch.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/journey-sketch.webp" alt="Pencil sketch of the optimal user journey" width="1800" height="1266" loading="lazy" /></a>
-  <a href="/case-studies/prepay/journey.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/journey.webp" alt="Restyled optimal user journey: learns about prepay, signs up, monitors usage, receives alerts, recharges account" width="1800" height="1267" loading="lazy" /></a>
-  <figcaption>The optimal journey, from first sketch to the version the team designed against.</figcaption>
+<figure class="cs-wide cs-pan-fig">
+  <div class="cs-pan" tabindex="0" aria-label="First 60 days journey map, scroll sideways">
+    <a href="/case-studies/prepay/first-60-days.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/first-60-days.webp" alt="Journey map of Bev Goldberg's first 60 days on prepay, from invitation and sign-up through onboarding, payments, low-balance alerts and adjusting automatic payments" width="6400" height="1106" loading="lazy" /></a>
+  </div>
+  <figcaption>Bev's first 60 days, from invitation through her first payment cycles. Scroll sideways, or select to view larger.</figcaption>
+</figure>
+
+From there I mapped the communication journey: nine stages in four phases, showing what Bev wants at each stage, which messages reach her and on which channel, how it feels, and where it can break down.
+
+<figure class="cs-wide">
+  <a href="/case-studies/prepay/comm-journey.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/comm-journey.webp" alt="Consumer PRE-PAY communication journey for Bev: nine stages from pre-qualify to power control, with user goals, touchpoints by channel, process, an emotional experience curve and pain points" width="2200" height="1560" loading="lazy" /></a>
+  <figcaption>The communication journey. The high-impact moments are payments, balance alerts and power control, where the stakes are highest.</figcaption>
 </figure>
 
 ### Communication is the product

@@ -241,3 +241,6 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
 .cs-learn span { display: block; color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; margin-bottom: 1rem; }
 .cs-learn strong { display: block; font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.02em; }
 .prose .cs-learn p { font-size: 0.98rem; color: var(--muted); margin: 0.75rem 0 0; }
+/* Very wide images (journey maps): scroll sideways at a readable height */
+.cs-pan { overflow-x: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--line); background: var(--surface); }
+.prose .cs-pan img { width: auto; max-width: none; height: clamp(360px, 48vw, 560px); border-radius: 0; }
