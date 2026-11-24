@@ -1,5 +1,5 @@
 ---
-title: Prepay energy portal
+title: PrePay - prepaid energy
 summary: A prepaid energy portal that shows budget-stretched households how many days of power they have left, and helps them add money before the lights go out.
 outcome: Real prepay customers scored the first design 58.5 on the System Usability Scale. After simplifying the dashboard around one question, the final round scored 87.5, and leadership funded the MVP.
 depth: case-study
