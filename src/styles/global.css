@@ -244,3 +244,18 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
 /* Very wide images (journey maps): scroll sideways at a readable height */
 .cs-pan { overflow-x: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--line); background: var(--surface); }
 .prose .cs-pan img { width: auto; max-width: none; height: clamp(360px, 48vw, 560px); border-radius: 0; }
+
+/* More air between case study sections: each numbered section starts after a hairline break */
+.with-toc .prose > h2 { margin-top: clamp(4rem, 8vw, 6rem); padding-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--line); }
+.with-toc .prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.with-toc .prose > h3 { margin-top: 3.5rem; }
+.with-toc .prose > .cs-wide, .with-toc .prose > figure, .with-toc .prose > .cs-insight, .with-toc .prose > blockquote.cs-quote { margin-top: clamp(2.5rem, 5vw, 3.75rem); margin-bottom: clamp(2.5rem, 5vw, 3.75rem); }
+.cs-compare3.cs-two { max-width: 900px; }
+@media (min-width: 760px) { .cs-compare3.cs-two { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 640px) { .cs-learn.cs-four-up { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .cs-learn.cs-four-up { grid-template-columns: repeat(4, 1fr); } }
+.prose .cs-goals p { font-size: 1rem; margin: 0; }
+.prose .cs-goals p.eyebrow { font-size: 0.8rem; margin-bottom: 0.6rem; }
+.prose .cs-insight p:not(.cs-insight-label) { font-size: 1.15rem; margin: 0; }
+.prose .cs-trio figcaption strong { color: var(--text); }
+@media (min-width: 860px) { .stats-row.cs-stats:has(> li:nth-child(3):last-child) { grid-template-columns: repeat(3, 1fr); } }
