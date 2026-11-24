@@ -15,7 +15,7 @@ highlights:
   - { value: '21 → 8', label: 'Respondents screened down to real prepay participants' }
 cover: ./images/prepay/kitchen.webp
 coverAlt: "The Prepay dashboard on a laptop and phone in a kitchen, showing $45.21 remaining credit and 20 days left"
-coverPosition: center 60%
+coverPosition: center
 ---
 
 <p class="cs-kicker">Internal testers loved the first wireframes. Real prepay customers didn't. Listening to them, and rebuilding the dashboard around one question, is what made this product work.</p>
@@ -59,7 +59,7 @@ Prepaid energy removes the risk of a growing bill. But in 2018 it swapped that r
 
 > **To add:** your role, the team and who you worked with at KUBRA.
 
-KUBRA builds white-label customer experiences for utilities, so Prepay had to work inside any utility's brand. In the designs, that utility is "ABC Energy".
+KUBRA builds white-label customer experiences for utilities, so Prepay had to work inside any utility's brand. In these designs, that's "ABC Energy" or "Riverside Utilities".
 
 ## Discover
 
