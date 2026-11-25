@@ -259,3 +259,27 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
 .prose .cs-insight p:not(.cs-insight-label) { font-size: 1.15rem; margin: 0; }
 .prose .cs-trio figcaption strong { color: var(--text); }
 @media (min-width: 860px) { .stats-row.cs-stats:has(> li:nth-child(3):last-child) { grid-template-columns: repeat(3, 1fr); } }
+
+/* Simple hierarchy diagram (consumer → accounts → premises/profiles) */
+.cs-tree { margin: 2.5rem 0; text-align: center; }
+.cs-node { display: inline-block; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 0.7rem 1.1rem; font-weight: 600; font-size: 0.98rem; }
+.cs-node.root { background: var(--text); color: var(--bg); border-color: var(--text); }
+.cs-branch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.5rem; position: relative; padding-top: 1.5rem; }
+.cs-branch::before { content: ''; position: absolute; top: 0; left: 16.66%; right: 16.66%; height: 1.5rem; border: 1.5px solid var(--line); border-bottom: 0; border-radius: 12px 12px 0 0; }
+.cs-branch::after { content: ''; position: absolute; top: -1.5rem; left: 50%; height: 1.5rem; border-left: 1.5px solid var(--line); }
+.cs-col { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.cs-col .cs-node { width: 100%; background: color-mix(in srgb, var(--accent) 10%, var(--bg)); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.cs-leaf { width: 100%; font-size: 0.85rem; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; padding: 0.45rem 0.5rem; }
+@media (max-width: 520px) { .cs-node { font-size: 0.85rem; padding: 0.6rem 0.5rem; } .cs-leaf { font-size: 0.75rem; } }
+
+/* Ranked list (e.g. search field priority) */
+.cs-rank { display: grid; gap: 0.6rem; margin: 2.5rem 0; }
+@media (min-width: 760px) { .cs-rank { grid-template-columns: repeat(4, 1fr); } }
+.cs-rank > div { border-radius: 16px; padding: 1.1rem 1.2rem; background: var(--surface); }
+.cs-rank > div.top { background: color-mix(in srgb, var(--accent) 12%, var(--bg)); outline: 1.5px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+.cs-rank > div.low { opacity: 0.65; }
+.cs-rank span { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 0.78rem; font-weight: 700; }
+.cs-rank .top span { background: var(--accent); color: #fff; }
+.cs-rank strong { display: block; margin-top: 0.7rem; font-size: 1.1rem; letter-spacing: -0.02em; }
+.cs-rank em { display: block; font-style: normal; color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+.cs-learn span { letter-spacing: 0.06em; text-transform: uppercase; }
