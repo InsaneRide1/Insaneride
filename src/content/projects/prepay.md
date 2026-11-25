@@ -344,7 +344,7 @@ Card, bank, automatic payments and cash. Round 1 testers didn't know that cash m
 With the core proven on desktop, the experience moved to mobile.
 
 <figure class="cs-wide">
-  <a href="/case-studies/prepay/mobile-sketches.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/mobile-sketches.webp" alt="Sketches of the mobile Prepay screens" width="1800" height="1057" loading="lazy" /></a>
+  <a href="/case-studies/prepay/mobile-sketches.webp" class="zoom cs-zoom"><img src="/case-studies/prepay/mobile-sketches.webp" alt="Sketches of the 14 mobile Prepay screens, from the dashboard and power estimate to payments, alerts, settings and the menu" width="2400" height="1409" loading="lazy" /></a>
   <figcaption>Mobile sketches for the responsive version.</figcaption>
 </figure>
 
