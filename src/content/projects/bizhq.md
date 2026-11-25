@@ -47,7 +47,7 @@ iDoxs had three problems, each larger in scope than the last.
 
 <div class="cs-learn cs-wide">
   <div><span>01 · Usability</span><strong>Scattered and dated.</strong><p>The tasks a CSR needed on a call were spread across disconnected screens. Nothing felt intuitive under the pressure of a live customer.</p></div>
-  <div><span>02 · Flexibility</span><strong>Only one way to get paid.</strong><p>iDoxs handled account-based billing, but not invoices, orders or freeform payments. Multiple payable sources weren't supported well.</p></div>
+  <div><span>02 · Flexibility</span><strong>Payment system disconnect.</strong><p>iDoxs handled account-based billing, but invoices, orders and freeform payments were all managed outside it. Clients with more than one kind of payable had no single place to see them.</p></div>
   <div><span>03 · Platform</span><strong>Cut off from everything else.</strong><p>The biggest gap. iDoxs sat outside KUBRA's ecosystem, so no real-time data flowed between administration, reporting and the consumer experience.</p></div>
 </div>
 
