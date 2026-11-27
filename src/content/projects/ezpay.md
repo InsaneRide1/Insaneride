@@ -20,7 +20,7 @@ coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment p
 coverPosition: 62% 45%
 ---
 
-<p class="cs-kicker">Most people paying a bill want to pay one bill. EZ-PAY+ made them build a list of payable items. We flipped that around, without losing the customers who really do pay for several things at once.</p>
+<p class="cs-kicker">Most people just want to pay one bill. EZ-PAY+ treated every payment like a multi-item checkout. We made paying one bill the simple default, and kept multi-item payments for the customers who need them.</p>
 
 ## Overview
 
