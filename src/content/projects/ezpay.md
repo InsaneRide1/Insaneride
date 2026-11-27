@@ -1,7 +1,7 @@
 ---
 title: EZ-PAY+
 summary: The payment platform utilities, government agencies and insurers use to let their customers pay bills, fines, permits and more, across web, mobile and other channels. I led the design team that took it from research to launch and beyond.
-outcome: A short, focused flow for the customer paying one bill, with the cart still there for customers paying several. Launched in 2024, it now handles every kind of payable in one experience.
+outcome: A short, focused flow for the customer paying one bill, with payable items still there for customers paying several. Launched in 2024, it now handles every kind of payable in one experience.
 depth: case-study
 discipline: ux
 client: KUBRA
@@ -20,7 +20,7 @@ coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment p
 coverPosition: 62% 45%
 ---
 
-<p class="cs-kicker">Most people paying a bill want to pay one bill. EZ-PAY+ made them fill a cart. We flipped that around, without losing the customers who really do pay for several things at once.</p>
+<p class="cs-kicker">Most people paying a bill want to pay one bill. EZ-PAY+ made them build a list of payable items. We flipped that around, without losing the customers who really do pay for several things at once.</p>
 
 ## Overview
 
@@ -55,8 +55,8 @@ The biggest problem was structural.
 
 <div class="cs-compare3 cs-wide cs-two" role="group" aria-label="Paying one bill, before and after">
   <div class="cs-lane">
-    <p class="cs-lane-label">Before: every payment is a cart</p>
-    <ol><li>I want to pay one bill</li><li class="bad">Pushed into a multi-item cart</li><li class="bad">A process built for several items</li></ol>
+    <p class="cs-lane-label">Before: every payment is a list of payable items</p>
+    <ol><li>I want to pay one bill</li><li class="bad">Pushed into a multi-item list</li><li class="bad">A process built for several items</li></ol>
   </div>
   <div class="cs-lane good">
     <p class="cs-lane-label">After: one bill, one page</p>
@@ -66,11 +66,11 @@ The biggest problem was structural.
 
 ## Key decisions
 
-### 1. Pay one bill first, cart second
+### 1. Pay one bill first, payable items second
 
-We redesigned the flow around the most common case. The cart didn't go away. It became a second path that appears only when a customer actually has several items to pay.
+We redesigned the flow around the most common case. Payable items didn't go away. They became a second path that appears only when a customer actually has several items to pay.
 
-<div class="cs-fork cs-wide" role="img" aria-label="Diagram: a customer with one item goes straight to a single payment page; a customer with several items sees the cart, then pays them together">
+<div class="cs-fork cs-wide" role="img" aria-label="Diagram: a customer with one item goes straight to a single payment page; a customer with several items sees their payable items, then pays them together">
   <div class="cs-node root">Customer arrives</div>
   <div class="cs-fork-q"><span>How many items?</span></div>
   <div class="cs-fork-paths">
@@ -81,7 +81,7 @@ We redesigned the flow around the most common case. The cart didn't go away. It 
     </div>
     <div class="cs-fork-path">
       <p class="cs-fork-label">Several <em>Some customers</em></p>
-      <div class="cs-node">Cart appears<small>Only when it's needed</small></div>
+      <div class="cs-node">Payable items appear<small>Only when they're needed</small></div>
       <div class="cs-node">Pay them together</div>
     </div>
   </div>
@@ -95,7 +95,7 @@ We redesigned the flow around the most common case. The cart didn't go away. It 
 
 ### 2. Bringing sales and marketing along
 
-This was the hardest part of the project. Sales and marketing had heard from many clients that multi-item payments were essential, and they were wary of moving the cart out of the spotlight. Their concern was real, even though most paying customers never used the cart.
+This was the hardest part of the project. Sales and marketing had heard from many clients that multi-item payments were essential, and they were wary of moving payable items out of the spotlight. Their concern was real, even though most paying customers never paid more than one item.
 
 Rather than treat it as design against sales, we looked at the research together.
 
@@ -104,7 +104,7 @@ Rather than treat it as design against sales, we looked at the research together
     <div><p class="eyebrow">Sales and marketing heard</p><strong>“Clients need multi-item payments.”</strong></div>
     <div><p class="eyebrow">Research showed</p><strong>A real need for some, not the majority.</strong></div>
   </div>
-  <div class="cs-merge-out"><p class="eyebrow">The compromise</p><strong>Keep the cart fully supported. Show it only when it's needed.</strong></div>
+  <div class="cs-merge-out"><p class="eyebrow">The compromise</p><strong>Keep payable items fully supported. Show it only when it's needed.</strong></div>
 </div>
 
 <blockquote class="cs-quote"><p>The best outcome came from finding a compromise, not winning an argument.</p></blockquote>
@@ -117,8 +117,8 @@ Payments touch many systems and edge cases. Before any designs, the team mapped 
   <svg viewBox="0 0 960 350" role="img" aria-label="Simplified flow map: from choosing what to pay, through amount, payment method and date, to confirmation, with branches for several items and each kind of payment method">
     <g class="ln">
       <path d="M150 180 H210" /><path d="M330 180 H390" /><path d="M510 180 H570" /><path d="M690 180 H750" />
-      <path d="M90 205 V290 H210" />
-      <path d="M330 290 H360 Q390 290 390 260 V205" />
+      <path d="M90 205 V290 H190" />
+      <path d="M350 290 H360 Q390 290 390 260 V205" />
       <path d="M450 155 V110" /><path d="M255 110 H645" />
       <path d="M255 110 V85" /><path d="M385 110 V85" /><path d="M515 110 V85" /><path d="M645 110 V85" />
     </g>
@@ -128,7 +128,7 @@ Payments touch many systems and edge cases. Before any designs, the team mapped 
       <rect x="390" y="155" width="120" height="50" rx="12" class="hi" /><text x="450" y="185">Method</text>
       <rect x="570" y="155" width="120" height="50" rx="12" class="hi" /><text x="630" y="185">Date</text>
       <rect x="750" y="155" width="150" height="50" rx="12" class="end" /><text x="825" y="185">Confirmation</text>
-      <rect x="210" y="265" width="120" height="50" rx="12" class="alt" /><text x="270" y="295">Cart</text>
+      <rect x="190" y="265" width="160" height="50" rx="12" class="alt" /><text x="270" y="295">Payable items</text>
       <rect x="200" y="35" width="110" height="50" rx="12" class="alt" /><text x="255" y="61">Bank</text>
       <rect x="330" y="35" width="110" height="50" rx="12" class="alt" /><text x="385" y="61">Card</text>
       <rect x="460" y="35" width="110" height="50" rx="12" class="alt" /><text x="515" y="61">Cash</text>
@@ -160,7 +160,7 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
 
 <ol class="cs-timeline cs-wide" aria-label="EZ-PAY+ timeline">
   <li><span>2021</span><strong>Research</strong><em>Flows mapped, the single-bill case found</em></li>
-  <li><span>2024</span><strong>MVP launch</strong><em>One page for one bill, cart when needed</em></li>
+  <li><span>2024</span><strong>MVP launch</strong><em>One page for one bill, payable items when needed</em></li>
   <li class="on"><span>2026</span><strong>Every payable</strong><em>Bills, invoices, orders and open amounts</em></li>
 </ol>
 
@@ -190,7 +190,7 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
 
 <div class="cs-insight">
   <p class="cs-insight-label">Reception</p>
-  <p>The redesign drew positive feedback from our sales team, the same team that had worried about the cart, and from clients.</p>
+  <p>The redesign drew positive feedback from our sales team, the same team that had worried about payable items, and from clients.</p>
 </div>
 
 ## What I learned
