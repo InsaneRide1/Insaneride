@@ -15,6 +15,9 @@ highlights:
   - { value: '1', label: 'Page to pay a single bill: amount, method and date' }
   - { value: '4', label: 'Kinds of payables in one experience' }
   - { value: '$300B', label: 'In annual trade at one seaport client' }
+cover: ./images/ezpay/hero.webp
+coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment page: $125.00 due, with amount, method and date"
+coverPosition: 62% 45%
 ---
 
 <p class="cs-kicker">Most people paying a bill want to pay one bill. EZ-PAY+ made them fill a cart. We flipped that around, without losing the customers who really do pay for several things at once.</p>
@@ -82,6 +85,12 @@ We redesigned the flow around the most common case. The cart didn't go away. It 
       <div class="cs-node">Pay them together</div>
     </div>
   </div>
+</div>
+
+<div class="cs-phones cs-wide">
+  <figure><a href="/case-studies/ezpay/details.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/details.webp" alt="Payment details screen: $125.00 due, with Amount, Method and Date rows and a Continue button" width="884" height="1828" loading="lazy" /></a><figcaption>1. Amount, method and date</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/method.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/method.webp" alt="Select payment method sheet with add bank, add card, pay cash, saved cards and accounts, Apple Pay and Google Pay" width="884" height="1828" loading="lazy" /></a><figcaption>2. Every way to pay</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/date.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/date.webp" alt="Select date calendar with today, the selected date and the due date marked" width="884" height="1828" loading="lazy" /></a><figcaption>3. Pick a date</figcaption></figure>
 </div>
 
 ### 2. Bringing sales and marketing along
@@ -164,6 +173,11 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
   <div><span>Open amount</span><strong>Payments</strong><p>Donations and other freeform amounts.</p></div>
 </div>
 
+<div class="cs-phones cs-pair cs-wide">
+  <figure><a href="/case-studies/ezpay/confirmation.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/confirmation.webp" alt="Payment submitted screen for a parking ticket, with confirmation number, pending status, amount, service fee and total" width="884" height="1828" loading="lazy" /></a><figcaption>A parking ticket, paid like a utility bill</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/scheduled.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/scheduled.webp" alt="Scheduled payments list with one payment expanded, showing status, method, fee, total and a Cancel payment button" width="884" height="1828" loading="lazy" /></a><figcaption>Scheduled payments, with every detail in one place</figcaption></figure>
+</div>
+
 <ul class="cs-chips cs-wide" aria-label="Ways to pay">
   <li>Card</li><li>Bank account</li><li>PIN-less debit</li><li>Cash</li><li>Apple Pay</li><li>Google Pay</li><li>PayPal</li>
 </ul>
@@ -186,3 +200,4 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
   <div><span>02</span><strong>Flow mapping pays for itself.</strong><p>Mapping the whole experience upfront simplified complex ideas and gave the team a full view of what we were delivering.</p></div>
 </div>
 
+<p class="cs-fine">Product screens shown use a demo brand and sample data.</p>

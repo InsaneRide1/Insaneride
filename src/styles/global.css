@@ -376,3 +376,8 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
 .prose .cs-chips li { margin: 0; padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.92rem; font-weight: 600; background: var(--bg); }
 .prose .cs-fine { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 3rem; }
 @media (max-width: 700px) { .cs-map { overflow-x: auto; } .cs-map svg { min-width: 680px; } }
+.cs-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 2.5vw, 2rem); margin: 2.5rem 0; padding: clamp(1rem, 4vw, 2.5rem); background: var(--surface); border-radius: 24px; }
+.cs-phones.cs-pair { grid-template-columns: repeat(2, minmax(0, 15rem)); justify-content: center; }
+.prose .cs-phones figure { margin: 0; text-align: center; }
+.prose .cs-phones img { background: none; border-radius: 0; box-shadow: none; filter: drop-shadow(0 18px 30px rgb(0 0 0 / 0.14)); }
+.prose .cs-phones figcaption { font-size: clamp(0.75rem, 2.2vw, 0.9rem); }
