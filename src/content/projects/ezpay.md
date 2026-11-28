@@ -1,7 +1,7 @@
 ---
 title: EZ-PAY+
-summary: The payment platform utilities, government agencies and insurers use to let their customers pay bills, fines, permits and more, across web, mobile and other channels. I led the design team that took it from research to launch and beyond.
-outcome: A flow redesigned around the most common case, paying a single bill, that still lets customers pay several accounts or payables at once. Launched in 2024, it now handles every kind of payable in one experience.
+summary: KUBRA's payment platform for utilities, government agencies and insurers. I led the design team from research to launch and beyond.
+outcome: Launched in 2024, it makes paying a single bill fast, and handles every other kind of payment in the same experience.
 depth: case-study
 discipline: ux
 client: KUBRA
