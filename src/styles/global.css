@@ -381,3 +381,16 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
 .prose .cs-phones figure { margin: 0; text-align: center; }
 .prose .cs-phones img { background: none; border-radius: 0; box-shadow: none; filter: drop-shadow(0 18px 30px rgb(0 0 0 / 0.14)); }
 .prose .cs-phones figcaption { font-size: clamp(0.75rem, 2.2vw, 0.9rem); }
+.cs-vs { margin: 2.5rem 0; border-top: 2px solid var(--text); }
+.cs-vs-head, .cs-vs-row { display: grid; grid-template-columns: 11rem 1fr 1.3fr; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+.cs-vs-head { padding: 0.8rem 0; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.cs-vs-head span:last-child { color: var(--accent); }
+.cs-vs-row strong { font-size: 1rem; }
+.cs-vs-row span { font-size: 0.98rem; color: var(--muted); }
+.cs-vs-row span:last-child { color: var(--text); font-weight: 600; padding-left: 0.9rem; border-left: 3px solid var(--accent); }
+@media (max-width: 700px) {
+  .cs-vs-head { display: none; }
+  .cs-vs-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .cs-vs-row span:nth-of-type(1)::before { content: 'Before: '; font-weight: 600; }
+  .cs-vs-row span:last-child { margin-top: 0.3rem; }
+}

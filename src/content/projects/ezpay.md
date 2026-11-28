@@ -14,7 +14,7 @@ highlights:
   - { value: '40%+', label: 'Of U.S. and Canadian households reached by KUBRA’s customer experience suite' }
   - { value: '1', label: 'Page to pay a single bill: amount, method and date' }
   - { value: '4', label: 'Kinds of payables in one experience' }
-  - { value: '7', label: 'Ways to pay, from cards and bank accounts to cash and digital wallets' }
+  - { value: 'Instant', label: 'Payments that post in seconds over FedNow and RTP' }
 cover: ./images/ezpay/hero.webp
 coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment page: $125.00 due, with amount, method and date"
 coverPosition: 62% 45%
@@ -30,7 +30,7 @@ coverPosition: 62% 45%
 >
 > **Timeline:** 2021 to 2024, research to MVP launch, with updates shipping through 2026
 
-EZ-PAY+ is part of KUBRA's suite of customer experience solutions, which together reach more than 40% of households in the U.S. and Canada. At that scale, small friction in a payment flow adds up fast.
+EZ-PAY+ is built on KUBRA HQ, KUBRA's cloud-native platform, and is part of KUBRA's suite of customer experience solutions, which together reach more than 40% of households in the U.S. and Canada. At that scale, small friction in a payment flow adds up fast.
 
 <div class="cs-who cs-wide" aria-label="Who uses EZ-PAY+">
   <div><span class="cs-who-icon" aria-hidden="true">⚡</span><strong>Utilities</strong><em>Monthly bills</em></div>
@@ -56,11 +56,11 @@ The biggest problem was structural.
 <div class="cs-compare3 cs-wide cs-two" role="group" aria-label="Paying a single bill, before and after">
   <div class="cs-lane">
     <p class="cs-lane-label">Before: built for the exception</p>
-    <ol><li>I want to pay one bill</li><li class="bad">Sent through a multi-item process</li><li class="bad">Extra steps for a single bill</li></ol>
+    <ol><li>I want to pay one bill</li><li class="bad">Sent through a multi-item checkout</li><li class="bad">A new page, and a reload, at every step</li></ol>
   </div>
   <div class="cs-lane good">
     <p class="cs-lane-label">After: built for the common case</p>
-    <ol><li>I want to pay one bill</li><li>Amount, method and date, on one page</li><li class="ok">Paid</li></ol>
+    <ol><li>I want to pay one bill</li><li>Amount, method and date, on one page with pop-ups</li><li class="ok">Paid</li></ol>
   </div>
 </div>
 
@@ -87,10 +87,12 @@ We redesigned the flow around the most common case: paying a single bill. Custom
   </div>
 </div>
 
+Payment method and date open as pop-ups over the same page, so the customer never leaves it or waits for a reload.
+
 <div class="cs-phones cs-wide">
   <figure><a href="/case-studies/ezpay/details.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/details.webp" alt="Payment details screen: $125.00 due, with Amount, Method and Date rows and a Continue button" width="884" height="1828" loading="lazy" /></a><figcaption>1. Amount, method and date</figcaption></figure>
-  <figure><a href="/case-studies/ezpay/method.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/method.webp" alt="Select payment method sheet with add bank, add card, pay cash, saved cards and accounts, Apple Pay and Google Pay" width="884" height="1828" loading="lazy" /></a><figcaption>2. Every way to pay</figcaption></figure>
-  <figure><a href="/case-studies/ezpay/date.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/date.webp" alt="Select date calendar with today, the selected date and the due date marked" width="884" height="1828" loading="lazy" /></a><figcaption>3. Pick a date</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/method.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/method.webp" alt="Select payment method sheet with add bank, add card, pay cash, saved cards and accounts, Apple Pay and Google Pay" width="884" height="1828" loading="lazy" /></a><figcaption>2. Payment method, in a pop-up</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/date.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/date.webp" alt="Select date calendar with today, the selected date and the due date marked" width="884" height="1828" loading="lazy" /></a><figcaption>3. Date, in a pop-up</figcaption></figure>
 </div>
 
 ### 2. Bringing sales and marketing along
@@ -156,6 +158,22 @@ New requirements often arrived mid-stream, across EZ-PAY+ and other products. I 
 
 Combined with upfront flow mapping, this let us negotiate release plans that kept updates rolling out without disrupting customers or slipping milestones.
 
+## Legacy EZ-PAY vs EZ-PAY+
+
+The redesign was more than a new interface. Here is what changed for customers, and for the organizations they pay.
+
+<div class="cs-vs cs-wide" role="table" aria-label="Legacy EZ-PAY compared with EZ-PAY+">
+  <div class="cs-vs-head" role="row"><span role="columnheader"></span><span role="columnheader">Legacy EZ-PAY</span><span role="columnheader">EZ-PAY+</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">Paying</strong><span role="cell">Multi-page checkout, with a reload at every step</span><span role="cell">One page, with pop-ups for method and date</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">What you can pay</strong><span role="cell">Ongoing, account-based balances</span><span role="cell">Every obligation: bills, one-time invoices and fines, orders like permits, and open-amount donations, with or without an account</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">How fast it posts</strong><span role="cell">Standard clearing, often 1–2 business days</span><span role="cell">Instant payments over FedNow and the RTP network</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">Ways to pay</strong><span role="cell">Card and bank account entry</span><span role="cell">One wallet for cards, bank accounts, cash, Apple Pay, Google Pay, PayPal and Venmo</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">Paying by phone</strong><span role="cell">Touch-tone phone menus</span><span role="cell">Natural-language phone menus, with card data tokenized and kept out of the contact center</span></div>
+  <div class="cs-vs-row" role="row"><strong role="rowheader">Platform</strong><span role="cell">A single, monolithic web app</span><span role="cell">Cloud-native microservices on KUBRA HQ</span></div>
+</div>
+
+<blockquote class="cs-quote"><p>One platform for a utility bill, a parking ticket, a permit or a donation, paid in one page and posted in seconds.</p></blockquote>
+
 ## Outcomes
 
 <ol class="cs-timeline cs-wide" aria-label="EZ-PAY+ timeline">
@@ -179,12 +197,12 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
 </div>
 
 <ul class="cs-chips cs-wide" aria-label="Ways to pay">
-  <li>Card</li><li>Bank account</li><li>PIN-less debit</li><li>Cash</li><li>Apple Pay</li><li>Google Pay</li><li>PayPal</li>
+  <li>Card</li><li>Bank account</li><li>PIN-less debit</li><li>Cash</li><li>Apple Pay</li><li>Google Pay</li><li>PayPal</li><li>Venmo</li>
 </ul>
 
 <ul class="stats-row cs-stats cs-wide">
   <li><strong>2024</strong><span>MVP launch, with updates shipping through 2026 without disrupting customers</span></li>
-  <li><strong>7</strong><span>Ways to pay, from cards and bank accounts to cash and digital wallets</span></li>
+  <li><strong>8</strong><span>Ways to pay, from cards and bank accounts to cash and digital wallets</span></li>
   <li><strong>4</strong><span>Kinds of payables in one experience</span></li>
 </ul>
 
