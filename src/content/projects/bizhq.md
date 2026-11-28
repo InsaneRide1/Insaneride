@@ -68,11 +68,11 @@ A single consumer or business could link one-to-many accounts, often spread acro
 
 <figure class="cs-annot cs-wide">
   <div class="cs-annot-img">
-    <a href="/case-studies/bizhq/account.webp" class="zoom cs-zoom"><img src="/case-studies/bizhq/account.webp" alt="Utility account page showing account details, AutoPay settings owned by Joe Smith, four linked consumer profiles, and document settings" width="1600" height="1462" loading="lazy" /></a>
-    <span class="pin" style="--x:54%;--y:7.9%">1</span>
-    <span class="pin" style="--x:24%;--y:55.8%">2</span>
-    <span class="pin" style="--x:68.5%;--y:43%">3</span>
-    <span class="pin" style="--x:22.5%;--y:72%">4</span>
+    <a href="/case-studies/bizhq/account-wireframe.webp" class="zoom cs-zoom"><img src="/case-studies/bizhq/account-wireframe.webp" alt="Wireframe of the utility account page showing account details, AutoPay settings owned by Joe Smith, four linked consumer profiles, and document settings" width="2000" height="1572" loading="lazy" /></a>
+    <span class="pin" style="--x:46.8%;--y:8.9%">1</span>
+    <span class="pin" style="--x:20%;--y:56.1%">2</span>
+    <span class="pin" style="--x:65.6%;--y:42.8%">3</span>
+    <span class="pin" style="--x:19.8%;--y:73.6%">4</span>
   </div>
   <ol class="cs-notes">
     <li><strong>The essentials up top.</strong> Account, last bill, balance and due date stay visible on every tab.</li>
