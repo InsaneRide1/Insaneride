@@ -103,10 +103,10 @@ Legacy EZ-PAY was built for one kind of payment: an ongoing, account-based balan
 
 Payment method and date open as pop-ups over the same page, so the customer never leaves it or waits for a reload.
 
-<div class="cs-phones cs-wide">
-  <figure><a href="/case-studies/ezpay/details.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/details.webp" alt="Payment details screen: $125.00 due, with Amount, Method and Date rows and a Continue button" width="884" height="1828" loading="lazy" /></a><figcaption>1. Amount, method and date</figcaption></figure>
-  <figure><a href="/case-studies/ezpay/method.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/method.webp" alt="Select payment method sheet with add bank, add card, pay cash, saved cards and accounts, Apple Pay and Google Pay" width="884" height="1828" loading="lazy" /></a><figcaption>2. Payment method, in a pop-up</figcaption></figure>
-  <figure><a href="/case-studies/ezpay/date.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/date.webp" alt="Select date calendar with today, the selected date and the due date marked" width="884" height="1828" loading="lazy" /></a><figcaption>3. Date, in a pop-up</figcaption></figure>
+<div class="cs-phones cs-sketches cs-wide">
+  <figure><a href="/case-studies/ezpay/details-sketch.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/details-sketch.webp" alt="Sketch of the payment details screen: $125.00 due, with Amount, Method and Date rows and a Continue button" width="884" height="1823" loading="lazy" /></a><figcaption>1. Amount, method and date</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/method-sketch.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/method-sketch.webp" alt="Sketch of the select payment method pop-up with add bank, add card, pay cash, saved cards and accounts, Apple Pay and Google Pay" width="884" height="1823" loading="lazy" /></a><figcaption>2. Payment method, in a pop-up</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/date-sketch.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/date-sketch.webp" alt="Sketch of the select date pop-up with today, the selected date and the due date marked" width="884" height="1823" loading="lazy" /></a><figcaption>3. Date, in a pop-up</figcaption></figure>
 </div>
 
 ### 2. Bringing sales and marketing along

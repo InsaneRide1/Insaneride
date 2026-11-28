@@ -409,3 +409,4 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
   .cs-fork4 .cs-fork-paths { grid-template-columns: 1fr 1fr; }
   .cs-fork4 .cs-fork-paths::before, .cs-fork-join::before { left: 25%; right: 25%; }
 }
+.prose .cs-sketches img { filter: none; }
