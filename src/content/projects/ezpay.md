@@ -14,13 +14,13 @@ highlights:
   - { value: '40%+', label: 'Of U.S. and Canadian households reached by KUBRA’s customer experience suite' }
   - { value: '1', label: 'Page to pay a single bill: amount, method and date' }
   - { value: '4', label: 'Kinds of payables in one experience' }
-  - { value: 'Instant', label: 'Payments that post in seconds over FedNow and RTP' }
+  - { value: '1 wallet', label: 'Unified digital wallet with Apple Pay, Google Pay and Venmo, alongside cards and ACH' }
 cover: ./images/ezpay/hero.webp
 coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment page: $125.00 due, with amount, method and date"
 coverPosition: 62% 45%
 ---
 
-<p class="cs-kicker">We redesigned EZ-PAY+ around the most common case, paying a single bill, without losing the customers who need to pay several accounts or payables at once.</p>
+<p class="cs-kicker">We redesigned EZ-PAY+ around its most common case, paying a single bill, while making room for every other kind of payment: recurring balances, one-time invoices and fines, orders like permits and licenses, and open-amount donations.</p>
 
 ## Overview
 
@@ -202,7 +202,7 @@ The redesign was more than a new interface. Here is what changed for customers, 
 
 <ul class="stats-row cs-stats cs-wide">
   <li><strong>2024</strong><span>MVP launch, with updates shipping through 2026 without disrupting customers</span></li>
-  <li><strong>8</strong><span>Ways to pay, from cards and bank accounts to cash and digital wallets</span></li>
+  <li><strong>1 wallet</strong><span>Unified digital wallet with Apple Pay, Google Pay and Venmo, alongside cards and ACH</span></li>
   <li><strong>4</strong><span>Kinds of payables in one experience</span></li>
 </ul>
 
