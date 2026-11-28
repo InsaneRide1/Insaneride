@@ -205,8 +205,9 @@ The redesign was more than a new interface. Here is what changed for customers, 
   <div><span>Open amount</span><strong>Payments</strong><p>Donations and other freeform amounts.</p></div>
 </div>
 
-<div class="cs-phones cs-pair cs-wide">
-  <figure><a href="/case-studies/ezpay/confirmation.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/confirmation.webp" alt="Payment submitted screen for a parking ticket, with confirmation number, pending status, amount, service fee and total" width="884" height="1828" loading="lazy" /></a><figcaption>A parking ticket, paid like a utility bill</figcaption></figure>
+<div class="cs-phones cs-wide">
+  <figure><a href="/case-studies/ezpay/ticket.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/ticket.webp" alt="Payment page for a parking ticket: $124.00 due, ticket number C-710038111, due Dec 11, 2024, with Amount, Method (Visa *1234) and Date rows and a Continue button" width="884" height="1828" loading="lazy" /></a><figcaption>A parking ticket, on the same one-page flow</figcaption></figure>
+  <figure><a href="/case-studies/ezpay/confirmation.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/confirmation.webp" alt="Payment submitted screen for a parking ticket, with confirmation number, pending status, amount, service fee and total" width="884" height="1828" loading="lazy" /></a><figcaption>Paid, with a receipt by email and text</figcaption></figure>
   <figure><a href="/case-studies/ezpay/scheduled.webp" class="zoom cs-zoom"><img src="/case-studies/ezpay/scheduled.webp" alt="Scheduled payments list with one payment expanded, showing status, method, fee, total and a Cancel payment button" width="884" height="1828" loading="lazy" /></a><figcaption>Scheduled payments, with every detail in one place</figcaption></figure>
 </div>
 
