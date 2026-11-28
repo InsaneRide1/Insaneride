@@ -14,7 +14,7 @@ highlights:
   - { value: '40%+', label: 'Of U.S. and Canadian households reached by KUBRA’s customer experience suite' }
   - { value: '1', label: 'Page to pay a single bill: amount, method and date' }
   - { value: '4', label: 'Kinds of payables in one experience' }
-  - { value: '$300B', label: 'In annual trade at one seaport client' }
+  - { value: '7', label: 'Ways to pay, from cards and bank accounts to cash and digital wallets' }
 cover: ./images/ezpay/hero.webp
 coverAlt: "A customer on the couch holding a phone showing the EZ-PAY+ payment page: $125.00 due, with amount, method and date"
 coverPosition: 62% 45%
@@ -184,7 +184,7 @@ Combined with upfront flow mapping, this let us negotiate release plans that kep
 
 <ul class="stats-row cs-stats cs-wide">
   <li><strong>2024</strong><span>MVP launch, with updates shipping through 2026 without disrupting customers</span></li>
-  <li><strong>$300B</strong><span>In annual trade at a major seaport now paying through EZ-PAY+</span></li>
+  <li><strong>7</strong><span>Ways to pay, from cards and bank accounts to cash and digital wallets</span></li>
   <li><strong>4</strong><span>Kinds of payables in one experience</span></li>
 </ul>
 
