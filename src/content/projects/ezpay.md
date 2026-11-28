@@ -66,24 +66,38 @@ The biggest problem was structural.
 
 ## Key decisions
 
-### 1. Design for the common case: a single bill
+### 1. Design for the common case, open it to every payment
 
-We redesigned the flow around the most common case: paying a single bill. Customers who need to pay several accounts or payables at once didn't lose anything. Their path appears as soon as they have more than one item to pay.
+Legacy EZ-PAY was built for one kind of payment: an ongoing, account-based balance like a monthly utility bill. We kept that common case front and center, then opened the same one-page flow to every other payment obligation.
 
-<div class="cs-fork cs-wide" role="img" aria-label="Diagram: a customer paying a single bill goes straight to one payment page; a customer with several accounts or payables chooses what to pay, then pays them together">
+<div class="cs-fork cs-fork4 cs-wide" role="img" aria-label="Diagram: whatever the customer is paying, a recurring balance, a one-time invoice or fine, a defined order such as a permit, or an open-amount donation, they use the same one-page flow to pay. Legacy EZ-PAY supported only recurring balances.">
   <div class="cs-node root">Customer arrives</div>
-  <div class="cs-fork-q"><span>How many items?</span></div>
+  <div class="cs-fork-q"><span>What are they paying?</span></div>
   <div class="cs-fork-paths">
     <div class="cs-fork-path main">
-      <p class="cs-fork-label">A single bill <em>The common case</em></p>
-      <div class="cs-node">One page<small>Amount · method · date</small></div>
-      <div class="cs-node done">Paid</div>
+      <p class="cs-fork-label">Recurring balance <em>The common case</em></p>
+      <div class="cs-node">Utility bills<small>Account-based</small></div>
+      <span class="cs-fork-tag">Legacy EZ-PAY</span>
     </div>
     <div class="cs-fork-path">
-      <p class="cs-fork-label">Several at once <em>Accounts or payables</em></p>
-      <div class="cs-node">Choose what to pay<small>Appears only when needed</small></div>
-      <div class="cs-node">Pay them together</div>
+      <p class="cs-fork-label">One-time invoice <em>&nbsp;</em></p>
+      <div class="cs-node">Tickets, fines<small>No account needed</small></div>
+      <span class="cs-fork-tag new">New in EZ-PAY+</span>
     </div>
+    <div class="cs-fork-path">
+      <p class="cs-fork-label">Defined order <em>&nbsp;</em></p>
+      <div class="cs-node">Permits, licenses<small>Set amount</small></div>
+      <span class="cs-fork-tag new">New in EZ-PAY+</span>
+    </div>
+    <div class="cs-fork-path">
+      <p class="cs-fork-label">Open amount <em>&nbsp;</em></p>
+      <div class="cs-node">Donations<small>Any amount</small></div>
+      <span class="cs-fork-tag new">New in EZ-PAY+</span>
+    </div>
+  </div>
+  <div class="cs-fork-join">
+    <div class="cs-node">One page<small>Amount · method · date</small></div>
+    <div class="cs-node done">Paid</div>
   </div>
 </div>
 

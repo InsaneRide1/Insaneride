@@ -394,3 +394,18 @@ input, select, textarea, [id] { scroll-margin-top: 6rem; }
   .cs-vs-row span:nth-of-type(1)::before { content: 'Before: '; font-weight: 600; }
   .cs-vs-row span:last-child { margin-top: 0.3rem; }
 }
+.cs-fork4 .cs-fork-paths { grid-template-columns: repeat(4, 1fr); }
+.cs-fork4 .cs-fork-paths::before { left: 12.5%; right: 12.5%; }
+.cs-fork4 .cs-fork-label { font-size: 1.02rem !important; line-height: 1.25; }
+.cs-fork4 .cs-fork-label em { min-height: 1.2em; }
+.cs-fork-tag { align-self: center; margin-top: auto; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.6rem; background: var(--bg); }
+.cs-fork-tag.new { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.cs-fork-join { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; margin-top: 1.5rem; padding-top: 1.5rem; }
+.cs-fork-join::before { content: ''; position: absolute; top: 0; left: 12.5%; right: 12.5%; height: 1.5rem; border: 1.5px solid var(--line); border-top: 0; border-radius: 0 0 12px 12px; }
+.cs-fork-join::after { content: ''; position: absolute; top: 1.5rem; left: 50%; height: 0; }
+.cs-fork-join .cs-node { min-width: min(20rem, 100%); }
+.cs-fork-join .cs-node.done { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (max-width: 760px) {
+  .cs-fork4 .cs-fork-paths { grid-template-columns: 1fr 1fr; }
+  .cs-fork4 .cs-fork-paths::before, .cs-fork-join::before { left: 25%; right: 25%; }
+}
